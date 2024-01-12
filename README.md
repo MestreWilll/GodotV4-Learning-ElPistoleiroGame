@@ -1,23 +1,27 @@
-# Primeiro Movimento
+# Pistoleiro 2.0 - Atualização de Desenvolvimento
 
 ---
 
-## Unity - Assets Originais e Progresso Atual
+## :sparkles: Unity - Assets Originais e Progresso Atual
 
-O desenvolvimento do *Pistoleiro 4.0* começou com o uso do Unity, um motor de jogo robusto e com um ecossistema extensivo. Os *assets* originais e interativos foram criados nesta plataforma e representam o progresso atual do jogo. Para explorar o trabalho já realizado e os *assets* detalhados, visite o site oficial do jogo.
+O desenvolvimento do **Pistoleiro 4.0** teve início na plataforma [Unity](https://unity.com), conhecida por ser um robusto motor de jogo com um ecossistema abrangente. Nesta fase, foram criados assets interativos que representam o estado atual do jogo. Para explorar os detalhes do progresso até o momento, visite nosso site oficial.
 
-[Site Oficial do EL Pistoleiro de las Noches](https://mestrewilll.github.io/EL-Pistoleiro-de-las-noches-SITE/)
+:point_right: [Site Oficial do EL Pistoleiro de las Noches](https://mestrewilll.github.io/EL-Pistoleiro-de-las-noches-SITE/)
+
+### :framed_picture: Sprites Oficiais feitos no Godot
+
+![PM10](https://github.com/MestreWilll/Pistoleiro4.0Aprendendo-Godot/assets/87247824/7f4db464-9fab-4fad-a0f1-ac9ee9b28df3)
 
 ---
 
-## Godot Engine - Testando Primeiros Movimentos
+## :video_game: Godot Engine - Testando Primeiros Movimentos e Aprendendo Lógica do GDScript
 
-Após a fase inicial de desenvolvimento, começamos a experimentar com a Godot Engine, uma alternativa open source eficaz para criar jogos 2D e 3D. Aqui estão os primeiros movimentos aprendidos e aplicados no Godot para o *Pistoleiro 4.0*, demonstrando a facilidade de prototipagem e iteração que a plataforma oferece.
+Após a fase inicial, migramos para a [Godot Engine](https://godotengine.org), uma alternativa open source poderosa para o desenvolvimento de jogos em 2D e 3D. Este é um vislumbre dos primeiros movimentos implementados no **Pistoleiro 4.0**, destacando a agilidade que a Godot oferece para prototipagem e iteração rápida.
 
 ![Teste dos Primeiros Movimentos no Godot](https://github.com/MestreWilll/Pistoleiro4.0Aprendendo-Godot/assets/87247824/40950fb7-996d-4b26-bcc3-3342e5d62720)
 
 ---
 
-### Sobre a Mudança de Plataformas
+## :twisted_rightwards_arrows: Sobre a Mudança de Plataformas
 
-A transição de Unity para Godot reflete nossa busca por uma solução mais ágil e com princípios open source para o desenvolvimento de jogos. A Godot proporciona uma curva de aprendizado suave e uma comunidade ativa, o que nos permite adaptar e expandir o *Pistoleiro 4.0* com eficiência. Os *assets* do Unity, entretanto, continuam a ser uma parte valiosa do projeto, contribuindo com sua complexidade técnica e mérito artístico.
+A transição do Unity para o Godot ilustra nossa busca por flexibilidade e a adesão aos princípios de código aberto no desenvolvimento de jogos. A Godot Engine nos proporciona uma curva de aprendizado amigável e uma comunidade engajada, facilitando a adaptação e ampliação do **Pistoleiro 4.0** com grande eficiência. Enquanto isso, os assets criados no Unity continuam sendo uma parte preciosa do nosso projeto, agregando valor técnico e artístico.
