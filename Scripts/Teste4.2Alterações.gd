@@ -3,31 +3,41 @@ class_name Player extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@export var action_suffix := ""
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var animation = $AnimatedSprite2D as AnimatedSprite2D
 
-var idle_animation: String = "idle" + action_suffix
-var jump_animation: String = "jump" + action_suffix
-var run_animation: String = "run" + action_suffix
+var is_running = false
+var is_jumping = false
 
-var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
-@onready var Animation_player := $AnimationPlayer as AnimationPlayer
-@onready var animation := $AnimatedSprite2D as AnimatedSprite2D
-@onready var Camera := $Camera as Camera2D
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
-func _physics_process(delta: float) -> void:
-	var local_velocity: Vector2 = Vector2.ZERO
-
-	if Input.is_action_pressed("ui_right"):
-		local_velocity.x += SPEED
-		animation.play(run_animation)
-	elif Input.is_action_pressed("ui_left"):
-		local_velocity.x -= SPEED
-		animation.play(run_animation)
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		is_jumping = true
+		animation.play("jump")
 	else:
-		animation.play(idle_animation)
-		
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		local_velocity.y = JUMP_VELOCITY
-		animation.play(jump_animation)
+		is_jumping = false
 
-	local_velocity.y += gravity * delta
+	# Handle movement and animations.
+	var direction = 0.0
+	if Input.is_action_pressed("move_right"):
+		direction = 1.0
+		is_running = true
+	elif Input.is_action_pressed("move_left"):
+		direction = -1.0
+		is_running = true
+	else:
+		is_running = false
+
+	if is_running:
+		velocity.x = direction * SPEED
+		animation.play("run")
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		animation.play("idle")
+
+	move_and_slide()
