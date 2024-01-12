@@ -6,7 +6,7 @@
 
 O desenvolvimento do **Pistoleiro 4.0** teve início na plataforma [Unity](https://unity.com), uma escolha conhecida por seu motor de jogo robusto e ecossistema abrangente. Durante essa fase, criamos assets interativos que refletem o estado atual do jogo. Descubra mais sobre o nosso progresso visitando o site oficial.
 
-:point_right: [Visite o Site Oficial do EL Pistoleiro de las Noches](https://mestrewilll.github.io/EL-Pistoleiro-de-las-noches-SITE/)
+:point_right: [Visite o Site Oficial do EL Pistoleiro de las Noches](https://game.willdev.com.br/)
 
 ### :framed_picture: Sprites Oficiais feitos no Godot
 
