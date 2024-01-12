@@ -25,3 +25,11 @@ Com a transição para a [Godot Engine](https://godotengine.org), adotamos uma p
 ## :twisted_rightwards_arrows: Sobre a Mudança de Plataformas
 
 A decisão de mudar do Unity para o Godot reflete nosso desejo por soluções mais ágeis e aderentes ao espírito do código aberto para o desenvolvimento de jogos. A Godot Engine nos brinda com uma curva de aprendizado suave e uma comunidade vibrante, o que tem sido fundamental para adaptar e expandir o **Pistoleiro 4.0** com eficácia. Os assets do Unity, com sua riqueza técnica e artística, continuam sendo fundamentais para o nosso projeto.
+
+---------
+
+## Colision
+
+![PM11 (1)](https://github.com/MestreWilll/GodotV4-Learning-ElPistoleiroGame/assets/87247824/05dd1faf-f4f6-48ab-9ea1-32504b21e944)
+
+
