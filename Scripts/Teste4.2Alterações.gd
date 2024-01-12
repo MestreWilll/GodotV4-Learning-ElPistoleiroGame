@@ -17,13 +17,12 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		is_jumping = true
 		animation.play("jump")
-	else:
-		is_jumping = false
-
 	# Handle movement and animations.
-	var direction = 0.0
+
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction != 0:
+		animation.scale.x = direction
 	if Input.is_action_pressed("move_right"):
 		direction = 1.0
 		is_running = true

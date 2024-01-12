@@ -1,51 +1,42 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const IDLE_ANIMATION = "idle2"
-const RUN_ANIMATION = "run"
-const JUMP_ANIMATION = "jump"
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var facing_right = true
-# Não há necessidade de declarar 'up_direction' aqui, pois já é uma propriedade de CharacterBody2D.
+@onready var animation = $AnimatedSprite2D as AnimatedSprite2D
 
-func _ready():
-    # Ajustar a direção 'up' diretamente na propriedade herdada, se necessário.
-    self.up_direction = Vector2.UP
+var is_running = false
+var is_jumping = false
 
 func _physics_process(delta):
-    # Add the gravity if the character is not on the floor.
-    if not is_on_floor():
-        self.velocity.y += gravity * delta
-        $AnimationPlayer.play(JUMP_ANIMATION)
-    else:
-        if self.velocity.x == 0:
-            $AnimationPlayer.play(IDLE_ANIMATION)
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
-    # Handle Jumping.
-    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-        self.velocity.y = JUMP_VELOCITY
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		animation.play("jump")
+	# Handle movement and animations.
 
-    # Get the input direction and handle the movement/deceleration.
-    var direction = Input.get_axis("ui_left", "ui_right")
-    if direction:
-        self.velocity.x = direction * SPEED
-        $AnimationPlayer.play(RUN_ANIMATION)
-        # Flip the sprite based on the direction.
-        if direction > 0 and not facing_right:
-            flip_h()
-        elif direction < 0 and facing_right:
-            flip_h()
-    else:
-        # Decelerate the character when not receiving input.
-        self.velocity.x = move_toward(self.velocity.x, 0, SPEED * delta)
-        if is_on_floor():
-            $AnimationPlayer.play(IDLE_ANIMATION)
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction != 0:
+		animation.scale.x = direction
+	if Input.is_action_pressed("move_right"):
+		direction = 1.0
+		is_running = true
+	elif Input.is_action_pressed("move_left"):
+		direction = -1.0
+		is_running = true
+	else:
+		is_running = false
 
-    # Move the character and slide along the floor.
-    move_and_slide(self.velocity, up_direction)
+	if is_running:
+		velocity.x = direction * SPEED
+		animation.play("run")
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		animation.play("idle")
 
-func flip_h():
-    facing_right = !facing_right
-    $Sprite.flip_h = facing_right
+	move_and_slide()
