@@ -40,4 +40,3 @@ func _physics_process(delta):
 		animation.play("idle")
 
 	move_and_slide()
-	
