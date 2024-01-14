@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=71 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Texture2D" uid="uid://dgm8e2ns5jvrm" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_oxq8y"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
@@ -93,6 +93,12 @@ size = Vector2(324.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4d05"]
 size = Vector2(22, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu1cp"]
+size = Vector2(14, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84wu6"]
+size = Vector2(14, 7)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h1my"]
 size = Vector2(20, 5.5)
 
@@ -148,7 +154,7 @@ size = Vector2(517.5, 35.5)
 a = Vector2(1.5, -97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7au87"]
-size = Vector2(140, 113)
+size = Vector2(140, 230)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjft4"]
 size = Vector2(20, 958)
@@ -207,6 +213,27 @@ size = Vector2(53.5, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfup0"]
 size = Vector2(307, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1is52"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olwme"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p7d3"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty38r"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj6dv"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44a6v"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt0ni"]
+size = Vector2(12.5, 14.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16ps4"]
 size = Vector2(58.5, 3.5)
 
@@ -221,12 +248,6 @@ size = Vector2(481.5, 7.5)
 
 [node name="Mundo-01" type="Node2D"]
 position = Vector2(-1, 33)
-
-[node name="Background2" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(2091, -380)
-scale = Vector2(2.37221, 1.87012)
-texture = ExtResource("4_76tf6")
 
 [node name="EditMundo" type="TileMap" parent="."]
 z_index = 1
@@ -248,6 +269,24 @@ texture_filter = 1
 position = Vector2(245, 313)
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="EditMundo"]
+z_index = 1
+position = Vector2(2092, -379)
+scale = Vector2(2.37221, 1.87012)
+texture = ExtResource("4_76tf6")
+
+[node name="Background3" type="Sprite2D" parent="EditMundo"]
+z_index = 1
+position = Vector2(6343, -379)
+scale = Vector2(2.37221, 1.87012)
+texture = ExtResource("4_76tf6")
+
+[node name="Background2" type="Sprite2D" parent="EditMundo"]
+z_index = 1
+position = Vector2(-2159, -379)
+scale = Vector2(2.37221, 1.87012)
+texture = ExtResource("4_76tf6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -294,6 +333,18 @@ one_way_collision = true
 z_index = 2
 position = Vector2(31, -317)
 shape = SubResource("RectangleShape2D_e4d05")
+one_way_collision = true
+
+[node name="Plataforma49" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(122.5, -323.75)
+shape = SubResource("RectangleShape2D_hu1cp")
+one_way_collision = true
+
+[node name="Plataforma50" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(123, -380)
+shape = SubResource("RectangleShape2D_84wu6")
 one_way_collision = true
 
 [node name="Plataforma36" type="CollisionShape2D" parent="StaticBody2D"]
@@ -405,7 +456,7 @@ shape = SubResource("SegmentShape2D_y846o")
 
 [node name="Limites2" type="CollisionShape2D" parent="StaticBody2D"]
 z_index = 2
-position = Vector2(1916.5, -41.5)
+position = Vector2(1916.5, 17)
 shape = SubResource("RectangleShape2D_7au87")
 
 [node name="Limites3" type="CollisionShape2D" parent="StaticBody2D"]
@@ -515,6 +566,48 @@ one_way_collision = true
 z_index = 2
 position = Vector2(1701, -235)
 shape = SubResource("RectangleShape2D_xfup0")
+one_way_collision = true
+
+[node name="Plataforma43" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1842.75, -307)
+shape = SubResource("RectangleShape2D_1is52")
+one_way_collision = true
+
+[node name="Plataforma46" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1842.75, -337)
+shape = SubResource("RectangleShape2D_olwme")
+one_way_collision = true
+
+[node name="Plataforma47" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1729.25, -337)
+shape = SubResource("RectangleShape2D_0p7d3")
+one_way_collision = true
+
+[node name="Plataforma48" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1558.75, -337)
+shape = SubResource("RectangleShape2D_ty38r")
+one_way_collision = true
+
+[node name="Plataforma44" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1729.5, -307.5)
+shape = SubResource("RectangleShape2D_jj6dv")
+one_way_collision = true
+
+[node name="Plataforma45" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1560.5, -305.5)
+shape = SubResource("RectangleShape2D_44a6v")
+one_way_collision = true
+
+[node name="Plataforma42" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 2
+position = Vector2(1837.75, -204.25)
+shape = SubResource("RectangleShape2D_gt0ni")
 one_way_collision = true
 
 [node name="Plataforma27" type="CollisionShape2D" parent="StaticBody2D"]

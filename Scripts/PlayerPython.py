@@ -53,7 +53,7 @@ class Player:
         # Isso precisaria ser definido para retornar a referência de nó correta.
         pass
 
-    def move_toward(self, initial_value, target_value, delta):
+    def move_toward():
         # Implementar a lógica para mover um valor em direção a outro.
         pass
 
