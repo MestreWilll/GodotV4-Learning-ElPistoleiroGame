@@ -55,7 +55,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"collect",
-"speed": 8.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
