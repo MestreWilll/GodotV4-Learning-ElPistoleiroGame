@@ -1,8 +1,9 @@
-[gd_scene load_steps=71 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=72 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Texture2D" uid="uid://dgm8e2ns5jvrm" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_oxq8y"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
 [ext_resource type="Texture2D" uid="uid://byae1g2l77an1" path="res://assets/El Pistoleiro de las noches/DALL·E 2024-01-12 14.24.44 - A clean 2D pixel art western-style background, extended horizontally for a video game level, with .png" id="4_76tf6"]
+[ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lhkqy"]
 tile_data = PackedInt32Array(0, 65537, 65537)
@@ -292,344 +293,453 @@ texture = ExtResource("4_76tf6")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Chão e Plataformas" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chão e Plataformas"]
 position = Vector2(244, 312)
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_m6gr8")
 
-[node name="Plataforma1" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma1" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(-69.1563, -104.25)
 shape = SubResource("RectangleShape2D_270mj")
 one_way_collision = true
 
-[node name="Plataforma4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma4" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(-28, -180.25)
 shape = SubResource("RectangleShape2D_l2jpq")
 one_way_collision = true
 
-[node name="Plataforma5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma5" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(391.5, -165.563)
 shape = SubResource("RectangleShape2D_s5the")
 one_way_collision = true
 
-[node name="Plataforma41" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma41" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(500, -71)
 shape = SubResource("RectangleShape2D_a7n65")
 one_way_collision = true
 
-[node name="Plataforma6" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma6" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(154.75, -275)
 shape = SubResource("RectangleShape2D_ekwv2")
 one_way_collision = true
 
-[node name="Plataforma35" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma35" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(31, -317)
 shape = SubResource("RectangleShape2D_e4d05")
 one_way_collision = true
 
-[node name="Plataforma49" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma49" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(122.5, -323.75)
 shape = SubResource("RectangleShape2D_hu1cp")
 one_way_collision = true
 
-[node name="Plataforma50" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma50" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(123, -380)
 shape = SubResource("RectangleShape2D_84wu6")
 one_way_collision = true
 
-[node name="Plataforma36" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma36" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(3.5, -339.25)
 shape = SubResource("RectangleShape2D_0h1my")
 one_way_collision = true
 
-[node name="Plataforma37" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma37" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(3.25, -380)
 shape = SubResource("RectangleShape2D_bm8by")
 one_way_collision = true
 
-[node name="Plataforma31" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma31" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(65.5, -216.5)
 shape = SubResource("RectangleShape2D_aqapt")
 one_way_collision = true
 
-[node name="Plataforma32" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma32" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(122.75, -215)
 shape = SubResource("RectangleShape2D_oyh2q")
 one_way_collision = true
 
-[node name="Plataforma33" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma33" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(197.25, -215)
 shape = SubResource("RectangleShape2D_g28ld")
 one_way_collision = true
 
-[node name="Plataforma34" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma34" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(258.25, -215)
 shape = SubResource("RectangleShape2D_pfeyb")
 one_way_collision = true
 
-[node name="Plataforma7" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma7" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(527, -284)
 shape = SubResource("RectangleShape2D_vocwg")
 one_way_collision = true
 
-[node name="Plataforma8" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma8" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(284, -322.5)
 shape = SubResource("RectangleShape2D_s281n")
 one_way_collision = true
 
-[node name="Plataforma9" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma9" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(368.75, -412.5)
 shape = SubResource("RectangleShape2D_iddaa")
 one_way_collision = true
 
-[node name="Plataforma29" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma29" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(59.75, -470.5)
 shape = SubResource("RectangleShape2D_dwfov")
 one_way_collision = true
 
-[node name="Plataforma30" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma30" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(60, -529)
 shape = SubResource("RectangleShape2D_ba7lw")
 one_way_collision = true
 
-[node name="Plataforma10" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma10" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(338.75, -461)
 shape = SubResource("RectangleShape2D_hmqmi")
 one_way_collision = true
 
-[node name="Plataforma11" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma11" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(429.5, -500.5)
 shape = SubResource("RectangleShape2D_aeiiq")
 one_way_collision = true
 
-[node name="Plataforma12" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma12" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(525.5, -456)
 shape = SubResource("RectangleShape2D_e3y3r")
 one_way_collision = true
 
-[node name="Plataforma13" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma13" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(613.5, -453)
 shape = SubResource("RectangleShape2D_nsvne")
 one_way_collision = true
 
-[node name="Plataforma14" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma14" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(663.25, -453)
 shape = SubResource("RectangleShape2D_kohlc")
 one_way_collision = true
 
-[node name="Plataforma15" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma15" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1292.25, -360.75)
 shape = SubResource("RectangleShape2D_162sy")
 one_way_collision = true
 
-[node name="Limites" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Limites" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(-2, -4.5)
 shape = SubResource("SegmentShape2D_y846o")
 
-[node name="Limites2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Limites2" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1916.5, 17)
 shape = SubResource("RectangleShape2D_7au87")
 
-[node name="Limites3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Limites3" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1996.5, -346)
 shape = SubResource("RectangleShape2D_rjft4")
 
-[node name="Limites4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Limites4" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(933.5, -841.25)
 shape = SubResource("RectangleShape2D_ki5ik")
 
-[node name="Limites5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Limites5" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(-245, -365.25)
 shape = SubResource("RectangleShape2D_0epbj")
 
-[node name="Limites6" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Limites6" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(-70.75, 15.5)
 shape = SubResource("RectangleShape2D_gylpn")
 
-[node name="Chão" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Chão" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 3
 position = Vector2(922, 69)
 shape = SubResource("RectangleShape2D_86n2f")
 
-[node name="Plataforma2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma2" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(594, -26.25)
 shape = SubResource("RectangleShape2D_y723j")
 one_way_collision = true
 
-[node name="Plataforma16" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma16" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(879.375, -19.9375)
 shape = SubResource("RectangleShape2D_rr1g6")
 one_way_collision = true
 
-[node name="Plataforma17" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma17" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(871, -140)
 shape = SubResource("RectangleShape2D_blwin")
 one_way_collision = true
 
-[node name="Plataforma18" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma18" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1044.75, -206.25)
 shape = SubResource("RectangleShape2D_qk0hb")
 one_way_collision = true
 
-[node name="Plataforma19" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma19" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1412.13, -161.625)
 shape = SubResource("RectangleShape2D_t8ctd")
 one_way_collision = true
 
-[node name="Plataforma38" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma38" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1310.75, -33.25)
 shape = SubResource("RectangleShape2D_kdrat")
 one_way_collision = true
 
-[node name="Plataforma39" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma39" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1695.5, -61)
 shape = SubResource("RectangleShape2D_slhd6")
 one_way_collision = true
 
-[node name="Plataforma40" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma40" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1766.75, -17.5)
 shape = SubResource("RectangleShape2D_2w1yk")
 one_way_collision = true
 
-[node name="Plataforma20" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma20" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1601.5, -95)
 shape = SubResource("RectangleShape2D_1tt27")
 one_way_collision = true
 
-[node name="Plataforma21" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma21" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1697.25, -93.5)
 shape = SubResource("RectangleShape2D_52bik")
 one_way_collision = true
 
-[node name="Plataforma22" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma22" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1767.5, -93.5)
 shape = SubResource("RectangleShape2D_lneqt")
 one_way_collision = true
 
-[node name="Plataforma23" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma23" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1661.5, -147.5)
 shape = SubResource("RectangleShape2D_ssjff")
 one_way_collision = true
 
-[node name="Plataforma24" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma24" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1761.25, -148)
 shape = SubResource("RectangleShape2D_pxr20")
 one_way_collision = true
 
-[node name="Plataforma25" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma25" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1701, -235)
 shape = SubResource("RectangleShape2D_xfup0")
 one_way_collision = true
 
-[node name="Plataforma43" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma43" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1842.75, -307)
 shape = SubResource("RectangleShape2D_1is52")
 one_way_collision = true
 
-[node name="Plataforma46" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma46" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1842.75, -337)
 shape = SubResource("RectangleShape2D_olwme")
 one_way_collision = true
 
-[node name="Plataforma47" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma47" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1729.25, -337)
 shape = SubResource("RectangleShape2D_0p7d3")
 one_way_collision = true
 
-[node name="Plataforma48" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma48" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1558.75, -337)
 shape = SubResource("RectangleShape2D_ty38r")
 one_way_collision = true
 
-[node name="Plataforma44" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma44" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1729.5, -307.5)
 shape = SubResource("RectangleShape2D_jj6dv")
 one_way_collision = true
 
-[node name="Plataforma45" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma45" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1560.5, -305.5)
 shape = SubResource("RectangleShape2D_44a6v")
 one_way_collision = true
 
-[node name="Plataforma42" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma42" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1837.75, -204.25)
 shape = SubResource("RectangleShape2D_gt0ni")
 one_way_collision = true
 
-[node name="Plataforma27" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma27" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1873.25, -179.75)
 shape = SubResource("RectangleShape2D_16ps4")
 one_way_collision = true
 
-[node name="Plataforma28" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma28" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1916.25, -102)
 shape = SubResource("RectangleShape2D_bdfap")
 one_way_collision = true
 
-[node name="Plataforma26" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma26" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(1702, -356.25)
 shape = SubResource("RectangleShape2D_t4o3w")
 one_way_collision = true
 
-[node name="Plataforma3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Plataforma3" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
 position = Vector2(269.75, -104.75)
 shape = SubResource("RectangleShape2D_hu6hp")
 one_way_collision = true
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="coin" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(1412, 139)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin4" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(1018, -90)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin5" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(181, -113)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin6" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(365, -808)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin7" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(1547, -416)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin8" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(1096, -757)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin9" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(1929, -566)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin10" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2024, -462)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin11" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2124, -340)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin12" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2331, -247)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin13" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2519, -597)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin14" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2871, -581)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin15" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(3259, -588)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin16" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(3818, -317)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin17" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(4001, -96)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin18" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2828, -141)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin19" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2859, 154)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin20" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(3451, 64)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin21" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(3779, 211)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin2" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(1969, -90)
+scale = Vector2(2.75999, 2.68)
+
+[node name="coin3" parent="Coins" instance=ExtResource("4_yvnyr")]
+z_index = 2
+position = Vector2(2001, 171)
+scale = Vector2(2.75999, 2.68)
