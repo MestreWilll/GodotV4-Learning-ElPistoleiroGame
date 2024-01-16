@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dovawc3gc1aoy"]
+[gd_scene load_steps=20 format=3 uid="uid://dovawc3gc1aoy"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ex7n1"]
 [ext_resource type="Texture2D" uid="uid://dokdwm7tgtddf" path="res://assets/El Pistoleiro de las noches/IDLE/IDLE1.png" id="2_g6mwg"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://c43c0rj61avnq" path="res://assets/El Pistoleiro de las noches/RUN/RUN6.png" id="12_0a0mr"]
 [ext_resource type="Texture2D" uid="uid://bk1c0n52w3b2n" path="res://assets/El Pistoleiro de las noches/RUN/RUN7.png" id="13_ej0al"]
 [ext_resource type="Texture2D" uid="uid://ttqf18h0vljd" path="res://assets/El Pistoleiro de las noches/RUN/RUN8.png" id="14_7fwfs"]
+[ext_resource type="Texture2D" uid="uid://h67oivxcscmo" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot1.png" id="14_e2hat"]
+[ext_resource type="Texture2D" uid="uid://6enq71l542jw" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot2.png" id="15_uiu5n"]
+[ext_resource type="Texture2D" uid="uid://1hjyebdgeic7" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot3.png" id="16_0o7c4"]
+[ext_resource type="Texture2D" uid="uid://c6nomjgea3ewq" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot4.png" id="17_y47p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djven"]
 size = Vector2(39, 62)
@@ -72,6 +76,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_e2hat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_uiu5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0o7c4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y47p3")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -81,6 +102,10 @@ collision_mask = 2
 safe_margin = 0.001
 script = ExtResource("1_ex7n1")
 metadata/physics_process = 0.0
+
+[node name="ShootAnimation" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
@@ -101,14 +126,18 @@ drag_right_margin = 0.39
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-metadata/physics_process = 0.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(694, -33.5)
 sprite_frames = SubResource("SpriteFrames_mgnms")
-animation = &"run"
+animation = &"shoot"
 autoplay = "idle"
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+metadata/physics_process = 0.0
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -129,6 +158,10 @@ position = Vector2(634, -82)
 action = "jump"
 visibility_mode = 1
 
-[node name="PlatformDetector" type="RayCast2D" parent="."]
-position = Vector2(633, -76)
+[node name="Fire" type="TouchScreenButton" parent="ui"]
+action = "shoot"
+visibility_mode = 1
+
+[node name="PlatformDetector" type="RayCast2D" parent="ui"]
+position = Vector2(633, -75)
 collision_mask = 0

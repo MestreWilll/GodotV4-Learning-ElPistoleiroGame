@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 280.0
+const JUMP_VELOCITY = -530.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = $AnimatedSprite2D as AnimatedSprite2D
@@ -10,15 +10,15 @@ var is_running = false
 var is_jumping = false
 
 func _physics_process(delta):
-	# Add the gravity.
+	# Adiciona a gravidade.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
+	# Manipula o pulo.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animation.play("jump")
-	# Handle movement and animations.
+	# Manipula o movimento e as animações.
 
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction != 0:
@@ -38,5 +38,9 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation.play("idle")
+
+	# Manipula a animação de tiro.
+	if Input.is_action_just_pressed("shoot"):
+		animation.play("shoot")
 
 	move_and_slide()
