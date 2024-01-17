@@ -161,7 +161,3 @@ visibility_mode = 1
 [node name="Fire" type="TouchScreenButton" parent="ui"]
 action = "shoot"
 visibility_mode = 1
-
-[node name="PlatformDetector" type="RayCast2D" parent="ui"]
-position = Vector2(633, -75)
-collision_mask = 0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=72 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=73 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Texture2D" uid="uid://dgm8e2ns5jvrm" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_oxq8y"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
 [ext_resource type="Texture2D" uid="uid://byae1g2l77an1" path="res://assets/El Pistoleiro de las noches/DALL·E 2024-01-12 14.24.44 - A clean 2D pixel art western-style background, extended horizontally for a video game level, with .png" id="4_76tf6"]
 [ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
+[ext_resource type="PackedScene" uid="uid://cxl02hyv0p41s" path="res://Inimigos/inimigos.tscn" id="5_svtoo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lhkqy"]
 tile_data = PackedInt32Array(0, 65537, 65537)
@@ -298,8 +299,8 @@ texture = ExtResource("4_76tf6")
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão e Plataformas"]
 position = Vector2(244, 312)
 scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 0
+collision_layer = 6
+collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_m6gr8")
 
 [node name="Plataforma1" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
@@ -743,3 +744,8 @@ scale = Vector2(2.75999, 2.68)
 z_index = 2
 position = Vector2(2001, 171)
 scale = Vector2(2.75999, 2.68)
+
+[node name="Inimigos" parent="." instance=ExtResource("5_svtoo")]
+z_index = 3
+position = Vector2(978, 324)
+scale = Vector2(6.7501, 5.50448)
