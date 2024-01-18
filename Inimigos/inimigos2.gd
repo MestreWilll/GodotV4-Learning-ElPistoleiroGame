@@ -1,4 +1,4 @@
-class_name Inimigos extends CharacterBody2D
+extends CharacterBody2D
 
 const SPEED = 10280.0
 const JUMP_VELOCITY = -530.0
