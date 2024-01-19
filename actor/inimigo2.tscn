@@ -47,16 +47,12 @@ animations = [{
 radius = 5.83333
 
 [node name="Inimigo" type="CharacterBody2D"]
+texture_filter = 1
 position = Vector2(21, -8)
-collision_layer = 6
-collision_mask = 6
+collision_layer = 0
+collision_mask = 0
+up_direction = Vector2(0, 1)
 script = ExtResource("1_rrmku")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-light_mask = 1023
-visibility_layer = 1023
-target_position = Vector2(-20, 0)
-collision_mask = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -70,3 +66,8 @@ scale = Vector2(1.2, 1.04)
 shape = SubResource("CircleShape2D_s1efg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 0)
+collision_mask = 7
+metadata/Direita = false

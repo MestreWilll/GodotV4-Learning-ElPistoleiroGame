@@ -252,7 +252,6 @@ pattern_6 = SubResource("TileMapPattern_4iwox")
 position = Vector2(-1, 33)
 
 [node name="Coins" type="Node2D" parent="."]
-visible = false
 z_index = 3
 
 [node name="coin" parent="Coins" instance=ExtResource("4_yvnyr")]
@@ -361,7 +360,6 @@ position = Vector2(2001, 171)
 scale = Vector2(2.75999, 2.68)
 
 [node name="Chão e Plataformas" type="Node2D" parent="."]
-visible = false
 z_index = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão e Plataformas"]
@@ -706,12 +704,6 @@ position = Vector2(269.75, -104.75)
 shape = SubResource("RectangleShape2D_hu6hp")
 one_way_collision = true
 
-[node name="Player" parent="." instance=ExtResource("3_4e3tx")]
-texture_filter = 1
-position = Vector2(244, 312)
-scale = Vector2(2, 2)
-metadata/_edit_group_ = true
-
 [node name="EditMundo" type="TileMap" parent="."]
 z_index = 1
 z_as_relative = false
@@ -746,11 +738,29 @@ scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
 
-[node name="Inimigos" parent="." instance=ExtResource("5_7w381")]
+[node name="Player" parent="." instance=ExtResource("3_4e3tx")]
+texture_filter = 1
+position = Vector2(244, 312)
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="InimigosTodos" type="Node2D" parent="."]
+
+[node name="Inimigo" parent="InimigosTodos" instance=ExtResource("5_7w381")]
 z_index = 3
-position = Vector2(720, 271)
-scale = Vector2(7.24, 6.72)
+position = Vector2(820, 293)
+scale = Vector2(4.24, 3.64)
+collision_layer = 6
+collision_mask = 2
+metadata/direita = false
+
+[node name="Inimigo2" parent="InimigosTodos" instance=ExtResource("5_7w381")]
+z_index = 3
+position = Vector2(1208, 294)
+scale = Vector2(4.24, 3.64)
+collision_layer = 6
+collision_mask = 2
+metadata/Direita = true
