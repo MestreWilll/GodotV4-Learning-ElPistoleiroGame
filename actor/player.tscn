@@ -167,5 +167,13 @@ position = Vector2(-2, -4)
 shape = SubResource("RectangleShape2D_gjf8h")
 debug_color = Color(0.952941, 0, 0.545098, 0.419608)
 
+[node name="ray_left" type="RayCast2D" parent="."]
+target_position = Vector2(-40, 0)
+collision_mask = 4
+
+[node name="ray_right" type="RayCast2D" parent="."]
+target_position = Vector2(36, 0)
+collision_mask = 4
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

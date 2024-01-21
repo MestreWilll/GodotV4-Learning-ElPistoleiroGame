@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -530.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = $AnimatedSprite2D as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D
-
+var knockback_vector = Vector2()
 var is_running = false
 var is_jumping = false
 var is_shooting = false  # Adiciona uma variável para rastrear o estado de atirar
@@ -73,5 +73,15 @@ func follow_camera(camera):
 # Isso está assumindo que você tem uma referência ao objeto Player chamado 'player_instance'
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("enemies"):
-		queue_free()
+		# Calcula a direção do knockback baseado na posição relativa do inimigo
+		var knockback_direction = global_position.direction_to(body.global_position)
+		# Inverte a direção para que o jogador seja empurrado para longe do inimigo
+		knockback_direction = -knockback_direction
+		# Define o vetor de knockback com uma magnitude maior
+		knockback_vector = knockback_direction * 4000  # Aumente a magnitude conforme necessário
+
+		# Aplica o knockback após um curto período de tempo
+		await get_tree().create_timer(0.1).timeout
+		velocity += knockback_vector
+		
 		print("Vc tomou dano")

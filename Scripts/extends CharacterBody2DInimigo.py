@@ -6,7 +6,7 @@ const SPEED = 10300.0
 @onready var sprite := $AnimatedSprite2D as AnimatedSprite2D
 
 var direction := -1  # Inicialmente indo para a esquerda VARIAVEL 1 LIGADA AO METADADO
-var knockback_vector = Vector2()
+
 # Obtenha a gravidade das configurações do projeto para ser sincronizado com os nós RigidBody.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 

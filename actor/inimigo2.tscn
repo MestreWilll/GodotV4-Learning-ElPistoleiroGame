@@ -45,8 +45,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efgys"]
-radius = 5.83333
-height = 13.4615
+radius = 6.66667
+height = 16.6667
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvc3s"]
 size = Vector2(13, 3)
@@ -55,7 +55,7 @@ size = Vector2(13, 3)
 texture_filter = 1
 position = Vector2(21, -8)
 collision_layer = 4
-collision_mask = 34
+collision_mask = 35
 up_direction = Vector2(0, 1)
 script = ExtResource("1_rrmku")
 
@@ -74,7 +74,6 @@ debug_color = Color(0.878431, 0.321569, 0.282353, 0.419608)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(4, 0)
 target_position = Vector2(-14, 0)
 collision_mask = 7
