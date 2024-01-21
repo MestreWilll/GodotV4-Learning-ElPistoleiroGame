@@ -1,7 +1,8 @@
-[gd_scene load_steps=64 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=65 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Script" path="res://mundo_01.gd" id="1_861mi"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
+[ext_resource type="PackedScene" uid="uid://dqof5fh6dw7co" path="res://actor/morcegoentrada.tscn" id="3_hhx0m"]
 [ext_resource type="Texture2D" uid="uid://byae1g2l77an1" path="res://assets/El Pistoleiro de las noches/DALL·E 2024-01-12 14.24.44 - A clean 2D pixel art western-style background, extended horizontally for a video game level, with .png" id="4_76tf6"]
 [ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
 [ext_resource type="PackedScene" uid="uid://hhqnkdeq8tgd" path="res://actor/inimigo2.tscn" id="5_7w381"]
@@ -183,9 +184,43 @@ size = Vector2(481.5, 7.5)
 position = Vector2(-1, 33)
 script = ExtResource("1_861mi")
 
+[node name="InimigosTodos" type="Node2D" parent="."]
+
+[node name="Inimigo" parent="InimigosTodos" instance=ExtResource("5_7w381")]
+z_index = 3
+position = Vector2(820, 293)
+scale = Vector2(4.24, 3.64)
+metadata/direita = false
+
+[node name="Inimigo2" parent="InimigosTodos" instance=ExtResource("5_7w381")]
+z_index = 3
+position = Vector2(1208, 294)
+scale = Vector2(4.24, 3.64)
+metadata/Direita = true
+
+[node name="morcego" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("3_hhx0m")]
+z_index = 3
+position = Vector2(2265, -757)
+scale = Vector2(3.16, 3.08)
+
+[node name="morcego2" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("3_hhx0m")]
+z_index = 3
+position = Vector2(687, -877)
+scale = Vector2(3.16, 3.08)
+
+[node name="morcego3" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("3_hhx0m")]
+z_index = 3
+position = Vector2(1190, -111)
+scale = Vector2(3.16, 3.08)
+
+[node name="morcego4" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("3_hhx0m")]
+z_index = 3
+position = Vector2(2768, -197)
+scale = Vector2(3.16, 3.08)
+
 [node name="Player" parent="." instance=ExtResource("3_4e3tx")]
 texture_filter = 1
-position = Vector2(1698, 261)
+position = Vector2(2375, 262)
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
@@ -314,20 +349,6 @@ scale = Vector2(2.75999, 2.68)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
 
-[node name="InimigosTodos" type="Node2D" parent="."]
-
-[node name="Inimigo" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("5_7w381")]
-z_index = 3
-position = Vector2(820, 293)
-scale = Vector2(4.24, 3.64)
-metadata/direita = false
-
-[node name="Inimigo2" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("5_7w381")]
-z_index = 3
-position = Vector2(1208, 294)
-scale = Vector2(4.24, 3.64)
-metadata/Direita = true
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Node2D"]
@@ -349,9 +370,11 @@ scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
 
 [node name="Chão e Plataformas" type="Node2D" parent="."]
+visible = false
 z_index = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão e Plataformas"]
+visible = false
 position = Vector2(244, 312)
 scale = Vector2(2, 2)
 collision_layer = 2

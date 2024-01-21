@@ -73,4 +73,5 @@ func follow_camera(camera):
 # Isso está assumindo que você tem uma referência ao objeto Player chamado 'player_instance'
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("enemies"):
+		queue_free()
 		print("Vc tomou dano")
