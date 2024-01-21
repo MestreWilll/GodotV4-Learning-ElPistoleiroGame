@@ -1,10 +1,12 @@
-class_name Player extends CharacterBody2D
+extends CharacterBody2D
+
 
 const SPEED = 280.0
 const JUMP_VELOCITY = -530.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = $AnimatedSprite2D as AnimatedSprite2D
+@onready var remote_transform = $remote as RemoteTransform2D
 
 var is_running = false
 var is_jumping = false
@@ -55,3 +57,20 @@ func _physics_process(delta):
 				animation.play("idle")
 
 	move_and_slide()
+
+func follow_camera(camera):
+	var camera_path = camera.get_path()  # Supondo que você queria obter o caminho do nó da câmera
+	remote_transform.remote_path = camera_path
+
+# Exemplo de como chamar follow_camera
+# Isso deve ser chamado em algum lugar apropriado no seu script, como no _ready ou em uma função que configura a cena
+
+	# Supondo que você tenha um nó de câmera na sua cena chamado "Camera2D"
+	var camera_node = get_node_or_null("Camera2D")
+	if camera_node:
+		follow_camera(camera_node)
+		
+# Isso está assumindo que você tem uma referência ao objeto Player chamado 'player_instance'
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("enemies"):
+		print("Vc tomou dano")

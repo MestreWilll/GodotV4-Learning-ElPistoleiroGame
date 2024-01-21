@@ -1,4 +1,4 @@
-class_name Inimigo extends CharacterBody2D
+extends CharacterBody2D
 
 const SPEED = 10300.0
 
@@ -11,7 +11,6 @@ var direction := -1  # Inicialmente indo para a esquerda VARIAVEL 1 LIGADA AO ME
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	# Verifica se o metadado "Direita" existe e se está ativo
 	if has_meta("Direita") and get_meta("Direita"):
 		direction = 1  # Começa indo para a direita devido à metadado "Direita" ativo
 		detector.scale.x *= -1
@@ -33,3 +32,9 @@ func _physics_process(delta):
 
 	velocity.x = direction * SPEED * delta
 	move_and_slide()
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if sprite.animation == "hurt": 
+		queue_free()
+		

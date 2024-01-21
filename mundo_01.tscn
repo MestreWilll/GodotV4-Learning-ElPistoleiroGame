@@ -1,6 +1,6 @@
-[gd_scene load_steps=73 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=64 format=3 uid="uid://ptsdilhs7433"]
 
-[ext_resource type="Texture2D" uid="uid://dgm8e2ns5jvrm" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_oxq8y"]
+[ext_resource type="Script" path="res://mundo_01.gd" id="1_861mi"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
 [ext_resource type="Texture2D" uid="uid://byae1g2l77an1" path="res://assets/El Pistoleiro de las noches/DALL·E 2024-01-12 14.24.44 - A clean 2D pixel art western-style background, extended horizontally for a video game level, with .png" id="4_76tf6"]
 [ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
@@ -179,77 +179,28 @@ size = Vector2(301, 8.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6hp"]
 size = Vector2(481.5, 7.5)
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_lhkqy"]
-tile_data = PackedInt32Array(0, 65537, 65537)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_0cbcm"]
-tile_data = PackedInt32Array(0, 983041, 65538)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_g71bu"]
-tile_data = PackedInt32Array(0, 589825, 65537)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_ki7bg"]
-tile_data = PackedInt32Array(0, 327681, 65541)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_g55dv"]
-tile_data = PackedInt32Array(0, 589825, 65537)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_pr3aw"]
-tile_data = PackedInt32Array(0, 327681, 65541)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_4iwox"]
-tile_data = PackedInt32Array(0, 589825, 65537)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dupr"]
-texture = ExtResource("1_oxq8y")
-texture_region_size = Vector2i(48, 17)
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
-4:1/0 = 0
-4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:1/0/physics_layer_0/angular_velocity = 0.0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
-3:2/0 = 0
-3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:2/0/physics_layer_0/angular_velocity = 0.0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:2/0 = 0
-4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:2/0/physics_layer_0/angular_velocity = 0.0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -12.5, 10.5, -12.5, 10.5, 12.5, -10.5, 12.5)
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -8.5, 10.5, -8.5, 10.5, 8.5, -10.5, 8.5)
-1:2/0/physics_layer_0/polygon_0/one_way = true
-1:3/0 = 0
-1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:3/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSet" id="TileSet_i3w13"]
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_4dupr")
-pattern_0 = SubResource("TileMapPattern_lhkqy")
-pattern_1 = SubResource("TileMapPattern_0cbcm")
-pattern_2 = SubResource("TileMapPattern_g71bu")
-pattern_3 = SubResource("TileMapPattern_ki7bg")
-pattern_4 = SubResource("TileMapPattern_g55dv")
-pattern_5 = SubResource("TileMapPattern_pr3aw")
-pattern_6 = SubResource("TileMapPattern_4iwox")
-
 [node name="Mundo-01" type="Node2D"]
 position = Vector2(-1, 33)
+script = ExtResource("1_861mi")
+
+[node name="Player" parent="." instance=ExtResource("3_4e3tx")]
+texture_filter = 1
+position = Vector2(1698, 261)
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="camera" type="Camera2D" parent="."]
+texture_filter = 1
+position = Vector2(1619, -151)
+zoom = Vector2(0.5, 0.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.02
+drag_left_margin = 0.32
+drag_top_margin = 0.47
+drag_right_margin = 0.39
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Coins" type="Node2D" parent="."]
 z_index = 3
@@ -359,14 +310,52 @@ z_index = 2
 position = Vector2(2001, 171)
 scale = Vector2(2.75999, 2.68)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
+
+[node name="InimigosTodos" type="Node2D" parent="."]
+
+[node name="Inimigo" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("5_7w381")]
+z_index = 3
+position = Vector2(820, 293)
+scale = Vector2(4.24, 3.64)
+metadata/direita = false
+
+[node name="Inimigo2" parent="InimigosTodos" groups=["enemies"] instance=ExtResource("5_7w381")]
+z_index = 3
+position = Vector2(1208, 294)
+scale = Vector2(4.24, 3.64)
+metadata/Direita = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(2091, -380)
+scale = Vector2(2.37221, 1.87012)
+texture = ExtResource("4_76tf6")
+
+[node name="Background3" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(6342, -380)
+scale = Vector2(2.37221, 1.87012)
+texture = ExtResource("4_76tf6")
+
+[node name="Background2" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(-2160, -380)
+scale = Vector2(2.37221, 1.87012)
+texture = ExtResource("4_76tf6")
+
 [node name="Chão e Plataformas" type="Node2D" parent="."]
 z_index = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão e Plataformas"]
 position = Vector2(244, 312)
 scale = Vector2(2, 2)
-collision_layer = 6
-collision_mask = 6
+collision_layer = 2
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_m6gr8")
 
 [node name="Plataforma1" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
@@ -703,64 +692,3 @@ z_index = 2
 position = Vector2(269.75, -104.75)
 shape = SubResource("RectangleShape2D_hu6hp")
 one_way_collision = true
-
-[node name="EditMundo" type="TileMap" parent="."]
-z_index = 1
-z_as_relative = false
-position = Vector2(-1, -0.999981)
-tile_set = SubResource("TileSet_i3w13")
-format = 2
-layer_0/name = "Ground"
-layer_1/name = "arvores"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(1048579, 65537, 65537, 1048610, 589825, 65537, 1114117, 983041, 65538, 1048585, 589825, 65537, 1114124, 327681, 65541, 1114132, 327681, 65541, 1048599, 589825, 65537)
-
-[node name="Background" type="Sprite2D" parent="EditMundo"]
-z_index = 1
-position = Vector2(2092, -379)
-scale = Vector2(2.37221, 1.87012)
-texture = ExtResource("4_76tf6")
-
-[node name="Background3" type="Sprite2D" parent="EditMundo"]
-z_index = 1
-position = Vector2(6343, -379)
-scale = Vector2(2.37221, 1.87012)
-texture = ExtResource("4_76tf6")
-
-[node name="Background2" type="Sprite2D" parent="EditMundo"]
-z_index = 1
-position = Vector2(-2159, -379)
-scale = Vector2(2.37221, 1.87012)
-texture = ExtResource("4_76tf6")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
-
-[node name="Player" parent="." instance=ExtResource("3_4e3tx")]
-texture_filter = 1
-position = Vector2(244, 312)
-scale = Vector2(2, 2)
-metadata/_edit_group_ = true
-
-[node name="InimigosTodos" type="Node2D" parent="."]
-
-[node name="Inimigo" parent="InimigosTodos" instance=ExtResource("5_7w381")]
-z_index = 3
-position = Vector2(820, 293)
-scale = Vector2(4.24, 3.64)
-collision_layer = 6
-collision_mask = 2
-metadata/direita = false
-
-[node name="Inimigo2" parent="InimigosTodos" instance=ExtResource("5_7w381")]
-z_index = 3
-position = Vector2(1208, 294)
-scale = Vector2(4.24, 3.64)
-collision_layer = 6
-collision_mask = 2
-metadata/Direita = true
