@@ -29,7 +29,7 @@ Decidimos concentrar todos os nossos esforços na Godot por sua abordagem mais e
 ## :framed_picture: Galeria de Sprites e Progresso no Desenvolvimento
 
 ### Confira Nossos Sprites Oficiais no Godot
-- ![Movimentos do Pistoleiro](https://github.com/MestreWilll/GodotV4-Learning-ElPistoleiroGame/assets/87247824/0d382a8d-3892-4eaf-96a8-1b741aeffe4b)
+- ![PistoleiroAvanço20 (1)](https://github.com/MestreWilll/GodotV4-Learning-ElPistoleiroGame/assets/87247824/0640cc20-2257-4354-b4cb-a20e788c87c3)
 - ![Animação e Ação](https://github.com/MestreWilll/GodotV4-Learning-ElPistoleiroGame/assets/87247824/7de407df-f57b-461c-aac0-5793dd51e2f2)
 
 ### Avanços na Lógica GDScript e Mecânicas de Jogo
