@@ -56,6 +56,12 @@ func _physics_process(delta):
 			if animation.animation != "idle":
 				animation.play("idle")
 
+	# Aplica o knockback se necessário
+	if knockback_vector.length() > 0:
+		position += knockback_vector * delta
+		# Amortece o knockback_vector para que o efeito diminua ao longo do tempo
+		knockback_vector = knockback_vector.move_toward(Vector2.ZERO, 1000 * delta)  # Ajuste a taxa de amortecimento conforme necessário
+
 	move_and_slide()
 
 func follow_camera(camera):
@@ -78,10 +84,10 @@ func _on_hurtbox_body_entered(body):
 		# Inverte a direção para que o jogador seja empurrado para longe do inimigo
 		knockback_direction = -knockback_direction
 		# Define o vetor de knockback com uma magnitude maior
-		knockback_vector = knockback_direction * 4000  # Aumente a magnitude conforme necessário
+		knockback_vector = knockback_direction * 300  # Aumente a magnitude conforme necessário
 
 		# Aplica o knockback após um curto período de tempo
 		await get_tree().create_timer(0.1).timeout
-		velocity += knockback_vector
+		position += knockback_vector
 		
 		print("Vc tomou dano")
