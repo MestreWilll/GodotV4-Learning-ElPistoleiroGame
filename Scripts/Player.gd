@@ -63,7 +63,7 @@ func _physics_process(delta):
 		# Amortece o knockback_vector para que o efeito diminua ao longo do tempo
 		knockback_vector = knockback_vector.move_toward(Vector2.ZERO, 1000 * delta)  # Ajuste a taxa de amortecimento conforme necessário
 
-	# Verifica se o raycast à esquerda detecta algo
+	# Verifica se o raycast à esquerda detecta algo, apenas uma referencia
 	if ray_left.is_enabled() and ray_left.is_colliding():
 		var collider = ray_left.get_collider()
 		print("Colisão detectada à esquerda com: ", collider.name)
@@ -100,11 +100,18 @@ func _on_hurtbox_body_entered(body):
 		knockback_direction = -knockback_direction
 		# Define o vetor de knockback com uma magnitude maior
 		knockback_vector = knockback_direction * 300  # Aumente a magnitude conforme necessário
-
+		
+		# Muda a cor do jogador para vermelho
+		animation.modulate = Color(1, 0, 0, 1)
+		
 		# Aplica o knockback após um curto período de tempo
 		await get_tree().create_timer(0.1).timeout
 		position += knockback_vector
-		
+
+		# Retorna a cor do jogador para normal após um curto período de tempo
+		await get_tree().create_timer(0.2).timeout  # Ajuste a duração conforme necessário
+		animation.modulate = Color(1, 1, 1, 1)  # Cor branca (normal)
+
 		print("Vc tomou dano")
 
 func _on_animated_sprite_2d_animation_finished():

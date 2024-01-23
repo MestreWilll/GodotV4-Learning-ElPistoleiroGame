@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c6nomjgea3ewq" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot4.png" id="17_y47p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djven"]
-size = Vector2(8, 31)
+size = Vector2(17.2979, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgnms"]
 animations = [{
@@ -100,10 +100,7 @@ size = Vector2(53, 59)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 3
-position = Vector2(0, -30)
-collision_layer = 3
-collision_mask = 6
-safe_margin = 0.001
+collision_mask = 22
 script = ExtResource("1_ex7n1")
 metadata/physics_process = 0.0
 
@@ -113,14 +110,11 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(12, 0)
-scale = Vector2(2, 2)
+scale = Vector2(1.88, 1)
 shape = SubResource("RectangleShape2D_djven")
 one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -0.25)
-scale = Vector2(1, 0.991803)
 sprite_frames = SubResource("SpriteFrames_mgnms")
 animation = &"run"
 autoplay = "idle"
@@ -135,23 +129,24 @@ metadata/physics_process = 0.0
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="Left" type="TouchScreenButton" parent="ui"]
-position = Vector2(644, -76)
+position = Vector2(644, -111)
 passby_press = true
 action = "move_left"
 visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="ui"]
-position = Vector2(640, -76)
+position = Vector2(640, -111)
 passby_press = true
 action = "move_right"
 visibility_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="ui"]
-position = Vector2(634, -82)
+position = Vector2(634, -117)
 action = "jump"
 visibility_mode = 1
 
 [node name="Fire" type="TouchScreenButton" parent="ui"]
+position = Vector2(0, -35)
 action = "shoot"
 visibility_mode = 1
 
@@ -162,17 +157,14 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-0.5, -5.5)
 shape = SubResource("RectangleShape2D_gjf8h")
 debug_color = Color(0.952941, 0, 0.545098, 0.419608)
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="."]
-position = Vector2(-1, 15)
 target_position = Vector2(-26, 0)
 collision_mask = 4
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
-position = Vector2(-1, 15)
 target_position = Vector2(26, 0)
 collision_mask = 20
 

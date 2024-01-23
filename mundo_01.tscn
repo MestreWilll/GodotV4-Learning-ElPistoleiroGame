@@ -221,7 +221,7 @@ scale = Vector2(3.16, 3.08)
 
 [node name="Player" parent="." instance=ExtResource("3_4e3tx")]
 texture_filter = 1
-position = Vector2(2375, 262)
+position = Vector2(2375, 253)
 scale = Vector2(2, 2)
 
 [node name="Coins" type="Node2D" parent="."]
@@ -332,21 +332,21 @@ z_index = 2
 position = Vector2(2001, 171)
 scale = Vector2(2.75999, 2.68)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Imagens de fundo" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="Node2D"]
+[node name="Background" type="Sprite2D" parent="Imagens de fundo"]
 z_index = 1
 position = Vector2(2091, -380)
 scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
 
-[node name="Background3" type="Sprite2D" parent="Node2D"]
+[node name="Background3" type="Sprite2D" parent="Imagens de fundo"]
 z_index = 1
 position = Vector2(6342, -380)
 scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
 
-[node name="Background2" type="Sprite2D" parent="Node2D"]
+[node name="Background2" type="Sprite2D" parent="Imagens de fundo"]
 z_index = 1
 position = Vector2(-2160, -380)
 scale = Vector2(2.37221, 1.87012)
