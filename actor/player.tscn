@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c6nomjgea3ewq" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot4.png" id="17_y47p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djven"]
-size = Vector2(17.2979, 62)
+size = Vector2(17.2979, 54.4643)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgnms"]
 animations = [{
@@ -110,13 +110,16 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-scale = Vector2(1.88, 1)
+position = Vector2(0, 3.5)
+scale = Vector2(1.88, 1.12)
 shape = SubResource("RectangleShape2D_djven")
 one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2.45471)
+scale = Vector2(1, 0.98579)
 sprite_frames = SubResource("SpriteFrames_mgnms")
-animation = &"run"
+animation = &"shoot"
 autoplay = "idle"
 
 [node name="Cooldown" type="Timer" parent="."]
