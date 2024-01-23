@@ -44,16 +44,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efgys"]
-radius = 6.66667
-height = 16.6667
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho1g0"]
+size = Vector2(14, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvc3s"]
-size = Vector2(13, 3)
+size = Vector2(12.5, 3)
 
 [node name="Inimigo" type="CharacterBody2D" groups=["enemies"]]
 texture_filter = 1
-position = Vector2(21, -8)
+position = Vector2(0, -8)
 collision_layer = 4
 collision_mask = 35
 up_direction = Vector2(0, 1)
@@ -66,23 +65,22 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(1.2, 1.04)
-shape = SubResource("CapsuleShape2D_efgys")
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ho1g0")
 debug_color = Color(0.878431, 0.321569, 0.282353, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(4, 0)
-target_position = Vector2(-14, 0)
-collision_mask = 7
+target_position = Vector2(-12, 0)
+collision_mask = 2
 metadata/Direita = false
 
 [node name="hitbox" parent="." instance=ExtResource("5_5igf0")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -6)
+position = Vector2(-0.25, -6)
 shape = SubResource("RectangleShape2D_lvc3s")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

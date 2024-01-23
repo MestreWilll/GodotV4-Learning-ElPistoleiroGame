@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c6nomjgea3ewq" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot4.png" id="17_y47p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djven"]
-size = Vector2(23, 33.25)
+size = Vector2(8, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgnms"]
 animations = [{
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_g6mwg")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -96,7 +96,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjf8h"]
-size = Vector2(55, 55)
+size = Vector2(53, 59)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 3
@@ -113,7 +113,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -2.25)
+position = Vector2(12, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_djven")
 one_way_collision_margin = 0.0
@@ -122,9 +122,8 @@ one_way_collision_margin = 0.0
 position = Vector2(0, -0.25)
 scale = Vector2(1, 0.991803)
 sprite_frames = SubResource("SpriteFrames_mgnms")
-animation = &"idle"
-autoplay = "run"
-frame_progress = 0.770696
+animation = &"run"
+autoplay = "idle"
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.2
@@ -163,17 +162,19 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-2, -4)
+position = Vector2(-0.5, -5.5)
 shape = SubResource("RectangleShape2D_gjf8h")
 debug_color = Color(0.952941, 0, 0.545098, 0.419608)
 
-[node name="ray_left" type="RayCast2D" parent="."]
-target_position = Vector2(-40, 0)
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-1, 15)
+target_position = Vector2(-26, 0)
 collision_mask = 4
 
-[node name="ray_right" type="RayCast2D" parent="."]
-target_position = Vector2(36, 0)
-collision_mask = 4
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(-1, 15)
+target_position = Vector2(26, 0)
+collision_mask = 20
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
