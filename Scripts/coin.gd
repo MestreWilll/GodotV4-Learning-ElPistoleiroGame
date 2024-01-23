@@ -1,15 +1,23 @@
 extends Area2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# Supondo que você tenha uma variável global ou em um singleton para manter a contagem
+# Por exemplo, um singleton chamado 'Game' com uma variável 'coins_collected'
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	$AnimatedSprite2D.play("collect")
+	# Incrementa a contagem de moedas
+	Game.coins_collected += 1
+	# Notifica o label para atualizar
+	update_coins_label()
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
+
+func update_coins_label():
+	# Emite um sinal ou chama diretamente o método do Label para atualizar
+	var label_path = "../../Label"
+	var label = get_node_or_null(label_path)
+	if label:
+		label.update_coins_count(Game.coins_collected)
+	else:
+		print("Label não encontrado no caminho: " + label_path)

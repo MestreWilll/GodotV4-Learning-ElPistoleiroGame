@@ -84,9 +84,11 @@ shape = SubResource("CircleShape2D_twyxj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_re1an")
-animation = &"collect"
+animation = &"idle"
 autoplay = "idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="child_entered_tree" from="Collision" to="." method="_on_collision_child_entered_tree"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="child_entered_tree" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_child_exiting_tree"]

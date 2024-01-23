@@ -91,3 +91,7 @@ func _on_hurtbox_body_entered(body):
 		position += knockback_vector
 		
 		print("Vc tomou dano")
+
+
+func _on_animated_sprite_2d_animation_finished():
+	pass # Replace with function body.
