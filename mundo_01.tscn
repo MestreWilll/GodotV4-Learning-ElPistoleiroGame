@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=66 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Script" path="res://mundo_01.gd" id="1_861mi"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://byae1g2l77an1" path="res://assets/El Pistoleiro de las noches/DALL·E 2024-01-12 14.24.44 - A clean 2D pixel art western-style background, extended horizontally for a video game level, with .png" id="4_76tf6"]
 [ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
 [ext_resource type="PackedScene" uid="uid://hhqnkdeq8tgd" path="res://actor/inimigo2.tscn" id="5_7w381"]
-[ext_resource type="LabelSettings" uid="uid://bma2bm6qc6c6q" path="res://coin/new_label_settings.tres" id="7_m6s78"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="8_vcgeh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m6gr8"]
@@ -224,7 +223,6 @@ scale = Vector2(3.16, 3.08)
 texture_filter = 1
 position = Vector2(2375, 262)
 scale = Vector2(2, 2)
-metadata/_edit_group_ = true
 
 [node name="Coins" type="Node2D" parent="."]
 z_index = 3
@@ -333,10 +331,6 @@ scale = Vector2(2.75999, 2.68)
 z_index = 2
 position = Vector2(2001, 171)
 scale = Vector2(2.75999, 2.68)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -703,6 +697,11 @@ position = Vector2(269.75, -104.75)
 shape = SubResource("RectangleShape2D_hu6hp")
 one_way_collision = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(2376, 279)
+target_position = Vector2(3, -79)
+collision_mask = 15
+
 [node name="camera" type="Camera2D" parent="."]
 texture_filter = 1
 position = Vector2(1619, -151)
@@ -716,19 +715,19 @@ drag_right_margin = 0.39
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(2376, 279)
-target_position = Vector2(3, -79)
-collision_mask = 15
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
-z_index = 3
-offset_left = 2277.0
-offset_top = 2.0
-offset_right = 2443.0
-offset_bottom = 124.0
-text = "0"
-label_settings = ExtResource("7_m6s78")
-vertical_alignment = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.5
+offset_right = 7.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
 script = ExtResource("8_vcgeh")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
