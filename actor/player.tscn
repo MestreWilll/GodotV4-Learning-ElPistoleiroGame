@@ -1,40 +1,50 @@
-[gd_scene load_steps=21 format=3 uid="uid://dovawc3gc1aoy"]
+[gd_scene load_steps=23 format=3 uid="uid://dovawc3gc1aoy"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ex7n1"]
-[ext_resource type="Texture2D" uid="uid://dokdwm7tgtddf" path="res://assets/El Pistoleiro de las noches/IDLE/IDLE1.png" id="2_g6mwg"]
-[ext_resource type="Texture2D" uid="uid://bxxeyisd60w7x" path="res://assets/El Pistoleiro de las noches/IDLE/IDLE2.png" id="3_yye0s"]
-[ext_resource type="Texture2D" uid="uid://t00m3ttym2sw" path="res://assets/El Pistoleiro de las noches/IDLE/IDLE3.png" id="4_jpr1s"]
-[ext_resource type="Texture2D" uid="uid://dkvprifuvgjlm" path="res://assets/El Pistoleiro de las noches/IDLE/IDLE4.png" id="5_oe6ye"]
-[ext_resource type="Texture2D" uid="uid://cd8753142824a" path="res://assets/El Pistoleiro de las noches/RUN/RUN1.png" id="7_f46n6"]
-[ext_resource type="Texture2D" uid="uid://byrtmnphtydmq" path="res://assets/El Pistoleiro de las noches/RUN/RUN2.png" id="8_dk8v4"]
-[ext_resource type="Texture2D" uid="uid://bc1qjqvtbv27m" path="res://assets/El Pistoleiro de las noches/RUN/RUN3.png" id="9_ogl34"]
-[ext_resource type="Texture2D" uid="uid://dbpkykhv7653s" path="res://assets/El Pistoleiro de las noches/RUN/RUN4.png" id="10_f54e2"]
-[ext_resource type="Texture2D" uid="uid://cu44bcg4cpsxe" path="res://assets/El Pistoleiro de las noches/RUN/RUN5.png" id="11_63kwq"]
-[ext_resource type="Texture2D" uid="uid://c43c0rj61avnq" path="res://assets/El Pistoleiro de las noches/RUN/RUN6.png" id="12_0a0mr"]
-[ext_resource type="Texture2D" uid="uid://bk1c0n52w3b2n" path="res://assets/El Pistoleiro de las noches/RUN/RUN7.png" id="13_ej0al"]
-[ext_resource type="Texture2D" uid="uid://ttqf18h0vljd" path="res://assets/El Pistoleiro de las noches/RUN/RUN8.png" id="14_7fwfs"]
+[ext_resource type="Texture2D" uid="uid://cnhnlu6wigrx0" path="res://assets/El Pistoleiro de las noches/NeW_Moving/FALL/FALL.png" id="2_4k5px"]
+[ext_resource type="Texture2D" uid="uid://ccph2ep63qavo" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE1.png" id="3_pluqa"]
+[ext_resource type="Texture2D" uid="uid://c2dacrqq35hof" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE2.png" id="4_ivnqr"]
+[ext_resource type="Texture2D" uid="uid://c4ptlkfa1ypst" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE3.png" id="5_sj437"]
+[ext_resource type="Texture2D" uid="uid://cbmh57wwpvfij" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE4.png" id="6_5ssyn"]
+[ext_resource type="Texture2D" uid="uid://b4y2m4krdjwuk" path="res://assets/El Pistoleiro de las noches/NeW_Moving/JUMP/JUMP.png" id="7_b32wv"]
+[ext_resource type="Texture2D" uid="uid://bhhc58pe22ltk" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN1.png" id="8_3dbfc"]
+[ext_resource type="Texture2D" uid="uid://dad82lnjfi2q3" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN2.png" id="9_gk0ho"]
+[ext_resource type="Texture2D" uid="uid://la23oreoakly" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN3.png" id="10_jp3ms"]
+[ext_resource type="Texture2D" uid="uid://do4ihh0tgfj1t" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN4.png" id="11_vx47c"]
+[ext_resource type="Texture2D" uid="uid://b3kuoct8n7wrf" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN5.png" id="12_3k5ld"]
+[ext_resource type="Texture2D" uid="uid://ce6mfa8jxfrlm" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN6.png" id="13_wytuc"]
+[ext_resource type="Texture2D" uid="uid://cnno6e0fv4eje" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN7.png" id="14_6vd71"]
 [ext_resource type="Texture2D" uid="uid://h67oivxcscmo" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot1.png" id="14_e2hat"]
+[ext_resource type="Texture2D" uid="uid://djdpt55y210hl" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN8.png" id="15_6v17k"]
 [ext_resource type="Texture2D" uid="uid://6enq71l542jw" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot2.png" id="15_uiu5n"]
 [ext_resource type="Texture2D" uid="uid://1hjyebdgeic7" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot3.png" id="16_0o7c4"]
 [ext_resource type="Texture2D" uid="uid://c6nomjgea3ewq" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot4.png" id="17_y47p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djven"]
-size = Vector2(17.2979, 54.4643)
+size = Vector2(42, 61)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgnms"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_g6mwg")
+"texture": ExtResource("2_4k5px")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pluqa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_yye0s")
+"texture": ExtResource("4_ivnqr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jpr1s")
+"texture": ExtResource("5_sj437")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_oe6ye")
+"texture": ExtResource("6_5ssyn")
 }],
 "loop": true,
 "name": &"idle",
@@ -42,36 +52,36 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_g6mwg")
+"texture": ExtResource("7_b32wv")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_f46n6")
+"texture": ExtResource("8_3dbfc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_dk8v4")
+"texture": ExtResource("9_gk0ho")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_ogl34")
+"texture": ExtResource("10_jp3ms")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_f54e2")
+"texture": ExtResource("11_vx47c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_63kwq")
+"texture": ExtResource("12_3k5ld")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_0a0mr")
+"texture": ExtResource("13_wytuc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ej0al")
+"texture": ExtResource("14_6vd71")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_7fwfs")
+"texture": ExtResource("15_6v17k")
 }],
 "loop": true,
 "name": &"run",
@@ -100,6 +110,7 @@ size = Vector2(53, 59)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 3
+position = Vector2(0, -35)
 collision_mask = 22
 script = ExtResource("1_ex7n1")
 metadata/physics_process = 0.0
@@ -110,14 +121,11 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 3.5)
-scale = Vector2(1.88, 1.12)
+position = Vector2(9, 4.5)
 shape = SubResource("RectangleShape2D_djven")
 one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 2.45471)
-scale = Vector2(1, 0.98579)
 sprite_frames = SubResource("SpriteFrames_mgnms")
 animation = &"shoot"
 autoplay = "idle"
@@ -132,24 +140,24 @@ metadata/physics_process = 0.0
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="Left" type="TouchScreenButton" parent="ui"]
-position = Vector2(644, -111)
+position = Vector2(644, -146)
 passby_press = true
 action = "move_left"
 visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="ui"]
-position = Vector2(640, -111)
+position = Vector2(640, -146)
 passby_press = true
 action = "move_right"
 visibility_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="ui"]
-position = Vector2(634, -117)
+position = Vector2(634, -152)
 action = "jump"
 visibility_mode = 1
 
 [node name="Fire" type="TouchScreenButton" parent="ui"]
-position = Vector2(0, -35)
+position = Vector2(0, -70)
 action = "shoot"
 visibility_mode = 1
 
@@ -160,14 +168,17 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_gjf8h")
 debug_color = Color(0.952941, 0, 0.545098, 0.419608)
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
 target_position = Vector2(-26, 0)
 collision_mask = 4
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
 target_position = Vector2(26, 0)
 collision_mask = 20
 

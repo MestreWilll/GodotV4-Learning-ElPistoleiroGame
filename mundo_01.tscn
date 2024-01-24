@@ -221,7 +221,7 @@ scale = Vector2(3.16, 3.08)
 
 [node name="Player" parent="." instance=ExtResource("3_4e3tx")]
 texture_filter = 1
-position = Vector2(2375, 248)
+position = Vector2(2375, 252)
 scale = Vector2(2, 2)
 
 [node name="Coins" type="Node2D" parent="."]

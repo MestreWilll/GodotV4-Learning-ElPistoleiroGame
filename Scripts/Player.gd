@@ -19,9 +19,12 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Manipula o pulo.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		is_jumping = true
 		animation.play("jump")
+	elif is_on_floor():
+		is_jumping = false
 
 	# Manipula o movimento e as animações.
 	var direction = Input.get_axis("move_left", "move_right")
@@ -47,15 +50,16 @@ func _physics_process(delta):
 		animation.frame = 4  # Retorna para o primeiro quadro da animação
 
 	# Se o jogador não estiver atirando, manipula as animações de corrida e ocioso.
-	if not is_shooting:
+	if not is_jumping:
 		if is_running:
 			velocity.x = direction * SPEED
 			if animation.animation != "run":
 				animation.play("run")
+		elif is_jumping:
+			animation.play("jump")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			if animation.animation != "idle":
-				animation.play("idle")
+			animation.play("idle")
 
 	# Aplica o knockback se necessário
 	if knockback_vector.length() > 0:
