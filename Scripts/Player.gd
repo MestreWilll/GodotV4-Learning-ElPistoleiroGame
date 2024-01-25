@@ -4,7 +4,7 @@ const SPEED = 280.0
 const JUMP_VELOCITY = -550.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animation = $AnimatedSprite2D as AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D
 @onready var ray_left = $RayCast2D_Left as RayCast2D
 @onready var ray_right = $RayCast2D_Right as RayCast2D
@@ -14,54 +14,42 @@ var is_jumping = false
 var is_shooting = false  # Adiciona uma variável para rastrear o estado de atirar
 
 func _physics_process(delta):
-	# Adiciona a gravidade.
+	# Obtém a direção do input do usuário
+	var direction = Input.get_axis("move_left", "move_right")
+	# Atualiza a velocidade do personagem baseado na direção
+	velocity.x = direction * SPEED
+	# Atualiza a escala do sprite baseado na direção
+	sprite.scale.x = direction if direction != 0 else sprite.scale.x
+
+	# Se o personagem não está no chão, aplica a gravidade
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if is_jumping and velocity.y > 0 and animation.animation != "fall":
-		animation.play("fall")
+	else:
+		# Se o personagem está no chão e a velocidade vertical não é zero, define que não está pulando
+		if velocity.y != 0:
+			is_jumping = false
+		# Reseta a velocidade vertical
+		velocity.y = 0
 
-	# Manipula o pulo.
+	# Se o botão de pulo foi pressionado e o personagem está no chão, aplica a força do pulo
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
-		animation.play("jump")
-	elif is_on_floor():
-		is_jumping = false
 
-	# Manipula o movimento e as animações.
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction != 0:
-		animation.scale.x = direction
-	if Input.is_action_pressed("move_right"):
-		direction = 1.0
-		is_running = true
-	elif Input.is_action_pressed("move_left"):
-		direction = -1.0
-		is_running = true
-	else:
-		is_running = false
-
-	# Inicia a animação "shoot" quando a tecla F é pressionada.
-	if Input.is_action_pressed("ui_shoot") and not is_shooting:
-		is_shooting = true
-		animation.play("shoot")
-	# Para a animação "shoot" quando a tecla F é solta.
-	elif not Input.is_action_pressed("ui_shoot") and is_shooting:
-		is_shooting = false
-		animation.stop()
-		animation.frame = 4  # Retorna para o primeiro quadro da animação
-
-	# Se o jogador não estiver atirando, manipula as animações de corrida e ocioso.
-	if not is_jumping:
-		if is_running:
-			velocity.x = direction * SPEED
-			if animation.animation != "run":
-				animation.play("run")
-		elif is_jumping:
-			animation.play("jump")
+	# Se o personagem está no chão, verifica a direção para tocar a animação correta
+	if is_on_floor():
+		if direction != 0:
+			sprite.play("run")
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			animation.play("idle")
+			sprite.play("idle")
+	# Se o personagem está subindo, toca a animação de pulo
+	elif velocity.y < 0:
+		sprite.play("jump")
+	# Se o personagem está caindo, toca a animação de queda
+	elif velocity.y > 0:
+		sprite.play("fall")
+
+	# Aplica o movimento ao personagem
 
 	# Aplica o knockback se necessário
 	if knockback_vector.length() > 0:
@@ -108,7 +96,7 @@ func _on_hurtbox_body_entered(body):
 		knockback_vector = knockback_direction * 300  # Aumente a magnitude conforme necessário
 		
 		# Muda a cor do jogador para vermelho
-		animation.modulate = Color(1, 0, 0, 1)
+		sprite.modulate = Color(1, 0, 0, 1)
 		
 		# Aplica o knockback após um curto período de tempo
 		await get_tree().create_timer(0.1).timeout
@@ -116,7 +104,7 @@ func _on_hurtbox_body_entered(body):
 
 		# Retorna a cor do jogador para normal após um curto período de tempo
 		await get_tree().create_timer(0.2).timeout  # Ajuste a duração conforme necessário
-		animation.modulate = Color(1, 1, 1, 1)  # Cor branca (normal)
+		sprite.modulate = Color(1, 1, 1, 1)  # Cor branca (normal)
 
 		print("Vc tomou dano")
 

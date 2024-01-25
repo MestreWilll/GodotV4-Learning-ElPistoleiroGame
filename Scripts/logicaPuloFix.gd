@@ -1,14 +1,13 @@
 extends CharacterBody2D
 
 const SPEED = 300.0  # Velocidade constante do personagem
-const JUMP_FORCE = -400.0  # Força do pulo do personagem
+const JUMP_VELOCITY = -400.0  # Força do pulo do personagem
 
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós RigidBody.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var sprite := $AnimatedSprite2D as AnimatedSprite2D  # Sprite animado do personagem
 var is_jumping := false  # Variável para verificar se o personagem está pulando
-
 
 func _physics_process(delta):
 	# Obtém a direção do input do usuário
@@ -30,7 +29,7 @@ func _physics_process(delta):
 
 	# Se o botão de pulo foi pressionado e o personagem está no chão, aplica a força do pulo
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
-		velocity.y = JUMP_FORCE
+		velocity.y = JUMP_VELOCITY
 		is_jumping = true
 
 	# Se o personagem está no chão, verifica a direção para tocar a animação correta
