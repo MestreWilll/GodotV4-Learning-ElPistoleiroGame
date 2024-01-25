@@ -1,9 +1,10 @@
-[gd_scene load_steps=66 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=67 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Script" path="res://mundo_01.gd" id="1_861mi"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
 [ext_resource type="PackedScene" uid="uid://dqof5fh6dw7co" path="res://actor/morcegoentrada.tscn" id="3_hhx0m"]
 [ext_resource type="Texture2D" uid="uid://byae1g2l77an1" path="res://assets/El Pistoleiro de las noches/DALL·E 2024-01-12 14.24.44 - A clean 2D pixel art western-style background, extended horizontally for a video game level, with .png" id="4_76tf6"]
+[ext_resource type="PackedScene" uid="uid://cq86jeiu0h76n" path="res://actor/inimigo_teste2.tscn" id="4_ahlme"]
 [ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
 [ext_resource type="PackedScene" uid="uid://hhqnkdeq8tgd" path="res://actor/inimigo2.tscn" id="5_7w381"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="8_vcgeh"]
@@ -219,6 +220,12 @@ z_index = 3
 position = Vector2(2768, -197)
 scale = Vector2(3.16, 3.08)
 
+[node name="InimigoTeste" parent="InimigosTodos" instance=ExtResource("4_ahlme")]
+z_index = 3
+position = Vector2(3055, 257)
+scale = Vector2(1.8, 1.88)
+metadata/Direita = true
+
 [node name="Player" parent="." instance=ExtResource("3_4e3tx")]
 texture_filter = 1
 position = Vector2(2375, 252)
@@ -339,18 +346,21 @@ z_index = 1
 position = Vector2(2091, -380)
 scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
+metadata/_edit_lock_ = true
 
 [node name="Background3" type="Sprite2D" parent="Imagens de fundo"]
 z_index = 1
 position = Vector2(6342, -380)
 scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
+metadata/_edit_lock_ = true
 
 [node name="Background2" type="Sprite2D" parent="Imagens de fundo"]
 z_index = 1
 position = Vector2(-2160, -380)
 scale = Vector2(2.37221, 1.87012)
 texture = ExtResource("4_76tf6")
+metadata/_edit_lock_ = true
 
 [node name="Chão e Plataformas" type="Node2D" parent="."]
 z_index = 3
@@ -731,3 +741,4 @@ script = ExtResource("8_vcgeh")
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
+metadata/_edit_lock_ = true

@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cq86jeiu0h76n"]
+
+[ext_resource type="Script" path="res://Scripts/inimigo_teste2.gd" id="1_ew4wi"]
+[ext_resource type="Texture2D" uid="uid://t6keoi3pq18n" path="res://assets/El Pistoleiro de las noches/inimigoTeste3fix.png" id="1_opf25"]
+[ext_resource type="PackedScene" uid="uid://bheuo6dl64uvb" path="res://actor/hitbox.tscn" id="2_fj42a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwsl"]
+size = Vector2(47, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0irn6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_opf25")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_opf25")
+}],
+"loop": false,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_opf25")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7tpg"]
+size = Vector2(47, 6)
+
+[node name="InimigoTeste" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(0, -34)
+collision_layer = 4
+collision_mask = 35
+script = ExtResource("1_ew4wi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 0)
+shape = SubResource("RectangleShape2D_iuwsl")
+debug_color = Color(0.956863, 0, 0.533333, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0irn6")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(9, 0)
+target_position = Vector2(-26, 0)
+collision_mask = 2
+metadata/Direita = false
+
+[node name="hitbox" parent="." instance=ExtResource("2_fj42a")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(9.5, -37)
+shape = SubResource("RectangleShape2D_h7tpg")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

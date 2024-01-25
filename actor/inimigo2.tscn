@@ -61,7 +61,7 @@ script = ExtResource("1_rrmku")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vvnig")
-animation = &"walk"
+animation = &"hurt"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
