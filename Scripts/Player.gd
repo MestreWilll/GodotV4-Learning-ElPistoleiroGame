@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 280.0  # Velocidade constante do personagem
 const JUMP_VELOCITY = -550.0  # Força do pulo do personagem
 
+
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite2D as AnimatedSprite2D  # Sprite animado do personagem
@@ -10,12 +11,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ray_left = $RayCast2D_Left as RayCast2D  # Raycast para detecção de colisão à esquerda
 @onready var ray_right = $RayCast2D_Right as RayCast2D
 @onready var ray_detector = $RayCast2D_detector as RayCast2D  # Raycast para detecção de colisão à direita
+
+
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
 var is_jumping = false  # Variável para rastrear se o personagem está pulando
 var is_shooting = false  # Variável para rastrear se o personagem está atirando
 
 func _physics_process(delta):
+	
+
 	# Obtém a direção do input do usuário
 	var direction = Input.get_axis("move_left", "move_right")
 	# Atualiza a velocidade do personagem baseado na direção
@@ -122,3 +127,15 @@ func handle_collision(collider, direction):
 		print("Inimigo detectado à " + direction)
 		# Aqui você pode adicionar a lógica específica para quando um inimigo é detectado
 		# por exemplo, aplicar knockback na direção oposta
+const lines : Array[String] = [
+	"Olá aventureiro, aqui começa o game",
+	"Você está pronto?",
+	"Precisamos testar",
+	"vamos lá",
+]
+
+func _input(event):
+	# Acessa o DialogManager diretamente se for um singleton.
+	if event.is_action_pressed("interact") and not DialogManager.is_message_active:
+		DialogManager.start_message(global_position, lines)
+		print("ta passando")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ptsdilhs7433"]
+[gd_scene load_steps=89 format=3 uid="uid://ptsdilhs7433"]
 
 [ext_resource type="Script" path="res://mundo_01.gd" id="1_861mi"]
 [ext_resource type="PackedScene" uid="uid://dovawc3gc1aoy" path="res://actor/player.tscn" id="3_4e3tx"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cq86jeiu0h76n" path="res://actor/inimigo_teste2.tscn" id="4_ahlme"]
 [ext_resource type="PackedScene" uid="uid://bakewi2deters" path="res://coin/coin.tscn" id="4_yvnyr"]
 [ext_resource type="PackedScene" uid="uid://hhqnkdeq8tgd" path="res://actor/inimigo2.tscn" id="5_7w381"]
-[ext_resource type="Script" path="res://Scripts/label.gd" id="8_vcgeh"]
+[ext_resource type="Texture2D" uid="uid://da85vxl0uplcj" path="res://assets/El Pistoleiro de las noches/atencaoplaca.png" id="7_1msdf"]
+[ext_resource type="Script" path="res://Scripts/label.gd" id="8_ex0px"]
+[ext_resource type="Texture2D" uid="uid://mq35xy5ctugo" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="8_g5npo"]
 [ext_resource type="Texture2D" uid="uid://e0nut401un3b" path="res://assets/botoes android/ui_buttons_arrow_left_NORMAL.png" id="9_a5374"]
 [ext_resource type="Texture2D" uid="uid://d1j4dqq7mp38q" path="res://assets/botoes android/ui_buttons_arrow_left_PRESSED.png" id="10_f3rr4"]
 [ext_resource type="Texture2D" uid="uid://chaxxxxgw7v5l" path="res://assets/botoes android/ui_buttons_arrow_right_NORMAL.png" id="11_2q1d2"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bjpenmvi33ouh" path="res://assets/botoes android/ui_buttons_arrow_up_PRESSED.png" id="14_rxer2"]
 [ext_resource type="Texture2D" uid="uid://brt32sialmfa6" path="res://assets/botoes android/normalshoot.png" id="15_yqr8t"]
 [ext_resource type="Texture2D" uid="uid://8erleylxnij5" path="res://assets/botoes android/pressedshoot.png" id="16_l2jh4"]
+[ext_resource type="Script" path="res://Scripts/area_sign.gd" id="19_cq3pj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m6gr8"]
 
@@ -190,11 +193,86 @@ size = Vector2(301, 8.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6hp"]
 size = Vector2(481.5, 7.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ullqf"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe1js"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dccm1"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhpyh"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fubl6"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv7at"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvlea"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_127p0"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fq0w"]
+atlas = ExtResource("8_g5npo")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwkih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ullqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe1js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dccm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fubl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv7at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvlea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_127p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fq0w")
+}],
+"loop": true,
+"name": &"emotico",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkch6"]
+size = Vector2(685.072, 503.697)
+
 [node name="Mundo-01" type="Node2D"]
 position = Vector2(-1, 33)
 script = ExtResource("1_861mi")
 
 [node name="InimigosTodos" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Inimigo" parent="InimigosTodos" instance=ExtResource("5_7w381")]
 z_index = 3
@@ -236,6 +314,7 @@ metadata/Direita = true
 
 [node name="Coins" type="Node2D" parent="."]
 z_index = 3
+metadata/_edit_lock_ = true
 
 [node name="coin" parent="Coins" instance=ExtResource("4_yvnyr")]
 z_index = 2
@@ -367,6 +446,7 @@ metadata/_edit_lock_ = true
 
 [node name="Chão e Plataformas" type="Node2D" parent="."]
 z_index = 3
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão e Plataformas"]
 position = Vector2(244, 312)
@@ -374,6 +454,7 @@ scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_m6gr8")
+metadata/_edit_lock_ = true
 
 [node name="Plataforma1" type="CollisionShape2D" parent="Chão e Plataformas/StaticBody2D"]
 z_index = 2
@@ -722,6 +803,7 @@ drag_top_margin = 0.47
 drag_right_margin = 0.39
 editor_draw_limits = true
 editor_draw_drag_margin = true
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_4e3tx")]
 texture_filter = 1
@@ -740,7 +822,7 @@ offset_right = 7.5
 offset_bottom = 39.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 26
-script = ExtResource("8_vcgeh")
+script = ExtResource("8_ex0px")
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
@@ -753,6 +835,7 @@ scale = Vector2(3, 2.795)
 texture_normal = ExtResource("9_a5374")
 texture_pressed = ExtResource("10_f3rr4")
 action = "move_left"
+metadata/_edit_lock_ = true
 
 [node name="right" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
@@ -762,6 +845,7 @@ scale = Vector2(3, 2.796)
 texture_normal = ExtResource("11_2q1d2")
 texture_pressed = ExtResource("12_das8n")
 action = "move_right"
+metadata/_edit_lock_ = true
 
 [node name="jump" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
@@ -770,6 +854,7 @@ scale = Vector2(3, 2.949)
 texture_normal = ExtResource("13_v01le")
 texture_pressed = ExtResource("14_rxer2")
 action = "ui_jump"
+metadata/_edit_lock_ = true
 
 [node name="shoot" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
@@ -778,6 +863,7 @@ scale = Vector2(1.8, 1.62857)
 texture_normal = ExtResource("15_yqr8t")
 texture_pressed = ExtResource("16_l2jh4")
 action = "ui_shoot"
+metadata/_edit_lock_ = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 z_index = 3
@@ -787,3 +873,33 @@ scale = Vector2(1, 3.51859)
 target_position = Vector2(1.46387, 19.6057)
 collision_mask = 15
 collide_with_areas = true
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(2642, 267)
+
+[node name="Atencaoplaca" type="Sprite2D" parent="Node2D"]
+z_index = 3
+position = Vector2(-5.1875, -16.5)
+scale = Vector2(0.267125, 0.287871)
+texture = ExtResource("7_1msdf")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+z_index = 3
+collision_layer = 2
+script = ExtResource("19_cq3pj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Area2D"]
+show_behind_parent = true
+z_index = 2
+position = Vector2(-2.18823, -113.5)
+scale = Vector2(3.68752, 3.1875)
+sprite_frames = SubResource("SpriteFrames_fwkih")
+animation = &"emotico"
+autoplay = "emotico"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+z_index = 3
+position = Vector2(-3.68701, -10)
+scale = Vector2(0.267125, 0.287871)
+shape = SubResource("RectangleShape2D_lkch6")
