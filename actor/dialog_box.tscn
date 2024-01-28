@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo6at3gpy15ws"]
+
+[ext_resource type="Script" path="res://Scripts/dialog_box.gd" id="1_506js"]
+[ext_resource type="Texture2D" uid="uid://csbmdjky3whi5" path="res://assets/El Pistoleiro de las noches/Dialog_Box(16 x 16).png" id="1_jjqpe"]
+[ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/El Pistoleiro de las noches/RevMiniPixel.ttf" id="2_mwj1u"]
+
+[node name="dialog_box" type="MarginContainer"]
+offset_right = 62.0
+offset_bottom = 33.0
+script = ExtResource("1_506js")
+
+[node name="background" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_jjqpe")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="label_margin" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="text_label" type="Label" parent="label_margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("2_mwj1u")
+vertical_alignment = 1
+
+[node name="letter_timer_display" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="letter_timer_display" to="." method="_on_letter_timer_display_timeout"]

@@ -746,6 +746,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
 
 [node name="left" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 z_index = 3
 position = Vector2(24, 315)
 scale = Vector2(3, 2.795)
@@ -754,6 +755,7 @@ texture_pressed = ExtResource("10_f3rr4")
 action = "move_left"
 
 [node name="right" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 z_index = 3
 position = Vector2(149, 315)
 scale = Vector2(3, 2.796)
@@ -762,6 +764,7 @@ texture_pressed = ExtResource("12_das8n")
 action = "move_right"
 
 [node name="jump" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 position = Vector2(1144, 315)
 scale = Vector2(3, 2.949)
 texture_normal = ExtResource("13_v01le")
@@ -769,6 +772,7 @@ texture_pressed = ExtResource("14_rxer2")
 action = "ui_jump"
 
 [node name="shoot" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 position = Vector2(998, 299)
 scale = Vector2(1.8, 1.62857)
 texture_normal = ExtResource("15_yqr8t")

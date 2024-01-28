@@ -2,7 +2,7 @@ extends Node
 
 # This variable keeps track of the number of coins collected
 var coins_collected = 0
-
+var dialog_box
 # Function to increment the count of coins
 func add_coin():
 	coins_collected += 1
