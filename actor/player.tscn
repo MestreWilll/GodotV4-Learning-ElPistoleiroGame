@@ -115,10 +115,6 @@ collision_mask = 22
 script = ExtResource("1_ex7n1")
 metadata/physics_process = 0.0
 
-[node name="ShootAnimation" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
 position = Vector2(9, 4.5)
@@ -129,11 +125,6 @@ one_way_collision_margin = 0.0
 sprite_frames = SubResource("SpriteFrames_mgnms")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.571516
-
-[node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 metadata/physics_process = 0.0

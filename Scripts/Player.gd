@@ -127,15 +127,3 @@ func handle_collision(collider, direction):
 		print("Inimigo detectado à " + direction)
 		# Aqui você pode adicionar a lógica específica para quando um inimigo é detectado
 		# por exemplo, aplicar knockback na direção oposta
-const lines : Array[String] = [
-	"Olá aventureiro, aqui começa o game",
-	"Você está pronto?",
-	"Precisamos testar",
-	"vamos lá",
-]
-
-func _input(event):
-	# Acessa o DialogManager diretamente se for um singleton.
-	if event.is_action_pressed("interact") and not DialogManager.is_message_active:
-		DialogManager.start_message(global_position, lines)
-		print("ta passando")
