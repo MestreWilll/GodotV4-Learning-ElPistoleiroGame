@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3nudenty6mb1"]
+
+[ext_resource type="Script" path="res://Scripts/label.gd" id="1_3lxgu"]
+
+[node name="Label" type="Label"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.5
+offset_right = 7.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+script = ExtResource("1_3lxgu")
+metadata/_edit_use_anchors_ = true

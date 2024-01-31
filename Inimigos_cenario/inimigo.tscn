@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://hhqnkdeq8tgd"]
+
+[ext_resource type="Texture2D" uid="uid://bipkpxuu1pbhm" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="1_lx4q2"]
+[ext_resource type="Script" path="res://Scripts/inimigo3.gd" id="1_rrmku"]
+[ext_resource type="Texture2D" uid="uid://cr1m1k7hegvt5" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Standing (16 x 16).png" id="2_k3d0c"]
+[ext_resource type="Texture2D" uid="uid://cjjndly2teqcw" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="3_3q7oc"]
+[ext_resource type="PackedScene" uid="uid://bheuo6dl64uvb" path="res://actor/hitbox.tscn" id="5_5igf0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqcj6"]
+atlas = ExtResource("3_3q7oc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a014a"]
+atlas = ExtResource("3_3q7oc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvnig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lx4q2")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k3d0c")
+}],
+"loop": false,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqcj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a014a")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho1g0"]
+size = Vector2(14, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvc3s"]
+size = Vector2(12.5, 3)
+
+[node name="Inimigo" type="CharacterBody2D" groups=["enemies"]]
+texture_filter = 1
+position = Vector2(0, -8)
+collision_layer = 4
+collision_mask = 35
+up_direction = Vector2(0, 1)
+script = ExtResource("1_rrmku")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vvnig")
+animation = &"hurt"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ho1g0")
+debug_color = Color(0.878431, 0.321569, 0.282353, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(4, 0)
+target_position = Vector2(-12, 0)
+collision_mask = 2
+metadata/Direita = false
+
+[node name="hitbox" parent="." instance=ExtResource("5_5igf0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-0.25, -6)
+shape = SubResource("RectangleShape2D_lvc3s")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

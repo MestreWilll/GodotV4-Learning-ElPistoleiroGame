@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://c36rt551gfpw3"]
+
+[ext_resource type="Script" path="res://dialog_box-TOTAL/dialog_box.gd" id="1_gbogu"]
+
+[node name="dialog_box" type="MarginContainer"]
+texture_filter = 1
+offset_right = 355.0
+offset_bottom = 127.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_gbogu")
+
+[node name="background" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="label_margin" type="MarginContainer" parent="."]
+process_priority = 1
+process_physics_priority = 1
+visibility_layer = 1023
+z_index = 1
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="text_label" type="Label" parent="label_margin"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+vertical_alignment = 1
+
+[node name="letter_timer_display" type="Timer" parent="."]
+one_shot = true
