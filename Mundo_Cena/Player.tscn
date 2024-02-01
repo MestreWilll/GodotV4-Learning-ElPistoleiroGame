@@ -1,87 +1,87 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqj2pfvcswtgb"]
+[gd_scene load_steps=23 format=3 uid="uid://dqj2pfvcswtgb"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_f8lwe"]
-[ext_resource type="Texture2D" uid="uid://cnhnlu6wigrx0" path="res://assets/El Pistoleiro de las noches/NeW_Moving/FALL/FALL.png" id="2_htyuj"]
-[ext_resource type="Texture2D" uid="uid://ccph2ep63qavo" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE1.png" id="3_5eexq"]
-[ext_resource type="Texture2D" uid="uid://c2dacrqq35hof" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE2.png" id="4_72dtk"]
-[ext_resource type="Texture2D" uid="uid://c4ptlkfa1ypst" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE3.png" id="5_u0v1i"]
-[ext_resource type="Texture2D" uid="uid://cbmh57wwpvfij" path="res://assets/El Pistoleiro de las noches/NeW_Moving/IDLE/IDLE4.png" id="6_jw8a3"]
-[ext_resource type="Texture2D" uid="uid://b4y2m4krdjwuk" path="res://assets/El Pistoleiro de las noches/NeW_Moving/JUMP/JUMP.png" id="7_cdqdg"]
-[ext_resource type="Texture2D" uid="uid://bhhc58pe22ltk" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN1.png" id="8_sjc2l"]
-[ext_resource type="Texture2D" uid="uid://dad82lnjfi2q3" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN2.png" id="9_h3bwn"]
-[ext_resource type="Texture2D" uid="uid://la23oreoakly" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN3.png" id="10_ftg4f"]
-[ext_resource type="Texture2D" uid="uid://do4ihh0tgfj1t" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN4.png" id="11_iokuf"]
-[ext_resource type="Texture2D" uid="uid://b3kuoct8n7wrf" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN5.png" id="12_jk1wk"]
-[ext_resource type="Texture2D" uid="uid://ce6mfa8jxfrlm" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN6.png" id="13_fer7t"]
-[ext_resource type="Texture2D" uid="uid://cnno6e0fv4eje" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN7.png" id="14_rv6eo"]
-[ext_resource type="Texture2D" uid="uid://djdpt55y210hl" path="res://assets/El Pistoleiro de las noches/NeW_Moving/RUN/RUN8.png" id="15_4fdda"]
-[ext_resource type="Texture2D" uid="uid://h67oivxcscmo" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot1.png" id="16_4jbrl"]
-[ext_resource type="Texture2D" uid="uid://6enq71l542jw" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot2.png" id="17_skqpu"]
-[ext_resource type="Texture2D" uid="uid://1hjyebdgeic7" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot3.png" id="18_y7tbv"]
-[ext_resource type="Texture2D" uid="uid://c6nomjgea3ewq" path="res://assets/El Pistoleiro de las noches/SHOOT/shoot4.png" id="19_s4ib6"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_7a0dn"]
+[ext_resource type="Texture2D" uid="uid://bn7hg5ypxxx38" path="res://Sprites Pistoleiro-Player-/FALL/FALL.png" id="2_f7p4u"]
+[ext_resource type="Texture2D" uid="uid://ii8e6lmv3n1" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE1.png" id="3_gip5u"]
+[ext_resource type="Texture2D" uid="uid://dqmw1b5j457h3" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE2.png" id="4_y8c17"]
+[ext_resource type="Texture2D" uid="uid://cud1qqxcweidw" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE3.png" id="5_lgysy"]
+[ext_resource type="Texture2D" uid="uid://c1alj4b8qfyc" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE4.png" id="6_tlkmp"]
+[ext_resource type="Texture2D" uid="uid://cs70aloh6i2m4" path="res://Sprites Pistoleiro-Player-/JUMP/JUMP.png" id="7_mwnrl"]
+[ext_resource type="Texture2D" uid="uid://cqsm3jkyrkbll" path="res://Sprites Pistoleiro-Player-/RUN/RUN1.png" id="8_wf0qo"]
+[ext_resource type="Texture2D" uid="uid://d1hunym2kivd1" path="res://Sprites Pistoleiro-Player-/RUN/RUN2.png" id="9_1e2e5"]
+[ext_resource type="Texture2D" uid="uid://dni0iqkfjue51" path="res://Sprites Pistoleiro-Player-/RUN/RUN3.png" id="10_1ksrd"]
+[ext_resource type="Texture2D" uid="uid://d3e3gje0ixe8m" path="res://Sprites Pistoleiro-Player-/RUN/RUN4.png" id="11_p7vlv"]
+[ext_resource type="Texture2D" uid="uid://da4xrw1yslxhl" path="res://Sprites Pistoleiro-Player-/RUN/RUN5.png" id="12_ggfjs"]
+[ext_resource type="Texture2D" uid="uid://bnhtmfappg34a" path="res://Sprites Pistoleiro-Player-/RUN/RUN6.png" id="13_3hmql"]
+[ext_resource type="Texture2D" uid="uid://cdlpnl76qc671" path="res://Sprites Pistoleiro-Player-/RUN/RUN7.png" id="14_8xs2k"]
+[ext_resource type="Texture2D" uid="uid://coci4mc44mx4f" path="res://Sprites Pistoleiro-Player-/RUN/RUN8.png" id="15_vf1fp"]
+[ext_resource type="Texture2D" uid="uid://cvir4um6veiyj" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot1.png" id="16_r66kt"]
+[ext_resource type="Texture2D" uid="uid://dma2wrpwyuq1i" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot2.png" id="17_x486n"]
+[ext_resource type="Texture2D" uid="uid://c3jwjlhopg2sm" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot3.png" id="18_tq52j"]
+[ext_resource type="Texture2D" uid="uid://chtf7p2eomrc1" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot4.png" id="19_td1ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6cqt"]
-size = Vector2(42, 64.5)
+size = Vector2(42, 63)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q7dco"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_htyuj")
+"texture": ExtResource("2_f7p4u")
 }],
-"loop": true,
+"loop": false,
 "name": &"fall",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_5eexq")
+"texture": ExtResource("3_gip5u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_72dtk")
+"texture": ExtResource("4_y8c17")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_u0v1i")
+"texture": ExtResource("5_lgysy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jw8a3")
+"texture": ExtResource("6_tlkmp")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_cdqdg")
+"texture": ExtResource("7_mwnrl")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_sjc2l")
+"texture": ExtResource("8_wf0qo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_h3bwn")
+"texture": ExtResource("9_1e2e5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_ftg4f")
+"texture": ExtResource("10_1ksrd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_iokuf")
+"texture": ExtResource("11_p7vlv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_jk1wk")
+"texture": ExtResource("12_ggfjs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_fer7t")
+"texture": ExtResource("13_3hmql")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_rv6eo")
+"texture": ExtResource("14_8xs2k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_4fdda")
+"texture": ExtResource("15_vf1fp")
 }],
 "loop": true,
 "name": &"run",
@@ -89,40 +89,72 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_4jbrl")
+"texture": ExtResource("16_r66kt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_skqpu")
+"texture": ExtResource("17_x486n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_y7tbv")
+"texture": ExtResource("18_tq52j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_s4ib6")
+"texture": ExtResource("19_td1ov")
 }],
 "loop": true,
 "name": &"shoot",
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -34)
-collision_mask = 2
-script = ExtResource("1_f8lwe")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
+size = Vector2(62, 62)
 
-[node name="colisao_player" type="CollisionShape2D" parent="."]
-position = Vector2(9, 1.75)
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -67)
+collision_mask = 22
+script = ExtResource("1_7a0dn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_b6cqt")
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"idle"
 autoplay = "idle"
-
-[node name="detector" type="RayCast2D" parent="."]
-position = Vector2(9, 2)
-target_position = Vector2(0, 35)
+frame_progress = 0.895175
 
 [node name="remote" type="RemoteTransform2D" parent="."]
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(9.99997, 2)
+rotation = 1.58237
+target_position = Vector2(1, 31)
+collision_mask = 4
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(2, 2)
+rotation = -4.6945
+target_position = Vector2(-0.621185, -31.0099)
+collision_mask = 20
+
+[node name="RayCast2D_detector" type="RayCast2D" parent="."]
+position = Vector2(9, 2)
+target_position = Vector2(0, 33)
+collision_mask = 15
+collide_with_areas = true
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(5, -4)
+shape = SubResource("RectangleShape2D_ccort")
+debug_color = Color(0.945098, 0, 0.592157, 0.419608)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

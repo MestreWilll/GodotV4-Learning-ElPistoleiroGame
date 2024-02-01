@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="Texture2D" uid="uid://mq35xy5ctugo" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="3_dc3ox"]
 [ext_resource type="PackedScene" uid="uid://cfnyuu32cwn6w" path="res://Cenas/coin.tscn" id="4_0hs4u"]
-[ext_resource type="PackedScene" uid="uid://dpm5w85bfssmn" path="res://Cenas/playerfix.tscn" id="4_ap70y"]
 [ext_resource type="Texture2D" uid="uid://da85vxl0uplcj" path="res://assets/Pistoleiro_Assets/atencaoplaca.png" id="4_fkgjp"]
 [ext_resource type="Texture2D" uid="uid://rh7w05yfddve" path="res://assets/botoes android/ui_buttons_arrow_up_NORMAL.png" id="4_ibqla"]
 [ext_resource type="PackedScene" uid="uid://clbosv3iupdp3" path="res://coin/label.tscn" id="5_70wpw"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b12qp8vjxx0df" path="res://assets/botoes android/ui_buttons_arrow_right_PRESSED.png" id="9_ndxwf"]
 [ext_resource type="Texture2D" uid="uid://brt32sialmfa6" path="res://assets/botoes android/normalshoot.png" id="10_irduj"]
 [ext_resource type="Texture2D" uid="uid://8erleylxnij5" path="res://assets/botoes android/pressedshoot.png" id="11_f3rir"]
+[ext_resource type="PackedScene" uid="uid://dqj2pfvcswtgb" path="res://Mundo_Cena/Player.tscn" id="17_gp6f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -240,476 +240,473 @@ animations = [{
 }]
 
 [node name="Mundo" type="Node2D"]
+position = Vector2(-1, 33)
 script = ExtResource("1_51f4x")
 
-[node name="Player" parent="." instance=ExtResource("4_ap70y")]
-z_index = 1
-texture_filter = 1
+[node name="Plataforma-Chão" type="Node2D" parent="."]
 
-[node name="Plataforma, chão, BG" type="Node2D" parent="."]
-
-[node name="Chão_limites" type="StaticBody2D" parent="Plataforma, chão, BG"]
+[node name="Chão_limites" type="StaticBody2D" parent="Plataforma-Chão"]
 collision_layer = 2
 collision_mask = 0
 
-[node name="Chão1" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão1" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(1072.75, 315.5)
 shape = SubResource("RectangleShape2D_n8b77")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Chão2" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão2" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(1074.25, -642.875)
 shape = SubResource("RectangleShape2D_5i336")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Chão7" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão7" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(1069, 385.938)
 shape = SubResource("RectangleShape2D_lk5s5")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Chão3" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão3" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(-73.25, -145)
 shape = SubResource("RectangleShape2D_0osoi")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Chão4" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão4" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(74.25, 254)
 shape = SubResource("RectangleShape2D_54nc0")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Chão5" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão5" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(2214, -141.375)
 shape = SubResource("RectangleShape2D_8ubel")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Chão6" type="CollisionShape2D" parent="Plataforma, chão, BG/Chão_limites"]
+[node name="Chão6" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
 position = Vector2(2071.25, 253.5)
 shape = SubResource("RectangleShape2D_5b4b0")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
-[node name="Plataformas" type="StaticBody2D" parent="Plataforma, chão, BG"]
+[node name="Plataformas" type="StaticBody2D" parent="Plataforma-Chão"]
 collision_layer = 2
 collision_mask = 0
 
-[node name="Plataforma1" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma1" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(502, -71)
 shape = SubResource("RectangleShape2D_swt1c")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma62" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma62" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(556, -71)
 shape = SubResource("RectangleShape2D_swt1c")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma63" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma63" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(529, -65)
 shape = SubResource("RectangleShape2D_y7ysk")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma64" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma64" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(357, -219)
 shape = SubResource("RectangleShape2D_swt1c")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma65" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma65" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(411, -219)
 shape = SubResource("RectangleShape2D_swt1c")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma66" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma66" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(384, -210)
 shape = SubResource("RectangleShape2D_y7ysk")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma22" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma22" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1855, -85)
 shape = SubResource("RectangleShape2D_emvgk")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma23" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma23" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1443, -90.5)
 shape = SubResource("RectangleShape2D_jvlcn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma24" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma24" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1855, 46.25)
 shape = SubResource("RectangleShape2D_cnpid")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma25" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma25" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1816, 142.5)
 shape = SubResource("RectangleShape2D_f0atg")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma55" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma55" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1817.5, 86.5)
 shape = SubResource("RectangleShape2D_dxe1t")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma56" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma56" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1917, 86)
 shape = SubResource("RectangleShape2D_dxe1t")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma58" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma58" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(2029.5, 111)
 shape = SubResource("RectangleShape2D_nynup")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma52" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma52" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1700.5, 152.25)
 shape = SubResource("RectangleShape2D_ljg25")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma53" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma53" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1617, 58)
 shape = SubResource("RectangleShape2D_ljg25")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma67" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma67" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1643.75, 68.875)
 shape = SubResource("RectangleShape2D_e277g")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma54" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma54" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1670, 59)
 shape = SubResource("RectangleShape2D_ljg25")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma59" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma59" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1712.75, -52)
 shape = SubResource("RectangleShape2D_3kax1")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma60" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma60" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1883, -52)
 shape = SubResource("RectangleShape2D_3kax1")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma61" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma61" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1998, -52)
 shape = SubResource("RectangleShape2D_3kax1")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma47" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma47" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1917, 142.5)
 shape = SubResource("RectangleShape2D_f0atg")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma48" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma48" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1850, 204.75)
 shape = SubResource("RectangleShape2D_8mam3")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma57" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma57" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1755.5, 203.125)
 shape = SubResource("RectangleShape2D_duhqb")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma51" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma51" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1850, 239)
 shape = SubResource("RectangleShape2D_8mam3")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma49" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma49" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1921, 203.25)
 shape = SubResource("RectangleShape2D_moxki")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma50" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma50" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1921, 286.25)
 shape = SubResource("RectangleShape2D_r5fks")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma26" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma26" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1563.5, 121.5)
 shape = SubResource("RectangleShape2D_idj7i")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma27" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma27" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(742, 279.5)
 shape = SubResource("RectangleShape2D_3vo06")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma45" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma45" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1028.5, 285.25)
 shape = SubResource("RectangleShape2D_tn7hw")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma46" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma46" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1462.25, 266.875)
 shape = SubResource("RectangleShape2D_x454u")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma28" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma28" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1020.5, 150)
 shape = SubResource("RectangleShape2D_dy7ic")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma44" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma44" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1194.75, 78.5)
 shape = SubResource("RectangleShape2D_g63nl")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma29" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma29" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(515.5, -151)
 shape = SubResource("RectangleShape2D_ncdj3")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma30" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma30" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(673, -193.75)
 shape = SubResource("RectangleShape2D_hv178")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma42" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma42" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(761, -190.625)
 shape = SubResource("RectangleShape2D_f3l3h")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma43" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma43" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(811, -190.625)
 shape = SubResource("RectangleShape2D_f3l3h")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma31" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma31" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(484.5, -195.375)
 shape = SubResource("RectangleShape2D_j2l5s")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma40" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma40" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(576.75, -241.313)
 shape = SubResource("RectangleShape2D_safse")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma41" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma41" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(576.75, -200.313)
 shape = SubResource("RectangleShape2D_safse")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma32" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma32" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(204.5, -273.75)
 shape = SubResource("RectangleShape2D_tsn3n")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma39" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma39" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(204.5, -209.75)
 shape = SubResource("RectangleShape2D_tsn3n")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma33" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma33" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(175, -41.5)
 shape = SubResource("RectangleShape2D_a5mhv")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma34" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma34" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(147, -104.375)
 shape = SubResource("RectangleShape2D_uuwnn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma38" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma38" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(268, -105)
 shape = SubResource("RectangleShape2D_uuwnn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma35" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma35" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(674, -6.5)
 shape = SubResource("RectangleShape2D_0wxp6")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma36" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma36" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(431.75, -46)
 shape = SubResource("RectangleShape2D_fwx7m")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma37" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma37" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(300, 1.5)
 shape = SubResource("RectangleShape2D_uaayl")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma2" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma2" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(210, 68.375)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma15" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma15" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(267, 68.375)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma16" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma16" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(342, 68.375)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma17" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma17" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(404, 68.375)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma18" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma18" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(210, 129)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma19" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma19" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(266, 129)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma20" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma20" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(342, 129)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma21" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma21" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(403, 129)
 shape = SubResource("RectangleShape2D_iah72")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma3" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma3" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(620.5, 129.5)
 shape = SubResource("RectangleShape2D_wpbdf")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma4" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma4" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(536.5, 130.25)
 shape = SubResource("RectangleShape2D_1agop")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma5" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma5" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(115, 112)
 shape = SubResource("RectangleShape2D_jqssq")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma6" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma6" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(413.5, 193.25)
 shape = SubResource("RectangleShape2D_5b6xu")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma7" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma7" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(557.5, 274)
 shape = SubResource("RectangleShape2D_1bpss")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma8" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma8" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(380.5, 274)
 shape = SubResource("RectangleShape2D_aqrt4")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma9" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma9" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(175.75, 221)
 shape = SubResource("RectangleShape2D_lpadn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma12" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma12" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(296, 223)
 shape = SubResource("RectangleShape2D_lpadn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma13" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma13" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(467, 224)
 shape = SubResource("RectangleShape2D_lpadn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma14" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma14" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(648, 223)
 shape = SubResource("RectangleShape2D_lpadn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma10" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma10" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(163.5, 277)
 shape = SubResource("RectangleShape2D_5ahfi")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="Plataforma11" type="CollisionShape2D" parent="Plataforma, chão, BG/Plataformas"]
+[node name="Plataforma11" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(236.5, 273.5)
 shape = SubResource("RectangleShape2D_3bqxm")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
-[node name="BackGround" type="Node" parent="Plataforma, chão, BG"]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="background" type="Sprite2D" parent="Plataforma, chão, BG/BackGround"]
+[node name="background" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
 position = Vector2(1073, -74.5)
 scale = Vector2(1.19308, 1.02246)
 texture = ExtResource("6_utkvq")
 
-[node name="background_left" type="Sprite2D" parent="Plataforma, chão, BG/BackGround"]
+[node name="background_left" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
 position = Vector2(-1065, -74.5)
 scale = Vector2(1.19308, 1.02246)
 texture = ExtResource("6_utkvq")
 
-[node name="background_right" type="Sprite2D" parent="Plataforma, chão, BG/BackGround"]
+[node name="background_right" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
 position = Vector2(3211, -74.5)
@@ -840,51 +837,12 @@ scale = Vector2(-0.941679, 1.06807)
 position = Vector2(1505, 23)
 scale = Vector2(-0.941679, 1.06807)
 
-[node name="dialog_box" type="Node2D" parent="Itens"]
-position = Vector2(737, 230)
-
-[node name="Atencaoplaca" type="Sprite2D" parent="Itens/dialog_box"]
-position = Vector2(3, 8.00002)
-scale = Vector2(0.138976, 0.136138)
-texture = ExtResource("4_fkgjp")
-
-[node name="Area2D" type="Area2D" parent="Itens/dialog_box"]
-position = Vector2(1, 0)
-script = ExtResource("6_7wm86")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/dialog_box/Area2D"]
-z_index = 3
-texture_filter = 1
-position = Vector2(2.25, 4)
-shape = SubResource("RectangleShape2D_ldd55")
-debug_color = Color(0.141176, 0.113725, 0.0117647, 0.419608)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Itens/dialog_box/Area2D"]
-texture_filter = 1
-position = Vector2(1, -48)
-scale = Vector2(1.6875, 1.5)
-sprite_frames = SubResource("SpriteFrames_ojflg")
-animation = &"emotico"
-autoplay = "emotico"
-frame_progress = 0.806664
-
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
 
 [node name="Mob_Simples" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
 position = Vector2(251, 294)
 scale = Vector2(2.12, 1.99075)
 collision_mask = 19
-
-[node name="camera" type="Camera2D" parent="."]
-position = Vector2(851, 196)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.18
-drag_top_margin = 0.0
-drag_right_margin = 0.18
-drag_bottom_margin = 0.51
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="Controls" type="CanvasLayer" parent="."]
 
@@ -894,36 +852,87 @@ editor_draw_drag_margin = true
 metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
-visible = false
-position = Vector2(1131, 315)
-scale = Vector2(2, 2)
+texture_filter = 1
+position = Vector2(1066, 351)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("4_ibqla")
 texture_pressed = ExtResource("5_pc568")
-action = "jump"
+action = "ui_jump"
 
 [node name="move_left" type="TouchScreenButton" parent="Controls"]
-visible = false
-position = Vector2(41, 315)
-scale = Vector2(2, 2)
+texture_filter = 1
+position = Vector2(27, 351)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("6_weawc")
 texture_pressed = ExtResource("7_2pq8w")
 action = "move_left"
 
 [node name="move_right" type="TouchScreenButton" parent="Controls"]
-visible = false
-position = Vector2(115, 315)
-scale = Vector2(2, 2)
+texture_filter = 1
+position = Vector2(130, 351)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("8_45012")
 texture_pressed = ExtResource("9_ndxwf")
 action = "move_right"
 
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
-visible = false
-position = Vector2(1206, 315)
-scale = Vector2(1, 0.885714)
+texture_filter = 1
+position = Vector2(1165, 357)
+scale = Vector2(1.38571, 1.22857)
 texture_normal = ExtResource("10_irduj")
 texture_pressed = ExtResource("11_f3rir")
-action = "shoot"
+action = "ui_shoot"
 
 [node name="RayCast2D" type="RayCast2D" parent="Controls"]
 position = Vector2(1466, 266)
+
+[node name="Player" parent="." instance=ExtResource("17_gp6f1")]
+position = Vector2(929, 274)
+
+[node name="dialog_box" type="Node2D" parent="."]
+position = Vector2(737, 230)
+
+[node name="Atencaoplaca" type="Sprite2D" parent="dialog_box"]
+visible = false
+position = Vector2(3, 8.00002)
+scale = Vector2(0.138976, 0.136138)
+texture = ExtResource("4_fkgjp")
+
+[node name="Area2D" type="Area2D" parent="dialog_box"]
+visible = false
+position = Vector2(1, 0)
+script = ExtResource("6_7wm86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialog_box/Area2D"]
+visible = false
+z_index = 3
+texture_filter = 1
+position = Vector2(2.25, 4)
+shape = SubResource("RectangleShape2D_ldd55")
+debug_color = Color(0.141176, 0.113725, 0.0117647, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="dialog_box/Area2D"]
+visible = false
+texture_filter = 1
+position = Vector2(1, -48)
+scale = Vector2(1.6875, 1.5)
+sprite_frames = SubResource("SpriteFrames_ojflg")
+animation = &"emotico"
+autoplay = "emotico"
+frame_progress = 0.806664
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(794, 358)
+rotation = 3.14159
+scale = Vector2(5.74822, -157.592)
+limit_top = -560
+limit_bottom = 450
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = -1.0
+drag_left_margin = 0.29
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true

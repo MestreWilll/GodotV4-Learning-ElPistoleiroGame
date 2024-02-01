@@ -126,7 +126,6 @@ autoplay = "idle"
 frame_progress = 0.895175
 
 [node name="remote" type="RemoteTransform2D" parent="."]
-visible = false
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="."]
 position = Vector2(9.99997, 2)

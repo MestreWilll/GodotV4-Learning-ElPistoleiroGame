@@ -1,0 +1,160 @@
+[gd_scene load_steps=23 format=3 uid="uid://b5761w3a28x34"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ow4ck"]
+[ext_resource type="Texture2D" uid="uid://bn7hg5ypxxx38" path="res://Sprites Pistoleiro-Player-/FALL/FALL.png" id="2_kth5q"]
+[ext_resource type="Texture2D" uid="uid://ii8e6lmv3n1" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE1.png" id="3_atyhr"]
+[ext_resource type="Texture2D" uid="uid://dqmw1b5j457h3" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE2.png" id="4_xm4e1"]
+[ext_resource type="Texture2D" uid="uid://cud1qqxcweidw" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE3.png" id="5_tpw21"]
+[ext_resource type="Texture2D" uid="uid://c1alj4b8qfyc" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE4.png" id="6_xbe6v"]
+[ext_resource type="Texture2D" uid="uid://cs70aloh6i2m4" path="res://Sprites Pistoleiro-Player-/JUMP/JUMP.png" id="7_yae13"]
+[ext_resource type="Texture2D" uid="uid://cqsm3jkyrkbll" path="res://Sprites Pistoleiro-Player-/RUN/RUN1.png" id="8_r1gb0"]
+[ext_resource type="Texture2D" uid="uid://d1hunym2kivd1" path="res://Sprites Pistoleiro-Player-/RUN/RUN2.png" id="9_lfl2w"]
+[ext_resource type="Texture2D" uid="uid://dni0iqkfjue51" path="res://Sprites Pistoleiro-Player-/RUN/RUN3.png" id="10_hiqxg"]
+[ext_resource type="Texture2D" uid="uid://d3e3gje0ixe8m" path="res://Sprites Pistoleiro-Player-/RUN/RUN4.png" id="11_dqldg"]
+[ext_resource type="Texture2D" uid="uid://da4xrw1yslxhl" path="res://Sprites Pistoleiro-Player-/RUN/RUN5.png" id="12_p3127"]
+[ext_resource type="Texture2D" uid="uid://bnhtmfappg34a" path="res://Sprites Pistoleiro-Player-/RUN/RUN6.png" id="13_oswxt"]
+[ext_resource type="Texture2D" uid="uid://cdlpnl76qc671" path="res://Sprites Pistoleiro-Player-/RUN/RUN7.png" id="14_2o5h1"]
+[ext_resource type="Texture2D" uid="uid://coci4mc44mx4f" path="res://Sprites Pistoleiro-Player-/RUN/RUN8.png" id="15_mplsr"]
+[ext_resource type="Texture2D" uid="uid://cvir4um6veiyj" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot1.png" id="16_pxbe2"]
+[ext_resource type="Texture2D" uid="uid://dma2wrpwyuq1i" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot2.png" id="17_3wp2t"]
+[ext_resource type="Texture2D" uid="uid://c3jwjlhopg2sm" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot3.png" id="18_uvry7"]
+[ext_resource type="Texture2D" uid="uid://chtf7p2eomrc1" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot4.png" id="19_5kqpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6cqt"]
+size = Vector2(42, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7dco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kth5q")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_atyhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xm4e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tpw21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xbe6v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_yae13")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_r1gb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lfl2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hiqxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dqldg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p3127")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_oswxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2o5h1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mplsr")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_pxbe2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3wp2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_uvry7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5kqpg")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
+size = Vector2(62, 62)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+texture_filter = 1
+position = Vector2(826, 275)
+collision_mask = 22
+script = ExtResource("1_ow4ck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 2.5)
+shape = SubResource("RectangleShape2D_b6cqt")
+debug_color = Color(0.67451, 0.505882, 0, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_q7dco")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.895175
+
+[node name="remote" type="RemoteTransform2D" parent="."]
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(9.99997, 2)
+rotation = 1.58237
+target_position = Vector2(1, 31)
+collision_mask = 4
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(2, 2)
+rotation = -4.6945
+target_position = Vector2(-0.621185, -31.0099)
+collision_mask = 20
+
+[node name="RayCast2D_detector" type="RayCast2D" parent="."]
+position = Vector2(9, 2)
+target_position = Vector2(0, 33)
+collision_mask = 15
+collide_with_areas = true
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(5, -4)
+shape = SubResource("RectangleShape2D_ccort")
+debug_color = Color(0.945098, 0, 0.592157, 0.419608)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
