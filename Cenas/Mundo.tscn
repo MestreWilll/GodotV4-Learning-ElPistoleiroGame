@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=85 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="Texture2D" uid="uid://mq35xy5ctugo" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="3_dc3ox"]
@@ -16,7 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://b12qp8vjxx0df" path="res://assets/botoes android/ui_buttons_arrow_right_PRESSED.png" id="9_ndxwf"]
 [ext_resource type="Texture2D" uid="uid://brt32sialmfa6" path="res://assets/botoes android/normalshoot.png" id="10_irduj"]
 [ext_resource type="Texture2D" uid="uid://8erleylxnij5" path="res://assets/botoes android/pressedshoot.png" id="11_f3rir"]
+[ext_resource type="Texture2D" uid="uid://dccytidrctjb6" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxNORMAL.png" id="15_0jq31"]
+[ext_resource type="Texture2D" uid="uid://clgq0eeqkjvo" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxPRESSED.png" id="16_ml3m5"]
 [ext_resource type="PackedScene" uid="uid://dqj2pfvcswtgb" path="res://Mundo_Cena/Player.tscn" id="17_gp6f1"]
+[ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="17_vtykn"]
+[ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="18_dxarg"]
+[ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -164,6 +169,34 @@ size = Vector2(15, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bqxm"]
 size = Vector2(109, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfyqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_0jq31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ml3m5")
+}],
+"loop": true,
+"name": &"pressdiaolog_box",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0s5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_vtykn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dxarg")
+}],
+"loop": true,
+"name": &"advance_message_BOTAO",
+"speed": 1.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cumi"]
 atlas = ExtResource("3_dc3ox")
@@ -692,6 +725,12 @@ debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Background" type="Node2D" parent="."]
 
+[node name="Atencaoplaca" type="Sprite2D" parent="Background"]
+position = Vector2(740, 238)
+scale = Vector2(0.138976, 0.136138)
+texture = ExtResource("4_fkgjp")
+metadata/_edit_lock_ = true
+
 [node name="background" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
@@ -855,7 +894,6 @@ collision_mask = 19
 metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(1066, 351)
 scale = Vector2(3, 3)
@@ -865,7 +903,6 @@ action = "ui_jump"
 metadata/_edit_lock_ = true
 
 [node name="move_left" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(27, 351)
 scale = Vector2(3, 3)
@@ -875,7 +912,6 @@ action = "move_left"
 metadata/_edit_lock_ = true
 
 [node name="move_right" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(130, 351)
 scale = Vector2(3, 3)
@@ -885,7 +921,6 @@ action = "move_right"
 metadata/_edit_lock_ = true
 
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(1165, 357)
 scale = Vector2(1.38571, 1.22857)
@@ -894,6 +929,22 @@ texture_pressed = ExtResource("11_f3rir")
 action = "ui_shoot"
 metadata/_edit_lock_ = true
 
+[node name="dialog_box" type="TouchScreenButton" parent="Controls"]
+texture_filter = 1
+position = Vector2(5, 5)
+scale = Vector2(0.195279, 0.197505)
+texture_normal = ExtResource("15_0jq31")
+texture_pressed = ExtResource("16_ml3m5")
+action = "interact"
+
+[node name="advance_message" type="TouchScreenButton" parent="Controls"]
+texture_filter = 1
+position = Vector2(1182, 5)
+scale = Vector2(0.195, 0.198)
+texture_normal = ExtResource("17_vtykn")
+texture_pressed = ExtResource("18_dxarg")
+action = "advance_message"
+
 [node name="RayCast2D" type="RayCast2D" parent="Controls"]
 position = Vector2(1466, 266)
 
@@ -901,23 +952,53 @@ position = Vector2(1466, 266)
 position = Vector2(929, 274)
 
 [node name="dialog_box" type="Node2D" parent="."]
-position = Vector2(737, 230)
+position = Vector2(737, 110)
 script = ExtResource("6_7wm86")
 
+[node name="botaoDialogo_box" type="AnimatedSprite2D" parent="dialog_box"]
+position = Vector2(1, 49)
+scale = Vector2(0.0418454, 0.0410603)
+sprite_frames = SubResource("SpriteFrames_gfyqq")
+animation = &"pressdiaolog_box"
+autoplay = "pressdiaolog_box"
+frame_progress = 0.985615
+
+[node name="botaoAdvance_message" type="AnimatedSprite2D" parent="dialog_box"]
+position = Vector2(88, 50)
+scale = Vector2(0.0386266, 0.04158)
+sprite_frames = SubResource("SpriteFrames_a0s5a")
+animation = &"advance_message_BOTAO"
+autoplay = "advance_message_BOTAO"
+frame_progress = 0.345854
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="dialog_box"]
-visible = false
 texture_filter = 1
-position = Vector2(2, -48)
+position = Vector2(3, 72)
 scale = Vector2(1.6875, 1.5)
 sprite_frames = SubResource("SpriteFrames_ojflg")
 animation = &"emotico"
 autoplay = "emotico"
 frame_progress = 0.806664
 
-[node name="Atencaoplaca" type="Sprite2D" parent="dialog_box"]
-position = Vector2(3, 8.00002)
-scale = Vector2(0.138976, 0.136138)
-texture = ExtResource("4_fkgjp")
+[node name="press" type="Label" parent="dialog_box"]
+offset_left = -73.0
+offset_top = 41.0
+offset_right = -11.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "Aperte:"
+
+[node name="press2" type="Label" parent="dialog_box"]
+offset_left = 16.0
+offset_top = 41.0
+offset_right = 77.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "Avança:"
 
 [node name="Area2D" type="Area2D" parent="dialog_box"]
 position = Vector2(1, 0)
@@ -925,7 +1006,7 @@ position = Vector2(1, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialog_box/Area2D"]
 z_index = 3
 texture_filter = 1
-position = Vector2(2.25, 4)
+position = Vector2(2.25, 124)
 shape = SubResource("RectangleShape2D_ldd55")
 debug_color = Color(0.141176, 0.113725, 0.0117647, 0.419608)
 

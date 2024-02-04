@@ -1,18 +1,41 @@
-extends Node2D  # Esta classe estende Area2D, que é uma classe base para áreas 2D.
-
-
+extends Node2D  # Esta classe estende Node2D.
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_2d = $Area2D
+@onready var press = $press  # Assume-se que press é um Node que pode ser mostrado ou escondido, como um Label.
+@onready var spritedialog1 = $botaoDialogo_box
+@onready var spritedialog2 = $botaoAdvance_message
+@onready var press2 = $press2
 
-
-# Define uma constante que é uma lista de strings. Cada string é uma linha de diálogo.
 const lines : Array[String] = [
-	"Olá aventureiro, aqui começa o game",  # Primeira linha de diálogo.
-	"Você está pronto?",  # Segunda linha de diálogo.
+	"Olá aventureiro, aqui começa o alpha do game",  # Primeira linha de diálogo.
+	"Vamos lembrar que é apenas a base",  # Segunda linha de diálogo.
 	"Precisamos testar",  # Terceira linha de diálogo.
-	"vamos lá",  # Quarta linha de diálogo.
+	"vamos lá?",  # Quarta linha de diálogo.
 ]
+
+func _ready():
+	# Conecta os sinais de entrada e saída do corpo com as funções correspondentes usando a nova sintaxe do Godot 4.2.
+	area_2d.body_entered.connect(Callable(self, "_on_Area2D_body_entered"))
+	area_2d.body_exited.connect(Callable(self, "_on_Area2D_body_exited"))
+	press.show()
+	press2.show()
+	spritedialog1.show()  # Mostra o botão de diálogo.
+	spritedialog2.show()  # Mostra o botão para avançar a mensagem.
+  # Esconde o label press inicialmente.
+	
+func _on_Area2D_body_entered(_body):
+	press.show()
+	press2.show()
+	spritedialog1.show()  # Mostra o botão de diálogo.
+	spritedialog2.show()  # Mostra o botão para avançar a mensagem.
+ # Mostra o label press quando um corpo entra na área.
+
+func _on_Area2D_body_exited(_body):
+	press.hide()
+	press2.hide()
+	spritedialog1.hide()  # Mostra o botão de diálogo.
+	spritedialog2.hide()  # Esconde o label press quando um corpo sai da área.
 
 # Esta função é chamada quando uma entrada não tratada é detectada.
 func _unhandled_input(event):

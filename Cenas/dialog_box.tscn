@@ -35,7 +35,8 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_0hxay")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 18
+text = "adasdas"
 vertical_alignment = 1
 justification_flags = 0
 
