@@ -19,14 +19,13 @@ config/icon="res://pistoleiro.png"
 
 Game="*res://Scripts Inimigos/game.gd"
 DialogManager="*res://dialog_box-TOTAL/dialog_manager.gd"
+dialog_box="*res://globalvar.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=450
-window/size/mode=3
 window/size/initial_position_type=0
-window/size/borderless=true
 window/stretch/mode="viewport"
 
 [importer_defaults]
