@@ -948,7 +948,7 @@ action = "advance_message"
 [node name="RayCast2D" type="RayCast2D" parent="Controls"]
 position = Vector2(1466, 266)
 
-[node name="Player" parent="." instance=ExtResource("17_gp6f1")]
+[node name="Player" parent="." groups=["enemies"] instance=ExtResource("17_gp6f1")]
 position = Vector2(929, 274)
 
 [node name="dialog_box" type="Node2D" parent="."]

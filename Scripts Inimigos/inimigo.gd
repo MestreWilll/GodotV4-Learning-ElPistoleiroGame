@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 5000.0
+const JUMP_VELOCITY = -450.0
 
 @onready var detector := $RayCast2D as RayCast2D
 @onready var sprite := $AnimatedSprite2D as AnimatedSprite2D
@@ -8,7 +9,7 @@ const SPEED = 5000.0
 var direction := -1  # Inicialmente indo para a esquerda VARIAVEL 1 LIGADA AO METADADO
 var knockback_vector = Vector2()
 # Obtenha a gravidade das configurações do projeto para ser sincronizado com os nós RigidBody.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	if has_meta("Direita") and get_meta("Direita"):
