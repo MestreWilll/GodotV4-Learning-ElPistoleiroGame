@@ -1,0 +1,170 @@
+[gd_scene load_steps=21 format=3 uid="uid://cf26w26efodcs"]
+
+[ext_resource type="Script" path="res://dialog_box-TOTAL/waning_sign.gd" id="1_us8kx"]
+[ext_resource type="Texture2D" uid="uid://dccytidrctjb6" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxNORMAL.png" id="2_hh0u0"]
+[ext_resource type="Texture2D" uid="uid://clgq0eeqkjvo" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxPRESSED.png" id="3_chxyv"]
+[ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="4_6t4yy"]
+[ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="5_yadqh"]
+[ext_resource type="Texture2D" uid="uid://mq35xy5ctugo" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="6_bs7vh"]
+[ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="7_08drl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfyqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hh0u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_chxyv")
+}],
+"loop": true,
+"name": &"pressdiaolog_box",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0s5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6t4yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yadqh")
+}],
+"loop": true,
+"name": &"advance_message_BOTAO",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cumi"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10js3"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g7f8"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chwwt"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y3xv"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvnhd"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs8jq"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mndn"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju5wj"]
+atlas = ExtResource("6_bs7vh")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojflg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cumi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10js3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g7f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chwwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y3xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvnhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs8jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mndn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju5wj")
+}],
+"loop": true,
+"name": &"emotico",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldd55"]
+size = Vector2(105.5, 75)
+
+[node name="dialog_box" type="Node2D"]
+position = Vector2(737, 110)
+script = ExtResource("1_us8kx")
+
+[node name="botaoDialogo_box" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 49)
+scale = Vector2(0.0418454, 0.0410603)
+sprite_frames = SubResource("SpriteFrames_gfyqq")
+animation = &"pressdiaolog_box"
+autoplay = "pressdiaolog_box"
+frame_progress = 0.985615
+
+[node name="botaoAdvance_message" type="AnimatedSprite2D" parent="."]
+position = Vector2(88, 50)
+scale = Vector2(0.0386266, 0.04158)
+sprite_frames = SubResource("SpriteFrames_a0s5a")
+animation = &"advance_message_BOTAO"
+autoplay = "advance_message_BOTAO"
+frame_progress = 0.345854
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, 72)
+scale = Vector2(1.6875, 1.5)
+sprite_frames = SubResource("SpriteFrames_ojflg")
+animation = &"emotico"
+autoplay = "emotico"
+frame_progress = 0.806664
+
+[node name="press" type="Label" parent="."]
+offset_left = -73.0
+offset_top = 41.0
+offset_right = -11.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_08drl")
+theme_override_font_sizes/font_size = 16
+text = "Aperte:"
+
+[node name="press2" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 41.0
+offset_right = 77.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_08drl")
+theme_override_font_sizes/font_size = 16
+text = "Avança:"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 3
+texture_filter = 1
+position = Vector2(2.25, 124)
+shape = SubResource("RectangleShape2D_ldd55")
+debug_color = Color(0.141176, 0.113725, 0.0117647, 0.419608)

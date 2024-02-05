@@ -955,17 +955,17 @@ position = Vector2(2.25, 124)
 shape = SubResource("RectangleShape2D_ldd55")
 debug_color = Color(0.141176, 0.113725, 0.0117647, 0.419608)
 
-[node name="dialogoPersonagem" type="Node2D" parent="Caixa de dialogo"]
+[node name="caixa de dialogo" type="Node2D" parent="Caixa de dialogo"]
 position = Vector2(934, 216)
 script = ExtResource("14_t5653")
 
-[node name="MarginContainer" type="MarginContainer" parent="Caixa de dialogo/dialogoPersonagem"]
+[node name="MarginContainer" type="MarginContainer" parent="Caixa de dialogo/caixa de dialogo"]
 offset_left = -58.5
 offset_top = -24.0
 offset_right = 58.5
 offset_bottom = 16.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Caixa de dialogo/dialogoPersonagem/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Caixa de dialogo/caixa de dialogo/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("15_gpdxm")
 patch_margin_left = 4
@@ -973,18 +973,18 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="text_inf" type="Label" parent="Caixa de dialogo/dialogoPersonagem/MarginContainer"]
+[node name="text_inf" type="Label" parent="Caixa de dialogo/caixa de dialogo/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("22_27wrq")
 theme_override_font_sizes/font_size = 17
 
-[node name="Area2D" type="Area2D" parent="Caixa de dialogo/dialogoPersonagem"]
+[node name="Area2D" type="Area2D" parent="Caixa de dialogo/caixa de dialogo"]
 position = Vector2(-934, -216)
 scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Caixa de dialogo/dialogoPersonagem/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caixa de dialogo/caixa de dialogo/Area2D"]
 position = Vector2(934, 275.5)
 shape = SubResource("RectangleShape2D_8anyq")
 debug_color = Color(1, 1, 1, 0.419608)
