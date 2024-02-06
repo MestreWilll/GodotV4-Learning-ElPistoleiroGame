@@ -12,3 +12,7 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 	
 func set_direction(dir):
 	direction = dir
+	if dir < 0:
+		$AnimatedSprite2D.set_flip_h(true)
+	else:
+		$AnimatedSprite2D.set_flip_h(false)

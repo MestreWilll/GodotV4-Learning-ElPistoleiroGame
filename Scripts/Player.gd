@@ -59,9 +59,10 @@ func _physics_process(delta):
 		sprite.play("jump")
 	# Verifica se o botão de atirar está sendo pressionado
 	if Input.is_action_pressed("ui_shoot"):
-		is_shooting = true
-		shoot_bullet()
-		sprite.play("shoot")
+			is_shooting = true
+			if shoot_cooldown.is_stopped():
+				shoot_bullet()
+			sprite.play("shoot")
 	else:
 		is_shooting = false
 
@@ -169,6 +170,6 @@ func shoot_bullet():
 	else:
 		bullet_instance.set_direction(-1)
 		
-	add_child(bullet_instance)
+	add_sibling(bullet_instance)
 	bullet_instance.global_position = bullet_position.global_position
-
+	shoot_cooldown.start()
