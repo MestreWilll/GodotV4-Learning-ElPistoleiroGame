@@ -173,3 +173,6 @@ func shoot_bullet():
 	add_sibling(bullet_instance)
 	bullet_instance.global_position = bullet_position.global_position
 	shoot_cooldown.start()
+##--------------------------##FINISHIM##
+## shoot funcionando, agora é so configurar o time ##
+##--------------------------##FINISHIM##

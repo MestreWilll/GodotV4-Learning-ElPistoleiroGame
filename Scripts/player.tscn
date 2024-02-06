@@ -102,7 +102,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
@@ -125,6 +125,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"shoot"
 autoplay = "idle"
+frame_progress = 0.18754
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 
