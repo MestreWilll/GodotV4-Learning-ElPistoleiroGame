@@ -1,29 +1,136 @@
-[gd_scene load_steps=88 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=110 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_parn2"]
 [ext_resource type="Texture2D" uid="uid://mq35xy5ctugo" path="res://assets/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="3_dc3ox"]
+[ext_resource type="Texture2D" uid="uid://bn7hg5ypxxx38" path="res://Sprites Pistoleiro-Player-/FALL/FALL.png" id="3_ugih4"]
 [ext_resource type="PackedScene" uid="uid://cfnyuu32cwn6w" path="res://Cenas/coin.tscn" id="4_0hs4u"]
+[ext_resource type="Texture2D" uid="uid://ii8e6lmv3n1" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE1.png" id="4_6yjsp"]
 [ext_resource type="Texture2D" uid="uid://da85vxl0uplcj" path="res://assets/Pistoleiro_Assets/atencaoplaca.png" id="4_fkgjp"]
 [ext_resource type="Texture2D" uid="uid://rh7w05yfddve" path="res://assets/botoes android/ui_buttons_arrow_up_NORMAL.png" id="4_ibqla"]
+[ext_resource type="PackedScene" uid="uid://dqof5fh6dw7co" path="res://Inimigos_cenario/morcegoentrada.tscn" id="4_rsljf"]
 [ext_resource type="PackedScene" uid="uid://clbosv3iupdp3" path="res://coin/label.tscn" id="5_70wpw"]
 [ext_resource type="PackedScene" uid="uid://f7rvhth1kgli" path="res://Cenas/mob_simples.tscn" id="5_blj17"]
 [ext_resource type="Texture2D" uid="uid://bjpenmvi33ouh" path="res://assets/botoes android/ui_buttons_arrow_up_PRESSED.png" id="5_pc568"]
+[ext_resource type="Texture2D" uid="uid://dqmw1b5j457h3" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE2.png" id="5_w5e03"]
+[ext_resource type="Texture2D" uid="uid://cud1qqxcweidw" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE3.png" id="6_0hiu4"]
 [ext_resource type="Script" path="res://dialog_box-TOTAL/waning_sign.gd" id="6_7wm86"]
 [ext_resource type="Texture2D" uid="uid://bwigshubem156" path="res://assets/Pistoleiro_Assets/Background1FIX.png" id="6_utkvq"]
 [ext_resource type="Texture2D" uid="uid://e0nut401un3b" path="res://assets/botoes android/ui_buttons_arrow_left_NORMAL.png" id="6_weawc"]
 [ext_resource type="Texture2D" uid="uid://d1j4dqq7mp38q" path="res://assets/botoes android/ui_buttons_arrow_left_PRESSED.png" id="7_2pq8w"]
+[ext_resource type="Texture2D" uid="uid://c1alj4b8qfyc" path="res://Sprites Pistoleiro-Player-/IDLE/IDLE4.png" id="7_cgt5s"]
 [ext_resource type="Texture2D" uid="uid://chaxxxxgw7v5l" path="res://assets/botoes android/ui_buttons_arrow_right_NORMAL.png" id="8_45012"]
+[ext_resource type="Texture2D" uid="uid://cs70aloh6i2m4" path="res://Sprites Pistoleiro-Player-/JUMP/JUMP.png" id="8_ljyek"]
+[ext_resource type="Texture2D" uid="uid://cqsm3jkyrkbll" path="res://Sprites Pistoleiro-Player-/RUN/RUN1.png" id="9_crbey"]
 [ext_resource type="Texture2D" uid="uid://b12qp8vjxx0df" path="res://assets/botoes android/ui_buttons_arrow_right_PRESSED.png" id="9_ndxwf"]
+[ext_resource type="Texture2D" uid="uid://d1hunym2kivd1" path="res://Sprites Pistoleiro-Player-/RUN/RUN2.png" id="10_8qkcu"]
 [ext_resource type="Texture2D" uid="uid://brt32sialmfa6" path="res://assets/botoes android/normalshoot.png" id="10_irduj"]
+[ext_resource type="Texture2D" uid="uid://dni0iqkfjue51" path="res://Sprites Pistoleiro-Player-/RUN/RUN3.png" id="11_520wi"]
 [ext_resource type="Texture2D" uid="uid://8erleylxnij5" path="res://assets/botoes android/pressedshoot.png" id="11_f3rir"]
+[ext_resource type="Texture2D" uid="uid://d3e3gje0ixe8m" path="res://Sprites Pistoleiro-Player-/RUN/RUN4.png" id="12_qel01"]
+[ext_resource type="Texture2D" uid="uid://da4xrw1yslxhl" path="res://Sprites Pistoleiro-Player-/RUN/RUN5.png" id="13_ncb3l"]
 [ext_resource type="Script" path="res://dialog_box-TOTAL/caixa_de_dialogo.gd" id="14_t5653"]
+[ext_resource type="Texture2D" uid="uid://bnhtmfappg34a" path="res://Sprites Pistoleiro-Player-/RUN/RUN6.png" id="14_txe70"]
 [ext_resource type="Texture2D" uid="uid://dccytidrctjb6" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxNORMAL.png" id="15_0jq31"]
 [ext_resource type="Texture2D" uid="uid://csbmdjky3whi5" path="res://assets/Pistoleiro_Assets/Dialog_Box(16 x 16).png" id="15_gpdxm"]
+[ext_resource type="Texture2D" uid="uid://cdlpnl76qc671" path="res://Sprites Pistoleiro-Player-/RUN/RUN7.png" id="15_nrfen"]
+[ext_resource type="Texture2D" uid="uid://coci4mc44mx4f" path="res://Sprites Pistoleiro-Player-/RUN/RUN8.png" id="16_a4tp5"]
 [ext_resource type="Texture2D" uid="uid://clgq0eeqkjvo" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxPRESSED.png" id="16_ml3m5"]
-[ext_resource type="PackedScene" uid="uid://dqj2pfvcswtgb" path="res://Mundo_Cena/Player.tscn" id="17_gp6f1"]
+[ext_resource type="Texture2D" uid="uid://cvir4um6veiyj" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot1.png" id="17_4w64a"]
 [ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="17_vtykn"]
 [ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="18_dxarg"]
+[ext_resource type="Texture2D" uid="uid://dma2wrpwyuq1i" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot2.png" id="18_g4j7b"]
+[ext_resource type="Texture2D" uid="uid://c3jwjlhopg2sm" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot3.png" id="19_ivxub"]
+[ext_resource type="Texture2D" uid="uid://chtf7p2eomrc1" path="res://Sprites Pistoleiro-Player-/SHOOT/shoot4.png" id="20_ohp1g"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6cqt"]
+size = Vector2(42, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7dco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ugih4")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6yjsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w5e03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0hiu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cgt5s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ljyek")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_crbey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8qkcu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_520wi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qel01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ncb3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_txe70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_nrfen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_a4tp5")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_4w64a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_g4j7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ivxub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ohp1g")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
+size = Vector2(62, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -281,15 +388,97 @@ size = Vector2(70, 77)
 position = Vector2(-1, 33)
 script = ExtResource("1_51f4x")
 
-[node name="Player" parent="." groups=["enemies"] instance=ExtResource("17_gp6f1")]
+[node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
+z_index = 1
+texture_filter = 1
 position = Vector2(929, 274)
+collision_mask = 22
+script = ExtResource("2_parn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(6, 2.5)
+shape = SubResource("RectangleShape2D_b6cqt")
+debug_color = Color(0.67451, 0.505882, 0, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_q7dco")
+animation = &"shoot"
+autoplay = "idle"
+
+[node name="remote" type="RemoteTransform2D" parent="Player"]
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="Player"]
+position = Vector2(9.99997, 2)
+rotation = 1.58237
+target_position = Vector2(1, 31)
+collision_mask = 4
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="Player"]
+position = Vector2(2, 2)
+rotation = -4.6945
+target_position = Vector2(-0.621185, -31.0099)
+collision_mask = 20
+
+[node name="RayCast2D_detector" type="RayCast2D" parent="Player"]
+position = Vector2(9, 2)
+target_position = Vector2(0, 33)
+collision_mask = 15
+collide_with_areas = true
+
+[node name="hurtbox" type="Area2D" parent="Player"]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hurtbox"]
+position = Vector2(5, -4)
+shape = SubResource("RectangleShape2D_ccort")
+debug_color = Color(0.945098, 0, 0.592157, 0.419608)
+
+[node name="bullet_position" type="Marker2D" parent="Player"]
+position = Vector2(52, -13)
+
+[node name="shoot_cooldown" type="Timer" parent="Player"]
 
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
 
 [node name="Mob_Simples" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(251, 294)
-scale = Vector2(2.12, 1.99075)
+position = Vector2(256, 272)
+scale = Vector2(4.97215, 4.82797)
 collision_mask = 19
+
+[node name="Mob_Simples4" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
+position = Vector2(339, 147)
+scale = Vector2(4.97215, 4.82797)
+collision_mask = 19
+
+[node name="Mob_Simples2" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
+position = Vector2(529, 271)
+scale = Vector2(4.97215, 4.82797)
+collision_mask = 19
+metadata/Direita = false
+
+[node name="Mob_Simples3" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
+position = Vector2(1246, 271)
+scale = Vector2(4.97215, 4.82797)
+collision_mask = 19
+metadata/Direita = false
+
+[node name="morcego" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+position = Vector2(1578, -24)
+collision_layer = 0
+collision_mask = 0
+
+[node name="morcego2" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+position = Vector2(1439, -270)
+collision_layer = 0
+collision_mask = 0
+
+[node name="morcego3" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+position = Vector2(787, 72)
+collision_layer = 0
+collision_mask = 0
+metadata/Direita2 = true
 
 [node name="Plataforma-Chão" type="Node2D" parent="."]
 
@@ -982,7 +1171,6 @@ theme_override_font_sizes/font_size = 17
 
 [node name="Area2D" type="Area2D" parent="Caixa de dialogo/dialogoPersonagem"]
 position = Vector2(-934, -216)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caixa de dialogo/dialogoPersonagem/Area2D"]
 position = Vector2(934, 275.5)
@@ -1066,3 +1254,6 @@ drag_right_margin = 0.04
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Player/hurtbox" to="Player" method="_on_hurtbox_body_entered"]

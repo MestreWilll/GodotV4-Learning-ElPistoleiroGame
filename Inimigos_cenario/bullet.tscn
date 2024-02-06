@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3gwrea8fcx0x"]
+
+[ext_resource type="Texture2D" uid="uid://crm5jqmkpvs3m" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot1.png" id="1_mys5l"]
+[ext_resource type="Script" path="res://Scripts Inimigos/bullet.gd" id="1_xbbmq"]
+[ext_resource type="Texture2D" uid="uid://rachmvema1at" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot2.png" id="2_kvh1g"]
+[ext_resource type="Texture2D" uid="uid://ck277hdl6pa3y" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot3.png" id="3_ag0eo"]
+[ext_resource type="Texture2D" uid="uid://dljlh4ck1nthd" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot4.png" id="4_t5nn2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jm3il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mys5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kvh1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ag0eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t5nn2")
+}],
+"loop": true,
+"name": &"portatil ",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ku0x6"]
+radius = 4.0
+height = 16.0
+
+[node name="bullet" type="Area2D" groups=["enemies"]]
+collision_layer = 64
+collision_mask = 16
+script = ExtResource("1_xbbmq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jm3il")
+animation = &"portatil "
+autoplay = "portatil "
+frame = 3
+frame_progress = 0.174958
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ku0x6")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

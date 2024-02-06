@@ -49,12 +49,12 @@ radius = 5.503
 height = 13.798
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e0vh"]
-size = Vector2(17, 3)
+size = Vector2(17, 16.5)
 
 [node name="Mob_Simples" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -8)
 collision_layer = 4
-collision_mask = 35
+collision_mask = 99
 script = ExtResource("1_4454n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -74,9 +74,10 @@ target_position = Vector2(-10, 0)
 collision_mask = 2
 
 [node name="hitbox" parent="." instance=ExtResource("5_xm1jj")]
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -7)
+position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_1e0vh")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 

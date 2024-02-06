@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://Scripts Inimigos/hitbox.gd" id="1_1mjnj"]
 
 [node name="hitbox" type="Area2D"]
-collision_layer = 16
+collision_layer = 80
+collision_mask = 5
 script = ExtResource("1_1mjnj")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

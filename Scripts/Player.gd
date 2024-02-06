@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 180.0  # Velocidade constante do personagem
 const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
+const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
 
 
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
@@ -12,6 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ray_left = $RayCast2D_Left as RayCast2D  # Raycast para detecção de colisão à esquerda
 @onready var ray_right = $RayCast2D_Right as RayCast2D
 @onready var ray_detector = $RayCast2D_detector as RayCast2D  # Raycast para detecção de colisão à direita
+@onready var shoot_cooldown = $shoot_cooldown
+@onready var bullet_position = $bullet_position
+
 
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
@@ -23,6 +27,14 @@ func _physics_process(delta):
 ## Movimentos personagem ##
 ##--------------------------##
 	var direction = Input.get_axis("move_left", "move_right")
+	
+	if Input.is_action_pressed("move_left"):
+		if sign(bullet_position.position.x) == 1:
+			bullet_position.position.x *= -1
+			
+	if Input.is_action_pressed("move_right"):
+		if sign(bullet_position.position.x) == -1:
+			bullet_position.position.x *= -1
 	# Atualiza a velocidade do personagem baseado na direção
 	velocity.x = direction * SPEED
 	# Atualiza a escala do sprite baseado na direção
@@ -48,6 +60,7 @@ func _physics_process(delta):
 	# Verifica se o botão de atirar está sendo pressionado
 	if Input.is_action_pressed("ui_shoot"):
 		is_shooting = true
+		shoot_bullet()
 		sprite.play("shoot")
 	else:
 		is_shooting = false
@@ -145,3 +158,17 @@ func follow_camera(camera):
 ##--------------------------##FINISHIM##
 ## Fim da camera ##
 ##--------------------------##FINISHIM##
+
+##--------------------------##
+## Area do tiro do player - Irá mexer no shoot da animação de shoot ##
+##--------------------------##
+func shoot_bullet():
+	var bullet_instance = BULLET_SCENE.instantiate()
+	if sign(bullet_position.position.x) == 1:
+		bullet_instance.set_direction(1)
+	else:
+		bullet_instance.set_direction(-1)
+		
+	add_child(bullet_instance)
+	bullet_instance.global_position = bullet_position.global_position
+

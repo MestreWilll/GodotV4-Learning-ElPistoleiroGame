@@ -84,6 +84,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_4="Itens"
 2d_physics/layer_5="Hitbox"
 2d_physics/layer_6="Hithurt"
+2d_physics/layer_7="bullet"
 
 [rendering]
 

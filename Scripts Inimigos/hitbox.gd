@@ -11,3 +11,9 @@ func _on_body_entered(body):
 			print("Você matou um inimigo") # aviso pra mim
 		else:
 			print("AnimatedSprite não encontrado")
+
+func _on_area_entered(area):
+	if area.is_in_group("enemies"):
+		print("Acertou misaravi")
+		area.queue_free()
+		owner.queue_free()
