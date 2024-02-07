@@ -1,28 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://f7rvhth1kgli"]
+[gd_scene load_steps=18 format=3 uid="uid://f7rvhth1kgli"]
 
 [ext_resource type="Script" path="res://Scripts Inimigos/inimigo.gd" id="1_4454n"]
-[ext_resource type="Texture2D" uid="uid://bipkpxuu1pbhm" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="2_ipntx"]
-[ext_resource type="Texture2D" uid="uid://cr1m1k7hegvt5" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Standing (16 x 16).png" id="3_5m8qj"]
+[ext_resource type="Texture2D" uid="uid://lt1wasfqjeoo" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt1.png" id="2_r7wfg"]
+[ext_resource type="Texture2D" uid="uid://bpd8k8ojuxay3" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt2.png" id="3_q2kyr"]
 [ext_resource type="Texture2D" uid="uid://bh3cixkoieend" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion1.png" id="3_skqjx"]
 [ext_resource type="Texture2D" uid="uid://d0n8o62r3xd6s" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion2.png" id="4_63oxw"]
-[ext_resource type="Texture2D" uid="uid://cjjndly2teqcw" path="res://assets/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="4_df1a5"]
+[ext_resource type="Texture2D" uid="uid://bklckyd5dth80" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run1.png" id="4_am8w3"]
 [ext_resource type="Texture2D" uid="uid://dpw4xxp3skjax" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion3.png" id="5_k7p1r"]
+[ext_resource type="Texture2D" uid="uid://bhw8rqeb6jdl5" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run2.png" id="5_m4qfb"]
 [ext_resource type="PackedScene" uid="uid://gqbi0nr2sl01" path="res://Cenas/hitbox.tscn" id="5_xm1jj"]
+[ext_resource type="Texture2D" uid="uid://d07tgcdsc233k" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run3.png" id="6_dtgb0"]
 [ext_resource type="Texture2D" uid="uid://bodfyjke0rvqr" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion4.png" id="6_n083f"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1sg6"]
-atlas = ExtResource("4_df1a5")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5conu"]
-atlas = ExtResource("4_df1a5")
-region = Rect2(16, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://4m5u6ghwsglc" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run4.png" id="7_nvnum"]
+[ext_resource type="Texture2D" uid="uid://cufu5sedyeyky" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run5.png" id="8_dak13"]
+[ext_resource type="Texture2D" uid="uid://7fox0jaslv8c" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run6.png" id="9_mykue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vgmgw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ipntx")
+"texture": ExtResource("2_r7wfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q2kyr")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_skqjx")
@@ -42,51 +42,68 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_5m8qj")
+"texture": ExtResource("4_am8w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m4qfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dtgb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nvnum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dak13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mykue")
 }],
-"loop": false,
+"loop": true,
 "name": &"standing",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o1sg6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5conu")
-}],
+"frames": [],
 "loop": true,
 "name": &"walk",
 "speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jy1qp"]
-radius = 5.503
-height = 13.798
+radius = 6.29381
+height = 23.5416
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e0vh"]
-size = Vector2(17, 16.5)
+size = Vector2(22, 32)
 
 [node name="Mob_Simples" type="CharacterBody2D" groups=["enemies"]]
-position = Vector2(0, -8)
+position = Vector2(0, -19)
 collision_layer = 68
 collision_mask = 99
 script = ExtResource("1_4454n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6.5)
+scale = Vector2(1, 0.868421)
 sprite_frames = SubResource("SpriteFrames_vgmgw")
-animation = &"hurt"
-autoplay = "walk"
+animation = &"standing"
+autoplay = "standing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.96046e-08, 1)
-rotation = 1.53231
+position = Vector2(-9.53674e-07, 1)
+rotation = 1.5708
 scale = Vector2(1.27109, 1.01947)
 shape = SubResource("CapsuleShape2D_jy1qp")
 debug_color = Color(0.94902, 0, 0.572549, 0.419608)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(-10, 0)
+[node name="ray_left" type="RayCast2D" parent="."]
+position = Vector2(3, 0)
+target_position = Vector2(-16, 0)
+collision_mask = 2
+
+[node name="ray_right" type="RayCast2D" parent="."]
+position = Vector2(1, 0)
+target_position = Vector2(12, 0)
 collision_mask = 2
 
 [node name="hitbox" parent="." instance=ExtResource("5_xm1jj")]
@@ -94,7 +111,7 @@ collision_layer = 112
 collision_mask = 97
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -0.25)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1e0vh")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 

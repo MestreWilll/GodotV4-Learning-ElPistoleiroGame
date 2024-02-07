@@ -112,6 +112,7 @@ size = Vector2(62, 62)
 z_index = 1
 texture_filter = 1
 position = Vector2(929, 274)
+scale = Vector2(1.28, 1.28)
 collision_mask = 22
 script = ExtResource("1_mny00")
 
@@ -125,7 +126,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"shoot"
 autoplay = "idle"
-frame_progress = 0.18754
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 

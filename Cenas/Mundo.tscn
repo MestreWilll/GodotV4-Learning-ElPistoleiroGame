@@ -283,49 +283,51 @@ position = Vector2(-1, 33)
 script = ExtResource("1_51f4x")
 
 [node name="Player" parent="." instance=ExtResource("2_u0isn")]
+position = Vector2(505, 140)
 
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Mob_Simples" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(256, 272)
-scale = Vector2(4.97215, 4.82797)
-collision_mask = 19
-
-[node name="Mob_Simples4" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(484, 271)
-scale = Vector2(4.97215, 4.82797)
+position = Vector2(1796, 280)
+scale = Vector2(2.58547, 2.80564)
 collision_mask = 19
 
 [node name="Mob_Simples2" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(1856, 271)
-scale = Vector2(4.97215, 4.82797)
+position = Vector2(1166, 283)
+scale = Vector2(2.58547, 2.80564)
 collision_mask = 19
-metadata/Direita = false
+metadata/Direita = true
 
 [node name="Mob_Simples3" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(1580, 272)
-scale = Vector2(4.97215, 4.82797)
-collision_mask = 19
-metadata/Direita = false
-
-[node name="Mob_Simples5" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(1532, -149)
-scale = Vector2(4.97215, 4.82797)
+position = Vector2(286, 282)
+scale = Vector2(2.58547, 2.80564)
 collision_mask = 19
 
 [node name="morcego" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
-position = Vector2(1578, -24)
+position = Vector2(1576, -19)
 collision_layer = 0
 collision_mask = 0
 
 [node name="morcego2" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
-position = Vector2(1439, -270)
+position = Vector2(1423, -265)
 collision_layer = 0
 collision_mask = 0
 
 [node name="morcego3" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
 position = Vector2(787, 72)
+collision_layer = 0
+collision_mask = 0
+metadata/Direita2 = true
+
+[node name="morcego4" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+position = Vector2(750, -80)
+collision_layer = 0
+collision_mask = 0
+metadata/Direita2 = true
+
+[node name="morcego5" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+position = Vector2(461, -321)
 collision_layer = 0
 collision_mask = 0
 metadata/Direita2 = true
@@ -995,14 +997,14 @@ shape = SubResource("RectangleShape2D_ldd55")
 debug_color = Color(0.141176, 0.113725, 0.0117647, 0.419608)
 
 [node name="dialogoPersonagem" type="Node2D" parent="Caixa de dialogo"]
-position = Vector2(934, 216)
+position = Vector2(935, 207)
 script = ExtResource("14_t5653")
 
 [node name="MarginContainer" type="MarginContainer" parent="Caixa de dialogo/dialogoPersonagem"]
-offset_left = -58.5
-offset_top = -24.0
-offset_right = 58.5
-offset_bottom = 16.0
+offset_left = -483.5
+offset_top = -149.0
+offset_right = -366.5
+offset_bottom = -109.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Caixa de dialogo/dialogoPersonagem/MarginContainer"]
 layout_mode = 2
@@ -1020,7 +1022,7 @@ theme_override_fonts/font = ExtResource("22_27wrq")
 theme_override_font_sizes/font_size = 17
 
 [node name="Area2D" type="Area2D" parent="Caixa de dialogo/dialogoPersonagem"]
-position = Vector2(-934, -216)
+position = Vector2(-1359, -341)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caixa de dialogo/dialogoPersonagem/Area2D"]
 position = Vector2(934, 275.5)
