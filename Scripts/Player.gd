@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var shoot_cooldown = $shoot_cooldown
 @onready var bullet_position = $bullet_position
 @onready var platform_pass_timer = $PlatformPassTimer
+@onready var shoot_delay_timer = $ShootDelayTimer
 
 
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
@@ -65,13 +66,10 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		sprite.play("jump")
 	# Verifica se o botão de atirar está sendo pressionado
-	if Input.is_action_pressed("ui_shoot"):
-			is_shooting = true
-			if shoot_cooldown.is_stopped():
-				shoot_bullet()
-			sprite.play("shoot")
-	else:
-		is_shooting = false
+	if Input.is_action_pressed("ui_shoot") and not is_shooting and shoot_cooldown.is_stopped():
+		is_shooting = true
+		shoot_delay_timer.start()  # Inicia o timer de atraso para disparar
+		sprite.play("shoot")
 
 	# Se o personagem está no chão e não está atirando, toca a animação correta baseada na direção
 	if is_on_floor() and not is_shooting:
@@ -171,15 +169,22 @@ func follow_camera(camera):
 ## Area do tiro do player - Irá mexer no shoot da animação de shoot ##
 ##--------------------------##
 func shoot_bullet():
-	var bullet_instance = BULLET_SCENE.instantiate()
+	var bullet_instance = BULLET_SCENE.instantiate()  # Instancia o projétil
 	if sign(bullet_position.position.x) == 1:
 		bullet_instance.set_direction(1)
 	else:
 		bullet_instance.set_direction(-1)
 		
-	add_sibling(bullet_instance)
-	bullet_instance.global_position = bullet_position.global_position
-	shoot_cooldown.start()
+	get_parent().add_child(bullet_instance)  # Adiciona o projétil como filho do Player
+	bullet_instance.global_position = bullet_position.global_position  # Define a posição do projétil
+	
+	shoot_cooldown.start()  # Inicia o cooldown do tiro
+	is_shooting = false  # Permite que o jogador atire novamente após o cooldown
+	
+func _on_shoot_delay_timer_timeout():
+	# Este método será chamado quando o timer de atraso expirar
+	shoot_bullet()  # Dispara o projétil
+
 ##--------------------------##FINISHIM##
 ## shoot funcionando, agora é so configurar o time ##
 ##--------------------------##FINISHIM##
@@ -200,3 +205,6 @@ func _on_platform_pass_timer_timeout():
 ##--------------------------##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##
+
+
+

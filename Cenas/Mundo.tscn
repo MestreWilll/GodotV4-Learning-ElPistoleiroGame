@@ -1076,8 +1076,8 @@ action = "move_right"
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
 visible = false
 texture_filter = 1
-position = Vector2(1056, 347)
-scale = Vector2(1.58571, 1.4)
+position = Vector2(1056, 351)
+scale = Vector2(1.58571, 1.34286)
 texture_normal = ExtResource("10_irduj")
 texture_pressed = ExtResource("11_f3rir")
 action = "ui_shoot"
@@ -1094,7 +1094,7 @@ action = "interact"
 [node name="advance_message" type="TouchScreenButton" parent="Controls"]
 visible = false
 texture_filter = 1
-position = Vector2(1182, 5)
+position = Vector2(1200, 5)
 scale = Vector2(0.161, 0.16)
 texture_normal = ExtResource("17_vtykn")
 texture_pressed = ExtResource("18_dxarg")

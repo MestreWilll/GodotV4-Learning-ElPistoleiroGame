@@ -22,3 +22,5 @@ func set_direction(dir):
 		$AnimatedSprite2D.set_flip_h(true)
 	else:
 		$AnimatedSprite2D.set_flip_h(false)
+
+		

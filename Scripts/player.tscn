@@ -92,13 +92,13 @@ animations = [{
 "texture": ExtResource("16_mdlsg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_qpkta")
+"texture": ExtResource("19_vvjf5")
 }, {
 "duration": 1.0,
 "texture": ExtResource("18_fhprk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_vvjf5")
+"texture": ExtResource("17_qpkta")
 }],
 "loop": true,
 "name": &"shoot",
@@ -126,6 +126,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"shoot"
 autoplay = "idle"
+frame_progress = 0.364676
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 
@@ -164,9 +165,14 @@ debug_color = Color(0.945098, 0, 0.592157, 0.419608)
 position = Vector2(52, -13)
 
 [node name="shoot_cooldown" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.549
+one_shot = true
+
+[node name="ShootDelayTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="PlatformPassTimer" to="." method="_on_platform_pass_timer_timeout"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="ShootDelayTimer" to="." method="_on_shoot_delay_timer_timeout"]
