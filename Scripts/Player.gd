@@ -15,19 +15,22 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ray_detector = $RayCast2D_detector as RayCast2D  # Raycast para detecção de colisão à direita
 @onready var shoot_cooldown = $shoot_cooldown
 @onready var bullet_position = $bullet_position
+@onready var platform_pass_timer = $PlatformPassTimer
 
 
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
 var is_jumping = false  # Variável para rastrear se o personagem está pulando
 var is_shooting = false  # Variável para rastrear se o personagem está atirando
+var can_pass_through_platforms = false  # Variável para controlar a passagem através das plataformas
+
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
 ##--------------------------##
 ## Movimentos personagem ##
 ##--------------------------##
 	var direction = Input.get_axis("move_left", "move_right")
-	
+
 	if Input.is_action_pressed("move_left"):
 		if sign(bullet_position.position.x) == 1:
 			bullet_position.position.x *= -1
@@ -36,6 +39,10 @@ func _physics_process(delta):
 		if sign(bullet_position.position.x) == -1:
 			bullet_position.position.x *= -1
 	# Atualiza a velocidade do personagem baseado na direção
+	
+	if Input.is_action_just_pressed("down") and is_on_floor(): #botao pra sair da plataforma para baixo no caso, S 
+		pass_through_platform()
+
 	velocity.x = direction * SPEED
 	# Atualiza a escala do sprite baseado na direção
 	# Atualiza a escala do sprite baseado na direção
@@ -176,3 +183,20 @@ func shoot_bullet():
 ##--------------------------##FINISHIM##
 ## shoot funcionando, agora é so configurar o time ##
 ##--------------------------##FINISHIM##
+
+##--------------------------##
+## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
+##--------------------------##
+func pass_through_platform():
+	# Ignora a camada das plataformas "One Way"
+	collision_mask &= ~2  # Desativa a camada 2 na máscara de colisão
+	can_pass_through_platforms = true
+	platform_pass_timer.start()
+
+func _on_platform_pass_timer_timeout():
+	# Reabilita a colisão com as plataformas "One Way"
+	collision_mask |= 2  # Reativa a camada 2 na máscara de colisão
+	can_pass_through_platforms = false
+##--------------------------##
+## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
+##--------------------------##

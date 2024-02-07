@@ -285,6 +285,7 @@ script = ExtResource("1_51f4x")
 [node name="Player" parent="." instance=ExtResource("2_u0isn")]
 
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Mob_Simples" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
 position = Vector2(256, 272)
@@ -292,21 +293,26 @@ scale = Vector2(4.97215, 4.82797)
 collision_mask = 19
 
 [node name="Mob_Simples4" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(339, 147)
+position = Vector2(484, 271)
 scale = Vector2(4.97215, 4.82797)
 collision_mask = 19
 
 [node name="Mob_Simples2" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(529, 271)
+position = Vector2(1856, 271)
 scale = Vector2(4.97215, 4.82797)
 collision_mask = 19
 metadata/Direita = false
 
 [node name="Mob_Simples3" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(1246, 271)
+position = Vector2(1580, 272)
 scale = Vector2(4.97215, 4.82797)
 collision_mask = 19
 metadata/Direita = false
+
+[node name="Mob_Simples5" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
+position = Vector2(1532, -149)
+scale = Vector2(4.97215, 4.82797)
+collision_mask = 19
 
 [node name="morcego" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
 position = Vector2(1578, -24)
@@ -1029,53 +1035,65 @@ debug_color = Color(1, 1, 1, 0.419608)
 metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
-position = Vector2(1066, 351)
+position = Vector2(1178, 351)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("4_ibqla")
 texture_pressed = ExtResource("5_pc568")
 action = "ui_jump"
-metadata/_edit_lock_ = true
+
+[node name="down" type="TouchScreenButton" parent="Controls"]
+visible = false
+texture_filter = 1
+position = Vector2(151, 451)
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture_normal = ExtResource("4_ibqla")
+texture_pressed = ExtResource("5_pc568")
+action = "down"
 
 [node name="move_left" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
-position = Vector2(27, 351)
+position = Vector2(4, 253)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("6_weawc")
 texture_pressed = ExtResource("7_2pq8w")
 action = "move_left"
-metadata/_edit_lock_ = true
 
 [node name="move_right" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
-position = Vector2(130, 351)
+position = Vector2(113, 253)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("8_45012")
 texture_pressed = ExtResource("9_ndxwf")
 action = "move_right"
-metadata/_edit_lock_ = true
 
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
-position = Vector2(1165, 357)
-scale = Vector2(1.38571, 1.22857)
+position = Vector2(1056, 347)
+scale = Vector2(1.58571, 1.4)
 texture_normal = ExtResource("10_irduj")
 texture_pressed = ExtResource("11_f3rir")
 action = "ui_shoot"
-metadata/_edit_lock_ = true
 
 [node name="dialog_box" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
 position = Vector2(5, 5)
-scale = Vector2(0.195279, 0.197505)
+scale = Vector2(0.160944, 0.160083)
 texture_normal = ExtResource("15_0jq31")
 texture_pressed = ExtResource("16_ml3m5")
 action = "interact"
 
 [node name="advance_message" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
 position = Vector2(1182, 5)
-scale = Vector2(0.195, 0.198)
+scale = Vector2(0.161, 0.16)
 texture_normal = ExtResource("17_vtykn")
 texture_pressed = ExtResource("18_dxarg")
 action = "advance_message"

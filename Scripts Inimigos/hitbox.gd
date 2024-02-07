@@ -1,19 +1,14 @@
 extends Area2D
 
 
-func _on_body_entered(body):
-	if body.name == "Player":
-		# Verifique se o nó AnimatedSprite está corretamente configurado
+func _on_area_entered(area):
+	if area.is_in_group("enemies"):
 		if owner.has_node("AnimatedSprite2D"):
 			var animated_sprite = owner.get_node("AnimatedSprite2D")
-			body.velocity.y = body.JUMP_VELOCITY
 			animated_sprite.play("hurt")
-			print("Você matou um inimigo") # aviso pra mim
+			print("Você matou um inimigo")
+			print("Acertou misaravi")  # aviso pra mim
+			area.queue_free()  # Adiciona esta linha para remover o tiro
 		else:
 			print("AnimatedSprite não encontrado")
 
-func _on_area_entered(area):
-	if area.is_in_group("enemies"):
-		print("Acertou misaravi")
-		area.queue_free()
-		owner.queue_free()

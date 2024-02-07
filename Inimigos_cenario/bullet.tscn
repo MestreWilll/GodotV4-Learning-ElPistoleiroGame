@@ -1,25 +1,25 @@
 [gd_scene load_steps=8 format=3 uid="uid://d3gwrea8fcx0x"]
 
-[ext_resource type="Texture2D" uid="uid://crm5jqmkpvs3m" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot1.png" id="1_mys5l"]
 [ext_resource type="Script" path="res://Scripts Inimigos/bullet.gd" id="1_xbbmq"]
-[ext_resource type="Texture2D" uid="uid://rachmvema1at" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot2.png" id="2_kvh1g"]
-[ext_resource type="Texture2D" uid="uid://ck277hdl6pa3y" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot3.png" id="3_ag0eo"]
-[ext_resource type="Texture2D" uid="uid://dljlh4ck1nthd" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/player-shoot4.png" id="4_t5nn2"]
+[ext_resource type="Texture2D" uid="uid://dts0faodd8s0c" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/shoot diferente/player-shoot1.png" id="2_4wb7m"]
+[ext_resource type="Texture2D" uid="uid://cg2qys1udk7jh" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/shoot diferente/player-shoot2.png" id="3_fy52n"]
+[ext_resource type="Texture2D" uid="uid://btuut5b4iouwk" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/shoot diferente/player-shoot3.png" id="4_m42tu"]
+[ext_resource type="Texture2D" uid="uid://cxm72flpmn35j" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Player-Shoot/shoot diferente/player-shoot4.png" id="5_imy6q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jm3il"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_mys5l")
+"texture": ExtResource("2_4wb7m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_kvh1g")
+"texture": ExtResource("3_fy52n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ag0eo")
+"texture": ExtResource("4_m42tu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_t5nn2")
+"texture": ExtResource("5_imy6q")
 }],
 "loop": true,
 "name": &"portatil ",
@@ -39,7 +39,6 @@ script = ExtResource("1_xbbmq")
 sprite_frames = SubResource("SpriteFrames_jm3il")
 animation = &"portatil "
 autoplay = "portatil "
-frame = 3
 frame_progress = 0.174958
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

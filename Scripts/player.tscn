@@ -102,7 +102,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
@@ -147,6 +147,10 @@ target_position = Vector2(0, 33)
 collision_mask = 15
 collide_with_areas = true
 
+[node name="PlatformPassTimer" type="Timer" parent="."]
+wait_time = 0.092
+one_shot = true
+
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 4
@@ -160,7 +164,9 @@ debug_color = Color(0.945098, 0, 0.592157, 0.419608)
 position = Vector2(52, -13)
 
 [node name="shoot_cooldown" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="PlatformPassTimer" to="." method="_on_platform_pass_timer_timeout"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
