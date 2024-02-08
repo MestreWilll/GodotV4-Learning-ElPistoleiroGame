@@ -1037,7 +1037,6 @@ debug_color = Color(1, 1, 1, 0.419608)
 metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(1178, 351)
 scale = Vector2(3, 3)
@@ -1046,7 +1045,6 @@ texture_pressed = ExtResource("5_pc568")
 action = "ui_jump"
 
 [node name="down" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(151, 451)
 rotation = 3.14159
@@ -1056,7 +1054,6 @@ texture_pressed = ExtResource("5_pc568")
 action = "down"
 
 [node name="move_left" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(4, 253)
 scale = Vector2(3, 3)
@@ -1065,7 +1062,6 @@ texture_pressed = ExtResource("7_2pq8w")
 action = "move_left"
 
 [node name="move_right" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(113, 253)
 scale = Vector2(3, 3)
@@ -1074,7 +1070,6 @@ texture_pressed = ExtResource("9_ndxwf")
 action = "move_right"
 
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(1056, 351)
 scale = Vector2(1.58571, 1.34286)
@@ -1083,7 +1078,6 @@ texture_pressed = ExtResource("11_f3rir")
 action = "ui_shoot"
 
 [node name="dialog_box" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(5, 5)
 scale = Vector2(0.160944, 0.160083)
@@ -1092,7 +1086,6 @@ texture_pressed = ExtResource("16_ml3m5")
 action = "interact"
 
 [node name="advance_message" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
 position = Vector2(1200, 5)
 scale = Vector2(0.161, 0.16)

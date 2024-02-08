@@ -106,7 +106,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
-size = Vector2(62, 62)
+size = Vector2(46.0938, 67.1875)
 
 [node name="Player" type="CharacterBody2D" groups=["enemies", "player"]]
 z_index = 1
@@ -124,9 +124,10 @@ debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
-animation = &"shoot"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.364676
+frame = 3
+frame_progress = 0.378666
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 
@@ -143,7 +144,7 @@ target_position = Vector2(-0.621185, -31.0099)
 collision_mask = 20
 
 [node name="RayCast2D_detector" type="RayCast2D" parent="."]
-position = Vector2(9, 2)
+position = Vector2(6.24998, 2.34375)
 target_position = Vector2(0, 33)
 collision_mask = 15
 collide_with_areas = true
@@ -157,9 +158,9 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(5, -4)
+position = Vector2(5.85938, 2.34375)
 shape = SubResource("RectangleShape2D_ccort")
-debug_color = Color(0.945098, 0, 0.592157, 0.419608)
+debug_color = Color(0.811765, 0, 0.156863, 0.419608)
 
 [node name="bullet_position" type="Marker2D" parent="."]
 position = Vector2(52, -13)

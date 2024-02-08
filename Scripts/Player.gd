@@ -24,9 +24,11 @@ var is_running = false  # Variável para rastrear se o personagem está correndo
 var is_jumping = false  # Variável para rastrear se o personagem está pulando
 var is_shooting = false  # Variável para rastrear se o personagem está atirando
 var can_pass_through_platforms = false  # Variável para controlar a passagem através das plataformas
+var shoot_direction = 1  # Direção do tiro, 1 para direita, -1 para esquerda
 
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
+#-------------------------------------------------------------------------------------------------
 ##--------------------------##
 ## Movimentos personagem ##
 ##--------------------------##
@@ -67,9 +69,11 @@ func _physics_process(delta):
 		sprite.play("jump")
 	# Verifica se o botão de atirar está sendo pressionado
 	if Input.is_action_pressed("ui_shoot") and not is_shooting and shoot_cooldown.is_stopped():
+		shoot_direction = sign(bullet_position.position.x)  # Atualiza a direção do tiro
 		is_shooting = true
 		shoot_delay_timer.start()  # Inicia o timer de atraso para disparar
 		sprite.play("shoot")
+
 
 	# Se o personagem está no chão e não está atirando, toca a animação correta baseada na direção
 	if is_on_floor() and not is_shooting:
@@ -83,12 +87,13 @@ func _physics_process(delta):
 	# Se o personagem está caindo e não está atirando, toca a animação de queda
 	elif velocity.y > 0 and not is_shooting:
 		sprite.play("fall")
+
 ##--------------------------##FINISHIM##
 ## Finalização dos movimentos ##
 ##--------------------------##FINISHIM##
 	# Aplica o movimento ao personagem usando a função move_and_slide
 	move_and_slide()
-
+#-------------------------------------------------------------------------------------------------
 ##--------------------------##
 ## Movimentações dos mobs e inimigos ##
 ##--------------------------##
@@ -147,7 +152,7 @@ func handle_collision(collider, direction):
 ##--------------------------##FINISHIM##
 ## Movimentações dos mobs e inimigos ##a
 ##--------------------------##FINISHIM##
-
+#-------------------------------------------------------------------------------------------------
 ##--------------------------##
 ## Configuração da camera que é lidada a Mundo.gd ##
 ##--------------------------##
@@ -164,16 +169,13 @@ func follow_camera(camera):
 ##--------------------------##FINISHIM##
 ## Fim da camera ##
 ##--------------------------##FINISHIM##
-
+#-------------------------------------------------------------------------------------------------
 ##--------------------------##
 ## Area do tiro do player - Irá mexer no shoot da animação de shoot ##
 ##--------------------------##
 func shoot_bullet():
 	var bullet_instance = BULLET_SCENE.instantiate()  # Instancia o projétil
-	if sign(bullet_position.position.x) == 1:
-		bullet_instance.set_direction(1)
-	else:
-		bullet_instance.set_direction(-1)
+	bullet_instance.set_direction(shoot_direction)  # Usa a direção armazenada
 		
 	get_parent().add_child(bullet_instance)  # Adiciona o projétil como filho do Player
 	bullet_instance.global_position = bullet_position.global_position  # Define a posição do projétil
@@ -188,7 +190,7 @@ func _on_shoot_delay_timer_timeout():
 ##--------------------------##FINISHIM##
 ## shoot funcionando, agora é so configurar o time ##
 ##--------------------------##FINISHIM##
-
+#-------------------------------------------------------------------------------------------------
 ##--------------------------##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##
@@ -202,9 +204,9 @@ func _on_platform_pass_timer_timeout():
 	# Reabilita a colisão com as plataformas "One Way"
 	collision_mask |= 2  # Reativa a camada 2 na máscara de colisão
 	can_pass_through_platforms = false
-##--------------------------##
+##--------------------------##FINISHIM##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
-##--------------------------##
+##--------------------------##FINISHIM##
 
 
 
