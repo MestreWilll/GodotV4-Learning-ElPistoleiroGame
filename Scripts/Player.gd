@@ -50,7 +50,7 @@ func _physics_process(delta):
 	# Atualiza a escala do sprite baseado na direção
 	# Atualiza a escala do sprite baseado na direção
 	if sprite and direction != 0:  # Verifica se o sprite não é null e se a direção é diferente de zero
-		sprite.scale.x = direction
+		sprite.scale.x = sign(direction) * abs(sprite.scale.x)
 
 	# Se o personagem não está no chão, aplica a gravidade
 	if not is_on_floor():
