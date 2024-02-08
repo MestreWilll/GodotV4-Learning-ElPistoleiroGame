@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=90 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="PackedScene" uid="uid://b5761w3a28x34" path="res://Scripts/player.tscn" id="2_u0isn"]
@@ -25,9 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="17_vtykn"]
 [ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="18_dxarg"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
-[ext_resource type="Script" path="res://joystick/virtual_joystick.gd" id="26_6udto"]
-[ext_resource type="Texture2D" uid="uid://bm30au8mjfc2f" path="res://joystick/textures/joystick_base_outline.png" id="27_a58aj"]
-[ext_resource type="Texture2D" uid="uid://dt13r06u87fib" path="res://joystick/textures/joystick_tip_arrows.png" id="28_4lgb1"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="26_7mw3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -1040,6 +1038,7 @@ debug_color = Color(1, 1, 1, 0.419608)
 metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
+visible = false
 texture_filter = 1
 position = Vector2(1178, 351)
 scale = Vector2(3, 3)
@@ -1077,8 +1076,8 @@ action = "move_right"
 
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
 texture_filter = 1
-position = Vector2(1056, 351)
-scale = Vector2(1.58571, 1.34286)
+position = Vector2(1071, 285)
+scale = Vector2(1.91428, 1.8)
 texture_normal = ExtResource("10_irduj")
 texture_pressed = ExtResource("11_f3rir")
 action = "ui_shoot"
@@ -1102,57 +1101,12 @@ action = "advance_message"
 [node name="RayCast2D" type="RayCast2D" parent="Controls"]
 position = Vector2(1466, 266)
 
-[node name="Virtual Joystick" type="Control" parent="Controls"]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -182.0
-offset_right = 302.0
-offset_bottom = 118.0
-grow_vertical = 0
-scale = Vector2(0.6, 0.599999)
-script = ExtResource("26_6udto")
-action_left = "move_left"
-action_right = "move_right"
-action_up = "ui_jump"
-action_down = "down"
-
-[node name="Base" type="TextureRect" parent="Controls/Virtual Joystick"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(100, 100)
-mouse_force_pass_scroll_events = false
-texture = ExtResource("27_a58aj")
-stretch_mode = 5
-
-[node name="Tip" type="TextureRect" parent="Controls/Virtual Joystick/Base"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(50, 50)
-texture = ExtResource("28_4lgb1")
-stretch_mode = 5
+[node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
+offset_left = -26.0
+offset_top = -258.0
+offset_right = 274.0
+offset_bottom = 42.0
+scale = Vector2(1.04, 0.959999)
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(794, 358)

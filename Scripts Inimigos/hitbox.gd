@@ -1,14 +1,11 @@
+# Supondo que este seja o script do inimigo
 extends Area2D
-
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies"):
-		if owner.has_node("AnimatedSprite2D"):
-			var animated_sprite = owner.get_node("AnimatedSprite2D")
-			animated_sprite.play("hurt")
+		if owner.has_method("play_hurt_animation"):
+			owner.play_hurt_animation()  # Chama a função para tocar a animação de "hurt" e gerenciar o grupo
 			print("Você matou um inimigo")
-			print("Acertou misaravi")  # aviso pra mim
-			area.queue_free()  # Adiciona esta linha para remover o tiro
+			area.queue_free()  # Remove o projétil
 		else:
-			print("AnimatedSprite não encontrado")
-
+			print("Método play_hurt_animation não encontrado")

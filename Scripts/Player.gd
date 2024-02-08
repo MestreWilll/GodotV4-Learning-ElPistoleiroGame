@@ -106,20 +106,18 @@ func _physics_process(delta):
 	# Verifica se o raycast à esquerda detecta algo e executa a lógica de colisão
 	if ray_left.is_enabled() and ray_left.is_colliding():
 		var collider = ray_left.get_collider()
-		print("Colisão detectada à esquerda com: ", collider.name)
 		handle_collision(collider, "left")
 
 	# Verifica se o raycast à direita detecta algo e executa a lógica de colisão
 	if ray_right.is_enabled() and ray_right.is_colliding():
 		var collider = ray_right.get_collider()
-		print("Colisão detectada à direita com: ", collider.name)
 		handle_collision(collider, "right")
 
 
 		
 func _on_hurtbox_body_entered(body):
 	# Lógica para quando o personagem é atingido por um inimigo
-	if body.is_in_group("enemies"):
+	if body and body.is_in_group("enemies"):
 		# Calcula a direção do knockback baseado na posição relativa do inimigo
 		var knockback_direction = global_position.direction_to(body.global_position)
 		# Inverte a direção para que o jogador seja empurrado para longe do inimigo
@@ -143,10 +141,16 @@ func _on_hurtbox_body_entered(body):
 func _on_animated_sprite_2d_animation_finished():
 	pass # Substitua pelo corpo da função conforme necessário.
 
+func play_hurt_animation():
+	remove_from_group("enemies")  # Remove o inimigo do grupo para evitar causar dano
+	sprite.play("hurt")
+
 func handle_collision(collider, direction):
 	# Lógica para quando uma colisão é detectada com um inimigo
-	if collider.is_in_group("enemies"):
+	if collider and collider.is_in_group("enemies"):
 		print("Inimigo detectado à " + direction)
+	else:
+		print("Colisor é nulo ou não está no grupo 'enemies'")
 		# Aqui você pode adicionar a lógica específica para quando um inimigo é detectado
 		# por exemplo, aplicar knockback na direção oposta
 ##--------------------------##FINISHIM##
@@ -207,6 +211,3 @@ func _on_platform_pass_timer_timeout():
 ##--------------------------##FINISHIM##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##FINISHIM##
-
-
-

@@ -102,7 +102,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 12.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
@@ -124,10 +124,9 @@ debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
-animation = &"idle"
+animation = &"shoot"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.378666
+frame_progress = 0.687556
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 
@@ -166,11 +165,11 @@ debug_color = Color(0.811765, 0, 0.156863, 0.419608)
 position = Vector2(52, -13)
 
 [node name="shoot_cooldown" type="Timer" parent="."]
-wait_time = 0.549
+wait_time = 0.2
 one_shot = true
 
 [node name="ShootDelayTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

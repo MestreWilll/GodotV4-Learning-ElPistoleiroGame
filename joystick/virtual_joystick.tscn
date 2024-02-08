@@ -9,11 +9,17 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -308.0
-offset_right = 300.0
-offset_bottom = -8.0
+offset_left = -31.0
+offset_top = -211.0
+offset_right = 269.0
+offset_bottom = 89.0
 grow_vertical = 0
+scale = Vector2(0.88, 0.799999)
 script = ExtResource("1_8x4dy")
+action_left = "move_left"
+action_right = "move_right"
+action_up = "ui_jump"
+action_down = "down"
 
 [node name="Base" type="TextureRect" parent="."]
 layout_mode = 1
