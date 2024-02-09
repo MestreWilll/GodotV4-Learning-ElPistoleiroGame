@@ -98,6 +98,7 @@ func _physics_process(delta):
 ## Movimentações dos mobs e inimigos ##
 ##--------------------------##
 	# Aplica o knockback se necessário
+		
 	if knockback_vector.length() > 0:
 		position += knockback_vector * delta
 		# Amortece o knockback_vector para que o efeito diminua ao longo do tempo
@@ -113,30 +114,26 @@ func _physics_process(delta):
 		var collider = ray_right.get_collider()
 		handle_collision(collider, "right")
 
-
 		
 func _on_hurtbox_body_entered(body):
-	# Lógica para quando o personagem é atingido por um inimigo
 	if body and body.is_in_group("enemies"):
-		# Calcula a direção do knockback baseado na posição relativa do inimigo
 		var knockback_direction = global_position.direction_to(body.global_position)
-		# Inverte a direção para que o jogador seja empurrado para longe do inimigo
 		knockback_direction = -knockback_direction
-		# Define o vetor de knockback com uma magnitude maior
-		knockback_vector = knockback_direction * 300  # Aumente a magnitude conforme necessário
-		
-		# Muda a cor do jogador para vermelho para indicar dano
+		knockback_vector = knockback_direction * 300
 		sprite.modulate = Color(1, 0, 0, 1)
 		
-		# Aplica o knockback após um curto período de tempo
 		await get_tree().create_timer(0.1).timeout
 		position += knockback_vector
+		
+		await get_tree().create_timer(0.2).timeout
+		sprite.modulate = Color(1, 1, 1, 1)
+		print("Tomou dano")
+		# Aqui você diminui a vida do jogador
+		if Game.player_life > 0:
+			Game.player_life -= 1
+		else:
+			queue_free()  # Ou qualquer outra lógica de "game over"
 
-		# Retorna a cor do jogador para normal após um curto período de tempo
-		await get_tree().create_timer(0.2).timeout  # Ajuste a duração conforme necessário
-		sprite.modulate = Color(1, 1, 1, 1)  # Cor branca (normal)
-
-		print("Você tomou dano")
 
 func _on_animated_sprite_2d_animation_finished():
 	pass # Substitua pelo corpo da função conforme necessário.
@@ -160,6 +157,7 @@ func handle_collision(collider, direction):
 ##--------------------------##
 ## Configuração da camera que é lidada a Mundo.gd ##
 ##--------------------------##
+
 func follow_camera(camera):
 	# Obtém o caminho do nó da câmera e define o caminho remoto para seguir a câmera
 	var camera_path = camera.get_path()
@@ -177,6 +175,7 @@ func follow_camera(camera):
 ##--------------------------##
 ## Area do tiro do player - Irá mexer no shoot da animação de shoot ##
 ##--------------------------##
+
 func shoot_bullet():
 	var bullet_instance = BULLET_SCENE.instantiate()  # Instancia o projétil
 	bullet_instance.set_direction(shoot_direction)  # Usa a direção armazenada
