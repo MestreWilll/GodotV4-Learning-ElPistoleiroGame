@@ -25,6 +25,7 @@ var is_jumping = false  # Variável para rastrear se o personagem está pulando
 var is_shooting = false  # Variável para rastrear se o personagem está atirando
 var can_pass_through_platforms = false  # Variável para controlar a passagem através das plataformas
 var shoot_direction = 1  # Direção do tiro, 1 para direita, -1 para esquerda
+signal player_has_died
 
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
@@ -133,6 +134,7 @@ func _on_hurtbox_body_entered(body):
 			Game.player_life -= 1
 		else:
 			queue_free()  # Ou qualquer outra lógica de "game over"
+			emit_signal("player_has_died")
 
 
 func _on_animated_sprite_2d_animation_finished():

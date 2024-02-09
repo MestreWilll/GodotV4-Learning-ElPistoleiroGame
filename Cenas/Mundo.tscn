@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=101 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="PackedScene" uid="uid://b5761w3a28x34" path="res://Scripts/player.tscn" id="2_u0isn"]
@@ -33,6 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://dx80glue84eue" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin2.png" id="30_5xkec"]
 [ext_resource type="Texture2D" uid="uid://cmmo2ffubgt0c" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin3.png" id="31_5dyy3"]
 [ext_resource type="Texture2D" uid="uid://dmevudns5lrhj" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin4.png" id="32_m252a"]
+[ext_resource type="Texture2D" uid="uid://bk3orkcwt6ilh" path="res://assets/botoes android/pause/pausanormal.png" id="33_p52ar"]
+[ext_resource type="PackedScene" uid="uid://ykvbf180ldec" path="res://Mundo_Cena/pause_menu.tscn" id="34_dnamm"]
+[ext_resource type="Texture2D" uid="uid://bxnl8as51vl5i" path="res://assets/botoes android/pause/pausapressed.png" id="34_tsc8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -1059,6 +1062,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("17_e4rt6")
 
+[node name="clock_timer" type="Timer" parent="Controls/Control"]
+autostart = true
+
 [node name="container" type="MarginContainer" parent="Controls/Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -1248,11 +1254,20 @@ action = "interact"
 
 [node name="advance_message" type="TouchScreenButton" parent="Controls"]
 texture_filter = 1
-position = Vector2(1219, 29)
+position = Vector2(1217, 29)
 scale = Vector2(0.120172, 0.116424)
 texture_normal = ExtResource("17_vtykn")
 texture_pressed = ExtResource("18_dxarg")
 action = "advance_message"
+
+[node name="advance_message2" type="TouchScreenButton" parent="Controls"]
+texture_filter = 1
+position = Vector2(613, 21)
+scale = Vector2(0.112245, 0.105469)
+texture_normal = ExtResource("33_p52ar")
+texture_pressed = ExtResource("34_tsc8y")
+action = "cancel"
+visibility_mode = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="Controls"]
 position = Vector2(1466, 266)
@@ -1282,3 +1297,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="pause_menu" parent="." instance=ExtResource("34_dnamm")]
+
+[connection signal="timeout" from="Controls/Control/clock_timer" to="Controls/Control" method="_on_clock_timer_timeout"]
