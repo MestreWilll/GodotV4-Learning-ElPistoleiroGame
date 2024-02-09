@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -450.0
 @onready var sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var detector = $ray_left
 @onready var detectorR = $ray_right
+@export var score_contagem := 100
 
 var direction := 1  # Inicialmente indo para a direita (1 para direita, -1 para esquerda)
 var knockback_vector = Vector2()
@@ -35,12 +36,14 @@ func _physics_process(delta):
 
 func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "hurt": 
+		
 		queue_free()
 		print("hurt aqui")
 
 func play_hurt_animation():
 	remove_from_group("enemies")  # Remove o inimigo do grupo para evitar causar dano
 	sprite.play("hurt")
+	Game.score += score_contagem
 	# Aguarda o fim da animação "hurt" antes de remover o inimigo
 	await sprite.animation_finished
 	if sprite.animation == "hurt":

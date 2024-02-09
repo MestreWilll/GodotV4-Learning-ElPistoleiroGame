@@ -6,6 +6,7 @@ const CHANGE_DIRECTION_MAX = 5.0  # Tempo máximo para mudança de direção
 
 @onready var detector := $RayCast2D as RayCast2D
 @onready var sprite := $AnimatedSprite2D as AnimatedSprite2D
+@export var score_contagem := 50
 
 var direction := -1  # Inicialmente indo para a esquerda
 var time_to_change_direction := randf_range(CHANGE_DIRECTION_MIN, CHANGE_DIRECTION_MAX)  # Tempo até a próxima mudança de direção
@@ -40,12 +41,14 @@ func _physics_process(delta):
 
 func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "hurt": 
+		
 		queue_free()
 		print("hurt aqui")
-		
+
 func play_hurt_animation():
 	remove_from_group("enemies")  # Remove o inimigo do grupo para evitar causar dano
 	sprite.play("hurt")
+	Game.score += score_contagem
 	# Aguarda o fim da animação "hurt" antes de remover o inimigo
 	await sprite.animation_finished
 	if sprite.animation == "hurt":

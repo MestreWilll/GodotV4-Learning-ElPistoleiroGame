@@ -1,25 +1,15 @@
 extends Area2D
 
-var coletada = false # Adiciona uma variável para verificar se a moeda já foi coletada
+var coins := 1# Adiciona uma variável para verificar se a moeda já foi coletada
 
 func _on_body_entered(_body):
-	if not coletada: # Verifica se a moeda ainda não foi coletada
-		coletada = true # Marca a moeda como coletada
 		$AnimatedSprite2D.play("collect")
-		# Incrementa a contagem de moedas
-		Game.coins_collected += 1
-		# Notifica o label para atualizar
-		update_coins_label()
+		#Anotação dessa linha, para não haver duplicação nos coins
+		await $CollisionShape2D.call_deferred("queue_free")
+		Game.coins += 1
+		print(Game.coins)
 
 func _on_animated_sprite_2d_animation_finished():
-	queue_free()
+	if $AnimatedSprite2D.animation == "collect":
+		queue_free()
 
-func update_coins_label():
-	# Emite um sinal ou chama diretamente o método do Label para atualizar
-	var label_path = "../../../Controls/Label"
-	var label = get_node_or_null(label_path)
-	if label:
-		label.update_coins_count(Game.coins_collected)
-		print("Você pegou uma moeda")
-	else:
-		print("Label não encontrado no caminho: " + label_path)

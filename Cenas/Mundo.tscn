@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=98 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="PackedScene" uid="uid://b5761w3a28x34" path="res://Scripts/player.tscn" id="2_u0isn"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://da85vxl0uplcj" path="res://assets/Pistoleiro_Assets/atencaoplaca.png" id="4_fkgjp"]
 [ext_resource type="Texture2D" uid="uid://rh7w05yfddve" path="res://assets/botoes android/ui_buttons_arrow_up_NORMAL.png" id="4_ibqla"]
 [ext_resource type="PackedScene" uid="uid://dqof5fh6dw7co" path="res://Inimigos_cenario/morcegoentrada.tscn" id="4_rsljf"]
-[ext_resource type="PackedScene" uid="uid://clbosv3iupdp3" path="res://coin/label.tscn" id="5_70wpw"]
 [ext_resource type="PackedScene" uid="uid://f7rvhth1kgli" path="res://Cenas/mob_simples.tscn" id="5_blj17"]
 [ext_resource type="Texture2D" uid="uid://bjpenmvi33ouh" path="res://assets/botoes android/ui_buttons_arrow_up_PRESSED.png" id="5_pc568"]
 [ext_resource type="Script" path="res://dialog_box-TOTAL/waning_sign.gd" id="6_7wm86"]
@@ -22,12 +21,18 @@
 [ext_resource type="Texture2D" uid="uid://dccytidrctjb6" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxNORMAL.png" id="15_0jq31"]
 [ext_resource type="Texture2D" uid="uid://csbmdjky3whi5" path="res://assets/Pistoleiro_Assets/Dialog_Box(16 x 16).png" id="15_gpdxm"]
 [ext_resource type="Texture2D" uid="uid://clgq0eeqkjvo" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxPRESSED.png" id="16_ml3m5"]
+[ext_resource type="Script" path="res://coin/hud_manager.gd" id="17_e4rt6"]
 [ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="17_vtykn"]
 [ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="18_dxarg"]
 [ext_resource type="Texture2D" uid="uid://dylqwjcyg3yoj" path="res://assets/botoes android/jump_botao/final_normal.png" id="18_whhvc"]
 [ext_resource type="Texture2D" uid="uid://dnmc5w3sw8dw3" path="res://assets/botoes android/jump_botao/pressedOficial.png" id="19_w2va4"]
+[ext_resource type="Texture2D" uid="uid://rrbv6bxtdhdw" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Health_Kit (16 x 16).png" id="21_e5chb"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="26_7mw3r"]
+[ext_resource type="Texture2D" uid="uid://c3o7or23crvpt" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin1.png" id="29_bg13i"]
+[ext_resource type="Texture2D" uid="uid://dx80glue84eue" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin2.png" id="30_5xkec"]
+[ext_resource type="Texture2D" uid="uid://cmmo2ffubgt0c" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin3.png" id="31_5dyy3"]
+[ext_resource type="Texture2D" uid="uid://dmevudns5lrhj" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin4.png" id="32_m252a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -280,6 +285,17 @@ size = Vector2(105.5, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8anyq"]
 size = Vector2(70, 77)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vwfak"]
+frames = 4
+speed_scale = 4.6
+frame_0/texture = ExtResource("29_bg13i")
+frame_1/texture = ExtResource("30_5xkec")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("31_5dyy3")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("32_m252a")
+frame_3/duration = 1.0
 
 [node name="Mundo" type="Node2D"]
 position = Vector2(-1, 33)
@@ -1034,10 +1050,149 @@ debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Controls" type="CanvasLayer" parent="."]
 
-[node name="CanvasGroup" type="CanvasGroup" parent="Controls"]
+[node name="Control" type="Control" parent="Controls"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_e4rt6")
 
-[node name="Label" parent="Controls" instance=ExtResource("5_70wpw")]
-metadata/_edit_use_anchors_ = true
+[node name="container" type="MarginContainer" parent="Controls/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="coins_comtainer" type="HBoxContainer" parent="Controls/Control/container"]
+layout_mode = 2
+
+[node name="coins_icon" type="TextureRect" parent="Controls/Control/container/coins_comtainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_vwfak")
+
+[node name="coins_counter" type="Label" parent="Controls/Control/container/coins_comtainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "0000"
+vertical_alignment = 1
+
+[node name="timer_counter" type="HBoxContainer" parent="Controls/Control/container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="timer_label" type="Label" parent="Controls/Control/container/timer_counter"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "TIME:"
+vertical_alignment = 1
+
+[node name="timer_counter" type="Label" parent="Controls/Control/container/timer_counter"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+vertical_alignment = 1
+
+[node name="score_coumteiner" type="HBoxContainer" parent="Controls/Control/container"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="score_label" type="Label" parent="Controls/Control/container/score_coumteiner"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "SCORE:"
+vertical_alignment = 1
+
+[node name="score_counter" type="Label" parent="Controls/Control/container/score_coumteiner"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "000000"
+vertical_alignment = 1
+
+[node name="life_container" type="HBoxContainer" parent="Controls/Control/container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="life_icon" type="TextureRect" parent="Controls/Control/container/life_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+auto_translate = false
+texture = ExtResource("21_e5chb")
+
+[node name="separador" type="Label" parent="Controls/Control/container/life_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 12
+text = "x"
+vertical_alignment = 1
+
+[node name="life_counter" type="Label" parent="Controls/Control/container/life_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.572549, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "03"
+vertical_alignment = 1
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Controls"]
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
 texture_filter = 1
@@ -1085,16 +1240,16 @@ action = "ui_shoot"
 
 [node name="dialog_box" type="TouchScreenButton" parent="Controls"]
 texture_filter = 1
-position = Vector2(5, 5)
-scale = Vector2(0.160944, 0.160083)
+position = Vector2(8.00006, 29)
+scale = Vector2(0.12661, 0.120582)
 texture_normal = ExtResource("15_0jq31")
 texture_pressed = ExtResource("16_ml3m5")
 action = "interact"
 
 [node name="advance_message" type="TouchScreenButton" parent="Controls"]
 texture_filter = 1
-position = Vector2(1200, 5)
-scale = Vector2(0.161, 0.16)
+position = Vector2(1219, 29)
+scale = Vector2(0.120172, 0.116424)
 texture_normal = ExtResource("17_vtykn")
 texture_pressed = ExtResource("18_dxarg")
 action = "advance_message"
@@ -1108,7 +1263,7 @@ offset_top = -258.0
 offset_right = 274.0
 offset_bottom = 42.0
 scale = Vector2(1.04, 0.959999)
-action_up = ""
+action_up = "look_up"
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(794, 358)
