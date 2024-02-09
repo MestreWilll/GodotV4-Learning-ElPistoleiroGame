@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=92 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="PackedScene" uid="uid://b5761w3a28x34" path="res://Scripts/player.tscn" id="2_u0isn"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://clgq0eeqkjvo" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxPRESSED.png" id="16_ml3m5"]
 [ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="17_vtykn"]
 [ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="18_dxarg"]
+[ext_resource type="Texture2D" uid="uid://dylqwjcyg3yoj" path="res://assets/botoes android/jump_botao/final_normal.png" id="18_whhvc"]
+[ext_resource type="Texture2D" uid="uid://dnmc5w3sw8dw3" path="res://assets/botoes android/jump_botao/pressedOficial.png" id="19_w2va4"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="26_7mw3r"]
 
@@ -305,29 +307,29 @@ position = Vector2(286, 282)
 scale = Vector2(2.58547, 2.80564)
 collision_mask = 19
 
-[node name="morcego" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+[node name="morcego" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
 position = Vector2(1576, -19)
 collision_layer = 0
 collision_mask = 0
 
-[node name="morcego2" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+[node name="morcego2" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
 position = Vector2(1423, -265)
 collision_layer = 0
 collision_mask = 0
 
-[node name="morcego3" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+[node name="morcego3" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
 position = Vector2(787, 72)
 collision_layer = 0
 collision_mask = 0
 metadata/Direita2 = true
 
-[node name="morcego4" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+[node name="morcego4" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
 position = Vector2(750, -80)
 collision_layer = 0
 collision_mask = 0
 metadata/Direita2 = true
 
-[node name="morcego5" parent="Inimigos_Mobs" groups=["enemies"] instance=ExtResource("4_rsljf")]
+[node name="morcego5" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
 position = Vector2(461, -321)
 collision_layer = 0
 collision_mask = 0
@@ -1038,12 +1040,11 @@ debug_color = Color(1, 1, 1, 0.419608)
 metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Controls"]
-visible = false
 texture_filter = 1
-position = Vector2(1178, 351)
-scale = Vector2(3, 3)
-texture_normal = ExtResource("4_ibqla")
-texture_pressed = ExtResource("5_pc568")
+position = Vector2(1051, 336)
+scale = Vector2(0.213439, 0.204183)
+texture_normal = ExtResource("18_whhvc")
+texture_pressed = ExtResource("19_w2va4")
 action = "ui_jump"
 
 [node name="down" type="TouchScreenButton" parent="Controls"]
@@ -1076,8 +1077,8 @@ action = "move_right"
 
 [node name="shoot" type="TouchScreenButton" parent="Controls"]
 texture_filter = 1
-position = Vector2(1071, 285)
-scale = Vector2(1.91428, 1.8)
+position = Vector2(1163, 342)
+scale = Vector2(1.6, 1.41429)
 texture_normal = ExtResource("10_irduj")
 texture_pressed = ExtResource("11_f3rir")
 action = "ui_shoot"
@@ -1107,6 +1108,7 @@ offset_top = -258.0
 offset_right = 274.0
 offset_bottom = 42.0
 scale = Vector2(1.04, 0.959999)
+action_up = ""
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(794, 358)
@@ -1123,3 +1125,5 @@ drag_right_margin = 0.04
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Timer" type="Timer" parent="."]

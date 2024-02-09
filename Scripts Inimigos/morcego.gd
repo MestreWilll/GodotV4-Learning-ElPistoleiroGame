@@ -42,3 +42,11 @@ func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "hurt": 
 		queue_free()
 		print("hurt aqui")
+		
+func play_hurt_animation():
+	remove_from_group("enemies")  # Remove o inimigo do grupo para evitar causar dano
+	sprite.play("hurt")
+	# Aguarda o fim da animação "hurt" antes de remover o inimigo
+	await sprite.animation_finished
+	if sprite.animation == "hurt":
+		queue_free()  # Remove o inimigo após a animação

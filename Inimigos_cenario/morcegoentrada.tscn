@@ -141,7 +141,7 @@ size = Vector2(48, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h425u"]
 size = Vector2(55, 30)
 
-[node name="morcego" type="CharacterBody2D"]
+[node name="morcego" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(25, -9)
 collision_layer = 70
 collision_mask = 99
