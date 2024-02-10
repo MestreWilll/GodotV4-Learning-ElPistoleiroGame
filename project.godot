@@ -24,9 +24,11 @@ Globals="res://Scripts/globais.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=450
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
+window/size/initial_position_type=0
+window/size/borderless=true
 window/stretch/mode="viewport"
 
 [importer_defaults]
@@ -105,6 +107,11 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
 environment/subsurface_scattering/subsurface_scattering_quality.android=0
+2d/size/initial_position_type=1
+2d/size/mode=4
