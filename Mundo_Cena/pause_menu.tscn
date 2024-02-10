@@ -41,6 +41,7 @@ theme = SubResource("Theme_s2a7m")
 [node name="resume_btn" type="Button" parent="menu_holder"]
 layout_mode = 2
 theme = ExtResource("2_dbi4a")
+theme_override_font_sizes/font_size = 111
 shortcut = SubResource("Shortcut_g6le4")
 text = "Continuar"
 
@@ -49,7 +50,7 @@ layout_mode = 2
 theme = ExtResource("2_dbi4a")
 theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("1_xa00q")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 79
 text = "Sair do jogo"
 
 [connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=97 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="PackedScene" uid="uid://b5761w3a28x34" path="res://Scripts/player.tscn" id="2_u0isn"]
@@ -22,14 +22,16 @@
 [ext_resource type="Texture2D" uid="uid://dnmc5w3sw8dw3" path="res://assets/botoes android/jump_botao/pressedOficial.png" id="19_w2va4"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="26_7mw3r"]
+[ext_resource type="Texture2D" uid="uid://cyy04yym88udv" path="res://assets/botoes android/HUD-GAME/botaonormal.png" id="27_1fyko"]
+[ext_resource type="Texture2D" uid="uid://48ena6tfxy1f" path="res://assets/botoes android/HUD-GAME/botaopressed.png" id="28_mptcc"]
 [ext_resource type="Texture2D" uid="uid://c3o7or23crvpt" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin1.png" id="29_bg13i"]
 [ext_resource type="Texture2D" uid="uid://dx80glue84eue" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin2.png" id="30_5xkec"]
+[ext_resource type="Texture2D" uid="uid://cktl57486vx6f" path="res://assets/botoes android/HUD-GAME/hud-life-pause-score.png" id="30_p55s4"]
 [ext_resource type="Texture2D" uid="uid://cmmo2ffubgt0c" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin3.png" id="31_5dyy3"]
-[ext_resource type="Texture2D" uid="uid://w5x3ggr5d5db" path="res://assets/botoes android/HUD-GAME/hud-time-vida-score-pause.png" id="31_aralc"]
+[ext_resource type="Texture2D" uid="uid://bk0ukhf4muvhi" path="res://assets/botoes android/HUD-GAME/time.png" id="31_jjygv"]
+[ext_resource type="Texture2D" uid="uid://bkd7fuwj64y83" path="res://assets/botoes android/HUD-GAME/coins.png" id="31_lus32"]
 [ext_resource type="Texture2D" uid="uid://dmevudns5lrhj" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin4.png" id="32_m252a"]
-[ext_resource type="Texture2D" uid="uid://bk3orkcwt6ilh" path="res://assets/botoes android/pause/pausanormal.png" id="33_p52ar"]
 [ext_resource type="PackedScene" uid="uid://ykvbf180ldec" path="res://Mundo_Cena/pause_menu.tscn" id="34_dnamm"]
-[ext_resource type="Texture2D" uid="uid://bxnl8as51vl5i" path="res://assets/botoes android/pause/pausapressed.png" id="34_tsc8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
 size = Vector2(1855.25, 13)
@@ -1081,16 +1083,19 @@ theme_override_constants/margin_bottom = 8
 [node name="coins_comtainer" type="HBoxContainer" parent="Controls/Control/container"]
 layout_mode = 2
 size_flags_horizontal = 0
+metadata/_edit_lock_ = true
 
 [node name="timer_counter" type="HBoxContainer" parent="Controls/Control/container"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+metadata/_edit_lock_ = true
 
 [node name="score_coumteiner" type="HBoxContainer" parent="Controls/Control/container"]
 layout_mode = 2
 size_flags_horizontal = 8
+metadata/_edit_lock_ = true
 
 [node name="life_container" type="HBoxContainer" parent="Controls/Control/container"]
 texture_filter = 1
@@ -1098,16 +1103,17 @@ layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(1410, 331.825)
 
 [node name="player_life" type="Label" parent="Controls/Control/container/StaticBody2D3"]
 texture_filter = 1
-offset_left = -328.332
-offset_top = -557.575
-offset_right = -296.332
-offset_bottom = -518.575
+offset_left = -1322.5
+offset_top = -583.685
+offset_right = -1290.5
+offset_bottom = -544.685
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1122,10 +1128,10 @@ position = Vector2(1057, 8)
 
 [node name="score_counter" type="Label" parent="Controls/Control/container/StaticBody2D2"]
 texture_filter = 1
-offset_left = 425.5
-offset_top = -232.118
-offset_right = 509.5
-offset_bottom = -198.118
+offset_left = -485.333
+offset_top = -258.228
+offset_right = -401.333
+offset_bottom = -224.228
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1140,23 +1146,23 @@ position = Vector2(8, 8)
 [node name="coins_counter" type="Label" parent="Controls/Control/container/StaticBody2D"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 22)
-offset_left = 1063.67
-offset_top = -168.473
-offset_right = 1123.67
-offset_bottom = -132.473
+offset_left = 1135.33
+offset_top = -315.89
+offset_right = 1223.33
+offset_bottom = -261.89
 size_flags_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 39
 text = "0000"
 vertical_alignment = 1
 
 [node name="coins_icon" type="TextureRect" parent="Controls/Control/container/StaticBody2D"]
-offset_left = 1036.0
-offset_top = -165.0
-offset_right = 1072.0
-offset_bottom = -134.0
+offset_left = 1070.17
+offset_top = -306.088
+offset_right = 1147.17
+offset_bottom = -269.088
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("AnimatedTexture_vwfak")
@@ -1166,10 +1172,10 @@ position = Vector2(532, 8)
 
 [node name="timer_counter" type="Label" parent="Controls/Control/container/StaticBody2D4"]
 texture_filter = 1
-offset_left = 971.333
-offset_top = -169.017
-offset_right = 1034.33
-offset_bottom = -134.017
+offset_left = 968.833
+offset_top = -304.466
+offset_right = 1031.83
+offset_bottom = -269.466
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1179,15 +1185,20 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
+visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0
 offset_bottom = -170.0
 scale = Vector2(1.7951, 1.60103)
+pressed_color = Color(0.317647, 0.866667, 0.52549, 1)
 action_up = "look_up"
 metadata/_edit_use_anchors_ = true
 
+[node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
+
 [node name="Android_button" type="Node2D" parent="Controls"]
+visible = false
 position = Vector2(0, 570)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Controls/Android_button"]
@@ -1210,7 +1221,7 @@ action = "ui_shoot"
 
 [node name="dialog_box" type="TouchScreenButton" parent="Controls/Android_button"]
 texture_filter = 1
-position = Vector2(1360, -298)
+position = Vector2(7.00006, -566)
 scale = Vector2(0.148069, 0.14553)
 texture_normal = ExtResource("15_0jq31")
 texture_pressed = ExtResource("16_ml3m5")
@@ -1218,32 +1229,44 @@ action = "interact"
 
 [node name="advance_message" type="TouchScreenButton" parent="Controls/Android_button"]
 texture_filter = 1
-position = Vector2(1662, -297)
+position = Vector2(777, -569)
 scale = Vector2(0.133047, 0.14553)
 texture_normal = ExtResource("17_vtykn")
 texture_pressed = ExtResource("18_dxarg")
 action = "advance_message"
 
-[node name="advance_message2" type="TouchScreenButton" parent="Controls/Android_button"]
+[node name="botao_Pause" type="TouchScreenButton" parent="Controls/Android_button"]
 texture_filter = 1
-position = Vector2(1516, -466)
-scale = Vector2(0.195918, 0.199219)
-texture_normal = ExtResource("33_p52ar")
-texture_pressed = ExtResource("34_tsc8y")
+position = Vector2(347, -498)
+scale = Vector2(0.676768, 0.562814)
+texture_normal = ExtResource("27_1fyko")
+texture_pressed = ExtResource("28_mptcc")
 action = "cancel"
 visibility_mode = 1
 
-[node name="RayCast2D" type="RayCast2D" parent="Controls"]
-position = Vector2(1466, 836)
+[node name="Imagens_controls" type="Node2D" parent="Controls"]
 
-[node name="HUD-TIMER-PAUSE-VIDA-DIALOG" type="Sprite2D" parent="Controls"]
+[node name="Hud-life-pause-score" type="Sprite2D" parent="Controls/Imagens_controls"]
 z_index = -1
-position = Vector2(1566.06, 191.051)
-scale = Vector2(0.727583, 1.11148)
-texture = ExtResource("31_aralc")
+position = Vector2(426.937, 117.925)
+scale = Vector2(0.873575, 0.849057)
+texture = ExtResource("30_p55s4")
 metadata/_edit_lock_ = true
 
-[node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
+[node name="Time" type="Sprite2D" parent="Controls/Imagens_controls"]
+z_index = -1
+position = Vector2(1772, 53)
+texture = ExtResource("31_jjygv")
+metadata/_edit_lock_ = true
+
+[node name="Coins" type="Sprite2D" parent="Controls/Imagens_controls"]
+z_index = -1
+position = Vector2(1388, 53)
+texture = ExtResource("31_lus32")
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Controls"]
+position = Vector2(1466, 836)
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(1006, 10)
