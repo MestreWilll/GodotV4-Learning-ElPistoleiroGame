@@ -1,25 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ykvbf180ldec"]
+[gd_scene load_steps=7 format=3 uid="uid://ykvbf180ldec"]
 
 [ext_resource type="Script" path="res://Menu/pause_menu.gd" id="1_wilvc"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="1_xa00q"]
+[ext_resource type="Theme" uid="uid://xrjcie02ypji" path="res://Menu/pause_menu.tres" id="2_dbi4a"]
 
 [sub_resource type="Theme" id="Theme_64uyn"]
 
 [sub_resource type="Theme" id="Theme_s2a7m"]
 
-[sub_resource type="Theme" id="Theme_cvc2k"]
-Button/colors/font_focus_color = Color(0.952941, 0.956863, 0.239216, 1)
-Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.0705882, 1)
-Button/colors/font_pressed_color = Color(0.705882, 0.647059, 0.0196078, 1)
-Button/fonts/font = ExtResource("1_xa00q")
-
-[sub_resource type="InputEventAction" id="InputEventAction_w3pf1"]
-action = &"cancel"
-
 [sub_resource type="Shortcut" id="Shortcut_g6le4"]
-events = [SubResource("InputEventAction_w3pf1")]
-
-[sub_resource type="Theme" id="Theme_1nj0h"]
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
@@ -51,15 +40,16 @@ theme = SubResource("Theme_s2a7m")
 
 [node name="resume_btn" type="Button" parent="menu_holder"]
 layout_mode = 2
-theme = SubResource("Theme_cvc2k")
+theme = ExtResource("2_dbi4a")
 shortcut = SubResource("Shortcut_g6le4")
 text = "Continuar"
 
 [node name="quit_btn" type="Button" parent="menu_holder"]
 layout_mode = 2
-theme = SubResource("Theme_1nj0h")
+theme = ExtResource("2_dbi4a")
+theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("1_xa00q")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 35
 text = "Sair do jogo"
 
 [connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]

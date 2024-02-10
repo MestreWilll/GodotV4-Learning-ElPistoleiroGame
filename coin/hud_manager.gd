@@ -1,10 +1,14 @@
 extends Control
 
-@onready var coins_counter = $container/coins_comtainer/coins_counter
-@onready var timer_counter = $container/timer_counter/timer_counter
-@onready var player_life = $container/life_container/player_life
-@onready var score_counter = $container/score_coumteiner/score_counter
+
+
 @onready var clock_timer = $clock_timer as Timer
+@onready var coins_counter = $container/coins_comtainer/StaticBody2D/coins_counter
+@onready var timer_counter = $container/timer_counter/StaticBody2D/timer_counter
+@onready var timer_label = $container/timer_counter/StaticBody2D/timer_label
+@onready var score_counter = $container/score_coumteiner/StaticBody2D/score_counter
+@onready var score_label = $container/score_coumteiner/StaticBody2D/score_label
+@onready var player_life = $container/life_container/StaticBody2D/player_life
 
 var minutes = 0
 var seconds = 0
