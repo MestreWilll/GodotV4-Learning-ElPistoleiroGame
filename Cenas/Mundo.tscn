@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=90 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="PackedScene" uid="uid://b5761w3a28x34" path="res://Scripts/player.tscn" id="2_u0isn"]
@@ -15,18 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://dccytidrctjb6" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxNORMAL.png" id="15_0jq31"]
 [ext_resource type="Texture2D" uid="uid://csbmdjky3whi5" path="res://assets/Pistoleiro_Assets/Dialog_Box(16 x 16).png" id="15_gpdxm"]
 [ext_resource type="Texture2D" uid="uid://clgq0eeqkjvo" path="res://assets/botoes android/dialog_box_Botoes/dialog_boxPRESSED.png" id="16_ml3m5"]
-[ext_resource type="Script" path="res://coin/hud_manager.gd" id="17_e4rt6"]
 [ext_resource type="Texture2D" uid="uid://dswuhht6d8c86" path="res://assets/botoes android/dialog_box_Botoes/advance_messageNORMAL.png" id="17_vtykn"]
+[ext_resource type="PackedScene" uid="uid://d3bwxmcem5ios" path="res://Menu/control.tscn" id="17_yjb5s"]
 [ext_resource type="Texture2D" uid="uid://cr3gocpwed8hh" path="res://assets/botoes android/dialog_box_Botoes/advance_messagePRESSED.png" id="18_dxarg"]
 [ext_resource type="Texture2D" uid="uid://dylqwjcyg3yoj" path="res://assets/botoes android/jump_botao/final_normal.png" id="18_whhvc"]
 [ext_resource type="Texture2D" uid="uid://dnmc5w3sw8dw3" path="res://assets/botoes android/jump_botao/pressedOficial.png" id="19_w2va4"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="22_27wrq"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="26_7mw3r"]
-[ext_resource type="Texture2D" uid="uid://c3o7or23crvpt" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin1.png" id="29_bg13i"]
-[ext_resource type="Texture2D" uid="uid://dx80glue84eue" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin2.png" id="30_5xkec"]
-[ext_resource type="Texture2D" uid="uid://cmmo2ffubgt0c" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin3.png" id="31_5dyy3"]
 [ext_resource type="Texture2D" uid="uid://w5x3ggr5d5db" path="res://assets/botoes android/HUD-GAME/hud-time-vida-score-pause.png" id="31_aralc"]
-[ext_resource type="Texture2D" uid="uid://dmevudns5lrhj" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin4.png" id="32_m252a"]
 [ext_resource type="Texture2D" uid="uid://bk3orkcwt6ilh" path="res://assets/botoes android/pause/pausanormal.png" id="33_p52ar"]
 [ext_resource type="PackedScene" uid="uid://ykvbf180ldec" path="res://Mundo_Cena/pause_menu.tscn" id="34_dnamm"]
 [ext_resource type="Texture2D" uid="uid://bxnl8as51vl5i" path="res://assets/botoes android/pause/pausapressed.png" id="34_tsc8y"]
@@ -282,17 +278,6 @@ size = Vector2(105.5, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8anyq"]
 size = Vector2(70, 77)
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_vwfak"]
-frames = 4
-speed_scale = 8.0
-frame_0/texture = ExtResource("29_bg13i")
-frame_1/texture = ExtResource("30_5xkec")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("31_5dyy3")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("32_m252a")
-frame_3/duration = 1.0
 
 [node name="Mundo" type="Node2D"]
 position = Vector2(-1, 33)
@@ -1047,128 +1032,7 @@ debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Controls" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="Controls"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.6, 0.88)
-script = ExtResource("17_e4rt6")
-
-[node name="clock_timer" type="Timer" parent="Controls/Control"]
-autostart = true
-
-[node name="container" type="MarginContainer" parent="Controls/Control"]
-layout_mode = 0
-offset_right = 1065.0
-offset_bottom = 242.0
-scale = Vector2(2, 2.089)
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="coins_comtainer" type="HBoxContainer" parent="Controls/Control/container"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Controls/Control/container/coins_comtainer"]
-
-[node name="coins_counter" type="Label" parent="Controls/Control/container/coins_comtainer/StaticBody2D"]
-texture_filter = 1
-custom_minimum_size = Vector2(0, 22)
-offset_left = 746.167
-offset_top = 56.189
-offset_right = 786.167
-offset_bottom = 78.189
-size_flags_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("22_27wrq")
-theme_override_font_sizes/font_size = 16
-text = "0000"
-vertical_alignment = 1
-
-[node name="coins_icon" type="TextureRect" parent="Controls/Control/container/coins_comtainer/StaticBody2D"]
-offset_left = 728.667
-offset_top = 56.733
-offset_right = 744.667
-offset_bottom = 72.733
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = SubResource("AnimatedTexture_vwfak")
-
-[node name="timer_counter" type="HBoxContainer" parent="Controls/Control/container"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Controls/Control/container/timer_counter"]
-
-[node name="timer_counter" type="Label" parent="Controls/Control/container/timer_counter/StaticBody2D"]
-texture_filter = 1
-offset_left = 475.5
-offset_top = 59.4529
-offset_right = 519.5
-offset_bottom = 75.4529
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("22_27wrq")
-theme_override_font_sizes/font_size = 16
-text = "00:00"
-vertical_alignment = 1
-
-[node name="score_coumteiner" type="HBoxContainer" parent="Controls/Control/container"]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Controls/Control/container/score_coumteiner"]
-
-[node name="score_counter" type="Label" parent="Controls/Control/container/score_coumteiner/StaticBody2D"]
-texture_filter = 1
-offset_left = -67.0
-offset_top = 31.7102
-offset_right = -7.0
-offset_bottom = 47.7102
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("22_27wrq")
-theme_override_font_sizes/font_size = 16
-text = "000000"
-vertical_alignment = 1
-
-[node name="life_container" type="HBoxContainer" parent="Controls/Control/container"]
-texture_filter = 1
-layout_direction = 1
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Controls/Control/container/life_container"]
-position = Vector2(352.999, 210.825)
-
-[node name="player_life" type="Label" parent="Controls/Control/container/life_container/StaticBody2D"]
-texture_filter = 1
-offset_left = -652.499
-offset_top = -294.835
-offset_right = -626.499
-offset_bottom = -272.835
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("22_27wrq")
-theme_override_font_sizes/font_size = 16
-text = "03"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="Control" parent="Controls" instance=ExtResource("17_yjb5s")]
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
 offset_left = -26.0
@@ -1233,7 +1097,7 @@ scale = Vector2(0.433646, 0.488199)
 texture = ExtResource("31_aralc")
 metadata/_edit_lock_ = true
 
-[node name="pause_menu" parent="." instance=ExtResource("34_dnamm")]
+[node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(794, 358)
@@ -1252,5 +1116,3 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="Controls/Control/clock_timer" to="Controls/Control" method="_on_clock_timer_timeout"]

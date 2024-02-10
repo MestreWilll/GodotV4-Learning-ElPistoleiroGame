@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3bwxmcem5ios"]
+[gd_scene load_steps=8 format=3 uid="uid://d3bwxmcem5ios"]
 
 [ext_resource type="Script" path="res://coin/hud_manager.gd" id="1_wugr1"]
 [ext_resource type="Texture2D" uid="uid://c3o7or23crvpt" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin1.png" id="2_qadaf"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cmmo2ffubgt0c" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin3.png" id="4_1qmqj"]
 [ext_resource type="Texture2D" uid="uid://dmevudns5lrhj" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin4.png" id="5_24d6b"]
 [ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="6_44gmx"]
-[ext_resource type="Texture2D" uid="uid://rrbv6bxtdhdw" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Health_Kit (16 x 16).png" id="7_ja6o8"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_vwfak"]
 frames = 4
@@ -46,16 +45,15 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="coins_icon" type="TextureRect" parent="container/coins_comtainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = SubResource("AnimatedTexture_vwfak")
+[node name="StaticBody2D" type="StaticBody2D" parent="container/coins_comtainer"]
 
-[node name="coins_counter" type="Label" parent="container/coins_comtainer"]
+[node name="coins_counter" type="Label" parent="container/coins_comtainer/StaticBody2D"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 22)
-layout_mode = 2
+offset_left = 746.167
+offset_top = 56.189
+offset_right = 786.167
+offset_bottom = 78.189
 size_flags_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -65,31 +63,32 @@ theme_override_font_sizes/font_size = 16
 text = "0000"
 vertical_alignment = 1
 
+[node name="coins_icon" type="TextureRect" parent="container/coins_comtainer/StaticBody2D"]
+offset_left = 728.667
+offset_top = 56.733
+offset_right = 744.667
+offset_bottom = 72.733
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_vwfak")
+
 [node name="timer_counter" type="HBoxContainer" parent="container"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="timer_label" type="Label" parent="container/timer_counter"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_44gmx")
-theme_override_font_sizes/font_size = 16
-text = "TIME:"
-vertical_alignment = 1
+[node name="StaticBody2D" type="StaticBody2D" parent="container/timer_counter"]
 
-[node name="timer_counter" type="Label" parent="container/timer_counter"]
+[node name="timer_counter" type="Label" parent="container/timer_counter/StaticBody2D"]
 texture_filter = 1
-layout_mode = 2
+offset_left = 475.5
+offset_top = 59.4529
+offset_right = 519.5
+offset_bottom = 75.4529
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("6_44gmx")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
@@ -99,21 +98,14 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="score_label" type="Label" parent="container/score_coumteiner"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_44gmx")
-theme_override_font_sizes/font_size = 16
-text = "SCORE:"
-vertical_alignment = 1
+[node name="StaticBody2D" type="StaticBody2D" parent="container/score_coumteiner"]
 
-[node name="score_counter" type="Label" parent="container/score_coumteiner"]
+[node name="score_counter" type="Label" parent="container/score_coumteiner/StaticBody2D"]
 texture_filter = 1
-layout_mode = 2
+offset_left = -67.0
+offset_top = 31.7102
+offset_right = -7.0
+offset_bottom = 47.7102
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -135,10 +127,10 @@ position = Vector2(352.999, 210.825)
 
 [node name="player_life" type="Label" parent="container/life_container/StaticBody2D"]
 texture_filter = 1
-offset_left = -882.667
-offset_top = -112.296
-offset_right = -856.667
-offset_bottom = -90.2964
+offset_left = -652.499
+offset_top = -294.835
+offset_right = -626.499
+offset_bottom = -272.835
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -147,39 +139,6 @@ theme_override_fonts/font = ExtResource("6_44gmx")
 theme_override_font_sizes/font_size = 16
 text = "03"
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="separador" type="Label" parent="container/life_container/StaticBody2D"]
-texture_filter = 1
-offset_left = -892.833
-offset_top = -111.752
-offset_right = -885.833
-offset_bottom = -94.7524
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 1
-theme_override_constants/line_spacing = 1
-theme_override_font_sizes/font_size = 12
-text = "x"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="life_icon" type="TextureRect" parent="container/life_container/StaticBody2D"]
-texture_filter = 1
-custom_minimum_size = Vector2(10, 0)
-offset_left = -946.666
-offset_top = -120.763
-offset_right = -918.666
-offset_bottom = -98.7628
-scale = Vector2(1.60734, 1.48089)
-size_flags_horizontal = 0
-size_flags_vertical = 4
-auto_translate = false
-texture = ExtResource("7_ja6o8")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="clock_timer" to="." method="_on_clock_timer_timeout"]

@@ -102,7 +102,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 8.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
@@ -165,11 +165,11 @@ debug_color = Color(0.811765, 0, 0.156863, 0.419608)
 position = Vector2(52, -13)
 
 [node name="shoot_cooldown" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="ShootDelayTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
