@@ -1185,7 +1185,6 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
-visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0
@@ -1198,7 +1197,6 @@ metadata/_edit_use_anchors_ = true
 [node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
 
 [node name="Android_button" type="Node2D" parent="Controls"]
-visible = false
 position = Vector2(0, 570)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Controls/Android_button"]

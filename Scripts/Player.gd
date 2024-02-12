@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
 const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
 
 
+
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -17,7 +18,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var bullet_position = $bullet_position
 @onready var platform_pass_timer = $PlatformPassTimer
 @onready var shoot_delay_timer = $ShootDelayTimer
-
+@onready var Player = $"."
+@onready var hud_manager_node = get_node("../Controls/Control")
 
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
@@ -26,7 +28,10 @@ var is_shooting = false  # Variável para rastrear se o personagem está atirand
 var can_pass_through_platforms = false  # Variável para controlar a passagem através das plataformas
 var shoot_direction = 1  # Direção do tiro, 1 para direita, -1 para esquerda
 signal player_has_died
+signal game_over
 
+func _ready():
+	Player.connect("game_over", Callable(self, "_on_game_over"))
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
 #-------------------------------------------------------------------------------------------------
@@ -132,10 +137,9 @@ func _on_hurtbox_body_entered(body):
 		# Aqui você diminui a vida do jogador
 		if Game.player_life > 0:
 			Game.player_life -= 1
-		else:
-			queue_free()  # Ou qualquer outra lógica de "game over"
-			emit_signal("player_has_died")
-
+			hud_manager_node.update_player_life(Game.player_life)
+		if Game.player_life <= 0:
+			emit_signal("game_over")
 
 func _on_animated_sprite_2d_animation_finished():
 	pass # Substitua pelo corpo da função conforme necessário.

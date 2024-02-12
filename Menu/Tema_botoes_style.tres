@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ctmh5cx2rpc0b"]
+
+[ext_resource type="FontFile" uid="uid://4btwmq0brhm8" path="res://assets/Pistoleiro_Assets/RevMiniPixel.ttf" id="1_3qy4h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xesix"]
+bg_color = Color(0.956863, 0.411765, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynvbi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw0ek"]
+bg_color = Color(0.823529, 0.639216, 0, 1)
+
+[resource]
+default_font = ExtResource("1_3qy4h")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 17
+Button/fonts/font = ExtResource("1_3qy4h")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_xesix")
+Button/styles/normal = SubResource("StyleBoxFlat_ynvbi")
+Button/styles/pressed = SubResource("StyleBoxFlat_qw0ek")

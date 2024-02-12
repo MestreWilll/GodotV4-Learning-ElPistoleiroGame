@@ -2,12 +2,11 @@ extends CanvasLayer
 
 @onready var resume_btn = $menu_holder/resume_btn
 
-# Called when the node enters the scene tree for the first time.
+# Chamado quando o nó entra na árvore de cenas pela primeira vez.
 func _ready():
-	pass # Replace with function body.
+	pass # Substitua pelo corpo da função.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Chamado a cada frame. 'delta' é o tempo decorrido desde o frame anterior.
 @warning_ignore("unused_parameter")
 func _process(delta):
 	pass
