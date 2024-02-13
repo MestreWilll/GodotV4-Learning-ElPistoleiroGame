@@ -16,7 +16,7 @@ tracks/0/path = NodePath("StaticBody2D/GameOver:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(780, -500), Vector2(780, 10)]
@@ -24,26 +24,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GameOver_tittle:modulate")
+tracks/1/path = NodePath("restart_button:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(1980, 489.5), Vector2(705.5, 489.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("restart_button:position")
+tracks/2/path = NodePath("Volta_menu:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0.0001, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2000, 455), Vector2(749, 455)]
+"values": [Vector2(-534, 598), Vector2(741.5, 598)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -52,10 +52,22 @@ tracks/3/path = NodePath("quit_button:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(741.5, 1150), Vector2(741.5, 688)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameOver_tittle:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-500, 543), Vector2(753, 543)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_cj25w"]
@@ -75,26 +87,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GameOver_tittle:modulate")
+tracks/1/path = NodePath("restart_button:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(705.5, 489.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("restart_button:position")
+tracks/2/path = NodePath("Volta_menu:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(749, 455)]
+"values": [Vector2(741.5, 598)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -106,7 +118,19 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(753, 543)]
+"values": [Vector2(741.5, 688)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameOver_tittle:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4hfa7"]
@@ -125,6 +149,7 @@ grow_vertical = 2
 script = ExtResource("1_j5pjh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,25 +187,60 @@ libraries = {
 autoplay = "Animation_GameOver"
 
 [node name="restart_button" type="Button" parent="."]
-offset_left = 749.0
-offset_top = 455.0
-offset_right = 1167.0
-offset_bottom = 537.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.5
+offset_top = -50.5
+offset_right = 254.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_fkcvs")
 theme_override_colors/font_pressed_color = Color(0, 0.533333, 0, 1)
 theme_override_fonts/font = ExtResource("5_ubjd1")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 74
 text = "Tenta de novo"
 
+[node name="Volta_menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = 58.0
+offset_right = 218.5
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fkcvs")
+theme_override_fonts/font = ExtResource("5_ubjd1")
+theme_override_font_sizes/font_size = 55
+text = "Volta para Menu"
+
 [node name="quit_button" type="Button" parent="."]
-offset_left = 753.0
-offset_top = 543.0
-offset_right = 1169.0
-offset_bottom = 619.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = 148.0
+offset_right = 218.5
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_fkcvs")
 theme_override_fonts/font = ExtResource("5_ubjd1")
 theme_override_font_sizes/font_size = 55
 text = "Sair do jogo"
 
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Volta_menu" to="." method="_on_volta_menu_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
