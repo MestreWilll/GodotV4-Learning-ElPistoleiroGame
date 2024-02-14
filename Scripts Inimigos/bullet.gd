@@ -1,6 +1,6 @@
 extends Area2D
 
-var bullet_speed := 300.0
+var bullet_speed := 950.0
 var direction := 1
 var hit_enemy := false  # Adiciona um sinalizador para verificar se atingiu um inimigo
 

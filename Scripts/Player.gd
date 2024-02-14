@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 180.0  # Velocidade constante do personagem
+const SPEED = 300.0  # Velocidade constante do personagem
 const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
 const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
 
@@ -27,6 +27,7 @@ var is_jumping = false  # Variável para rastrear se o personagem está pulando
 var is_shooting = false  # Variável para rastrear se o personagem está atirando
 var can_pass_through_platforms = false  # Variável para controlar a passagem através das plataformas
 var shoot_direction = 1  # Direção do tiro, 1 para direita, -1 para esquerda
+var extra_jumps = 1  # Permite um pulo extra (pulo duplo)
 signal player_has_died
 signal game_over
 
@@ -62,17 +63,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		# Se o personagem está no chão e a velocidade vertical não é zero, define que não está pulando
-		if velocity.y != 0:
-			is_jumping = false
-		# Reseta a velocidade vertical para zero
+		extra_jumps = 1
+		is_jumping = false
 		velocity.y = 0
 
-	# Se o botão de pulo foi pressionado e o personagem está no chão, aplica a força do pulo
-	if Input.is_action_pressed("ui_jump") and is_on_floor():
-		is_jumping = true
-		velocity.y = JUMP_VELOCITY
-		sprite.play("jump")
+	# Lógica de pulo ajustada para permitir pulo duplo
+	if Input.is_action_just_pressed("ui_jump"):
+		if is_on_floor() or extra_jumps > 0:
+			if not is_on_floor():
+				extra_jumps -= 1
+			velocity.y = JUMP_VELOCITY
+			is_jumping = true
+			sprite.play("jump")
+
 	# Verifica se o botão de atirar está sendo pressionado
 	if Input.is_action_pressed("ui_shoot") and not is_shooting and shoot_cooldown.is_stopped():
 		shoot_direction = sign(bullet_position.position.x)  # Atualiza a direção do tiro
@@ -93,6 +96,7 @@ func _physics_process(delta):
 	# Se o personagem está caindo e não está atirando, toca a animação de queda
 	elif velocity.y > 0 and not is_shooting:
 		sprite.play("fall")
+
 
 ##--------------------------##FINISHIM##
 ## Finalização dos movimentos ##
