@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bntkqi5cl6pxn"]
+
+[ext_resource type="Script" path="res://Respawn/Respawn_Inimigo.gd" id="1_3r7jo"]
+
+[node name="Respawn_Inimigo" type="Node2D" groups=["enemies"]]
+position = Vector2(844, 198)
+script = ExtResource("1_3r7jo")
+
+[node name="respawn_timer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
+[connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]

@@ -126,7 +126,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"shoot"
 autoplay = "idle"
-frame_progress = 0.920894
+frame_progress = 0.00610981
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 
@@ -165,7 +165,7 @@ debug_color = Color(0.811765, 0, 0.156863, 0.419608)
 position = Vector2(52, -13)
 
 [node name="shoot_cooldown" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.09
 one_shot = true
 
 [node name="ShootDelayTimer" type="Timer" parent="."]
