@@ -113,7 +113,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
-collision_mask = 22
+collision_mask = 150
 script = ExtResource("1_mny00")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -149,7 +149,7 @@ collision_mask = 15
 collide_with_areas = true
 
 [node name="PlatformPassTimer" type="Timer" parent="."]
-wait_time = 0.092
+wait_time = 0.094
 one_shot = true
 
 [node name="hurtbox" type="Area2D" parent="."]

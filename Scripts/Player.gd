@@ -16,10 +16,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ray_detector = $RayCast2D_detector as RayCast2D  # Raycast para detecção de colisão à direita
 @onready var shoot_cooldown = $shoot_cooldown
 @onready var bullet_position = $bullet_position
-@onready var platform_pass_timer = $PlatformPassTimer
 @onready var shoot_delay_timer = $ShootDelayTimer
 @onready var Player = $"."
 @onready var hud_manager_node = get_node("../Controls/Control")
+@onready var platform_pass_timer = $PlatformPassTimer
+
 
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
@@ -209,14 +210,15 @@ func _on_shoot_delay_timer_timeout():
 ##--------------------------##
 func pass_through_platform():
 	# Ignora a camada das plataformas "One Way"
-	collision_mask &= ~2  # Desativa a camada 2 na máscara de colisão
+	collision_mask &= ~128  # Desativa a camada 8 na máscara de colisão
 	can_pass_through_platforms = true
 	platform_pass_timer.start()
 
 func _on_platform_pass_timer_timeout():
 	# Reabilita a colisão com as plataformas "One Way"
-	collision_mask |= 2  # Reativa a camada 2 na máscara de colisão
+	collision_mask |= 128  # Reativa a camada 8 na máscara de colisão
 	can_pass_through_platforms = false
 ##--------------------------##FINISHIM##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##FINISHIM##
+

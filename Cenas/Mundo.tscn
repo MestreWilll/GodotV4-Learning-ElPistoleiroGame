@@ -302,7 +302,6 @@ script = ExtResource("1_51f4x")
 
 [node name="Player" parent="." instance=ExtResource("2_u0isn")]
 position = Vector2(220, -51)
-collision_mask = 150
 
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
 z_index = 1
@@ -1051,7 +1050,6 @@ shape = SubResource("RectangleShape2D_8anyq")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Controls" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Controls"]
 layout_mode = 3
@@ -1195,7 +1193,6 @@ scale = Vector2(1.7951, 1.60103)
 pressed_color = Color(0.317647, 0.866667, 0.52549, 1)
 action_up = "look_up"
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
 
@@ -1248,6 +1245,9 @@ texture_normal = ExtResource("27_1fyko")
 texture_pressed = ExtResource("28_mptcc")
 action = "cancel"
 visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="Controls/Android_button"]
+action = "down"
 
 [node name="Imagens_controls" type="Node2D" parent="Controls"]
 
