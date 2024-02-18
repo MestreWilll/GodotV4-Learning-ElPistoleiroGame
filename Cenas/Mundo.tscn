@@ -1110,10 +1110,10 @@ position = Vector2(1410, 331.825)
 
 [node name="player_life" type="Label" parent="Controls/Control/container/StaticBody2D3"]
 texture_filter = 1
-offset_left = -1322.5
-offset_top = -583.685
-offset_right = -1290.5
-offset_bottom = -544.685
+offset_left = -1325.83
+offset_top = -587.493
+offset_right = -1285.83
+offset_bottom = -540.493
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1128,10 +1128,10 @@ position = Vector2(1057, 8)
 
 [node name="score_counter" type="Label" parent="Controls/Control/container/StaticBody2D2"]
 texture_filter = 1
-offset_left = -485.333
-offset_top = -258.228
-offset_right = -401.333
-offset_bottom = -224.228
+offset_left = -482.833
+offset_top = -260.948
+offset_right = -390.833
+offset_bottom = -219.948
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1185,6 +1185,7 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
+visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0
@@ -1197,6 +1198,7 @@ metadata/_edit_use_anchors_ = true
 [node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
 
 [node name="Android_button" type="Node2D" parent="Controls"]
+visible = false
 position = Vector2(0, 570)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Controls/Android_button"]
