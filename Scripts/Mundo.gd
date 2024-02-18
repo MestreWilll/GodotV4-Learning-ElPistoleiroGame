@@ -1,59 +1,77 @@
 extends Node2D
 
-@onready var Player = $Player as CharacterBody2D  # Referência ao jogador na cena
-# O caminho para o nó HUDManager dentro da árvore de cenas
-@onready var hud_manager_node = $Controls/Control  # Referência ao gerenciador de HUD
-@onready var camera = $camera  # Referência à câmera na cena
-@onready var respawn_timer = $Timer
+# Referências aos nós na cena
+@onready var Player = $Player as CharacterBody2D
+@onready var hud_manager_node = $Controls/Control
+@onready var camera = $camera
+@onready var respawn_timer = $respawn_timer as Timer
+@onready var timer = $Timer as Timer  # Referência ao novo nó Timer
+@onready var mundo = $"."
 
+# Pré-carrega a cena do inimigo
 const ENEMY_SCENE = preload("res://Cenas/mob_simples.tscn")
 
-var respawn_positions = [Vector2(100, 100), Vector2(200, 200), Vector2(300, 300)]  # Lista de posições
-
 func _ready():
-	print_tree()
-	Player.follow_camera(camera)  # Faz o jogador seguir a câmera
-	Player.connect("player_has_died", Callable(self, "reload_game"))  # Conecta o sinal de morte do jogador ao método de recarregar o jogo
-	Game.coins = 0  # Inicializa as moedas do jogo
-	Game.score = 0  # Inicializa a pontuação do jogo
-	Game.player_life = 3  # Inicializa as vidas do jogador
-	print(get_tree().get_root().get_path_to(self))
-
-	# Conecte o sinal 'time_is_up' do hud_manager ao método 'handle_game_over' deste script
-	hud_manager_node.connect("time_is_up", Callable(self, "handle_game_over"))  # Conecta o sinal de tempo esgotado ao método de game over
+	# Configurações iniciais do jogador e HUD
+	Player.follow_camera(camera)
+	Player.connect("player_has_died", Callable(self, "reload_game"))
+	Game.coins = 0
+	Game.score = 0
+	Game.player_life = 3
+	hud_manager_node.connect("time_is_up", Callable(self, "handle_game_over"))
 	Player.connect("game_over", Callable(self, "_on_game_over"))
-#-----Logica do respawn-------#
-	# Conecta o sinal 'timeout' do Timer ao método de respawn
-	$Timer.connect("timeout", Callable(self, "_on_respawn_timer_timeout"))
-	# Inicia o Timer
-	$Timer.start()
-	
+#----Lógica do timer, necessario os is.connect para reconhecer na arvore de nó----#
+	# Configura e inicia o primeiro timer (respawn_timer)
+	if not respawn_timer.is_connected("timeout", Callable(self, "_on_respawn_timer_timeout")):
+		respawn_timer.connect("timeout", Callable(self, "_on_respawn_timer_timeout"))
+	respawn_timer.wait_time = 10
+	respawn_timer.start()
+
+	# Configura e inicia o novo timer (timer)
+	if not timer.is_connected("timeout", Callable(self, "_on_timer_timeout")):
+		timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	timer.wait_time = 7  # Defina o tempo de espera conforme necessário
+	timer.start()
+
 func handle_game_over():
-	print("handle_game_over chamado")  # Imprime uma mensagem indicando que o game over foi chamado
-	var timer = Timer.new()  # Cria um novo timer
-	add_child(timer)  # Adiciona o timer como filho do nó atual
-	timer.wait_time = 0.5  # Atraso de meio segundo antes de executar a ação
-	timer.one_shot = true  # Configura o timer para executar apenas uma vez
-	timer.connect("timeout", Callable(self, "_on_game_over_timeout"))  # Conecta o sinal de timeout do timer ao método de timeout do game over
-	timer.start()  # Inicia o timer
-	
+	# Lida com o fim do jogo
+	print("handle_game_over chamado")
+	var game_over_timer = Timer.new()
+	add_child(game_over_timer)
+	game_over_timer.wait_time = 0.5
+	game_over_timer.one_shot = true
+	game_over_timer.connect("timeout", Callable(self, "_on_game_over_timeout"))
+	game_over_timer.start()
 
 func _on_game_over_timeout():
-	get_tree().change_scene_to_file("res://Menu/game_over.tscn")  # Muda a cena para a cena de game over
-	
+	# Muda a cena para a tela de game over após um tempo
+	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-fbbed43ada66c26fa74ba1947542872e-game_over.scn")
+
 func _on_game_over():
-	get_tree().change_scene_to_file("res://Menu/game_over.tscn")  # Muda a cena para a cena de game over
-
-##-----RESPAWN LOGICA----##
+	# Muda a cena para a tela de game over imediatamente
+	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-fbbed43ada66c26fa74ba1947542872e-game_over.scn")
+#####----LIGADO ao TIMER 1 #####----
 func _on_respawn_timer_timeout():
-	# Instancia um novo inimigo
+	# Lógica para o respawn do inimigo pelo primeiro timer (respawn_timer)
 	var enemy = ENEMY_SCENE.instantiate()
-	# Adiciona o inimigo instanciado à cena
 	add_child(enemy)
-	# Define a posição do inimigo (ajuste conforme necessário)
 	enemy.global_position = get_respawn_position()
-	enemy.scale = Vector2(2.585, 2.806)  # Ajuste os valores conforme necessário par	a o tamanho desejado
+	enemy.scale = Vector2(2.585, 2.806)
+	print("Inimigo respawnou na posição: ", enemy.global_position)
+#####----LIGADO ao TIMER 2 #####----
+func _on_timer_timeout():
+	# Lógica para o respawn do inimigo pelo primeiro timer (respawn_timer)
+	var enemy = ENEMY_SCENE.instantiate()
+	add_child(enemy)
+	enemy.global_position = get_respawn_position2()
+	enemy.scale = Vector2(2.585, 2.806)
+	print("Inimigo respawnou na posição: ", enemy.global_position)
 
+##---Meu meio de colocar posição no respawn, temporario, até achar uma logica melhor 1 e o 2 --##
 func get_respawn_position():
-	return respawn_positions[randi() % respawn_positions.size()]
-
+	# Retorna a posição de respawn para o primeiro timer (respawn_timer)
+	return Vector2(500, 500)
+	
+func get_respawn_position2():
+	return Vector2(1900, 1094)
+# Coloque uma posição, que ele faz o retorno

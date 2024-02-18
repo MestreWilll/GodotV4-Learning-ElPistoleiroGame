@@ -7,20 +7,15 @@ const JUMP_VELOCITY = -450.0
 @onready var detector = $ray_left
 @onready var detectorR = $ray_right
 @export var score_contagem := 100
+@export var direcao_inicial := 1 # Adiciona esta linha
 
-var direction := 1  # Inicialmente indo para a direita (1 para direita, -1 para esquerda)
+var direction := 1
 var knockback_vector = Vector2()
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-	
+
 func _ready():
-	if has_meta("Direita") and get_meta("Direita"):
-		direction = -1  # Começa indo para a direita devido à metadado "Direita" ativo
-		detector.scale.x *= -1
-		sprite.flip_h = direction == -1  # Atualiza a orientação do sprite quando a direção muda
-	elif detector.is_colliding():
-		direction *= -1  # Comporta-se normalmente com as colisões
-		detector.scale.x *= -1
-		sprite.flip_h = direction == 1  # Atualiza a orientação do sprite quando a direção muda
+	direction = direcao_inicial # Define a direção inicial aqui
+	sprite.flip_h = direction == -1 # Atualiza o flip_h baseado na direção inicial
 
 func _physics_process(delta):
 	# Adicione a gravidade.
@@ -28,8 +23,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	if detector.is_colliding() or detectorR.is_colliding():
-		direction *= -1  # Inverte a direção quando qualquer um dos detectores colide
-		sprite.flip_h = direction == -1  # Atualiza o flip_h baseado na nova direção
+		direction *= -1
+		sprite.flip_h = direction == -1
 
 	velocity.x = direction * SPEED * delta
 	move_and_slide()

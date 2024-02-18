@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_restart_button_pressed():
-	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-d5b13bfc9b0c6da6031422aa5ac56d9f-Mundo.scn")
+	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
 
 
 func _on_quit_button_pressed():

@@ -78,9 +78,10 @@ size = Vector2(22, 32)
 
 [node name="Mob_Simples" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -19)
-collision_layer = 116
-collision_mask = 115
+collision_layer = 4
+collision_mask = 130
 script = ExtResource("1_4454n")
+metadata/Esquerda = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6.5)

@@ -301,7 +301,8 @@ position = Vector2(-1, 694)
 script = ExtResource("1_51f4x")
 
 [node name="Player" parent="." instance=ExtResource("2_u0isn")]
-position = Vector2(215, -47)
+position = Vector2(220, -51)
+collision_mask = 150
 
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
 z_index = 1
@@ -310,18 +311,15 @@ position = Vector2(0, 15)
 [node name="Mob_Simples" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
 position = Vector2(1796, 280)
 scale = Vector2(2.58547, 2.80564)
-collision_mask = 19
 
 [node name="Mob_Simples2" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(1166, 283)
+position = Vector2(279, 281)
 scale = Vector2(2.58547, 2.80564)
-collision_mask = 19
-metadata/Direita = true
+direcao_inicial = -1
 
 [node name="Mob_Simples3" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(286, 282)
+position = Vector2(322, 150)
 scale = Vector2(2.58547, 2.80564)
-collision_mask = 19
 
 [node name="morcego" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
 position = Vector2(1576, -19)
@@ -395,7 +393,7 @@ debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
 [node name="Plataformas" type="StaticBody2D" parent="Plataforma-Chão"]
 position = Vector2(0, 15)
-collision_layer = 2
+collision_layer = 128
 collision_mask = 0
 
 [node name="Plataforma1" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
@@ -1053,6 +1051,7 @@ shape = SubResource("RectangleShape2D_8anyq")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Controls" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Controls"]
 layout_mode = 3
@@ -1292,11 +1291,13 @@ drag_bottom_margin = 0.15
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer2" type="Timer" parent="."]
 
 [node name="respawn_timer" type="Timer" parent="."]
-wait_time = 0.05
 autostart = true
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Controls/Control/clock_timer" to="Controls/Control" method="_on_clock_timer_timeout"]
 [connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
