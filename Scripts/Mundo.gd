@@ -45,11 +45,11 @@ func handle_game_over():
 
 func _on_game_over_timeout():
 	# Muda a cena para a tela de game over após um tempo
-	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-fbbed43ada66c26fa74ba1947542872e-game_over.scn")
+	get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 
 func _on_game_over():
 	# Muda a cena para a tela de game over imediatamente
-	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-fbbed43ada66c26fa74ba1947542872e-game_over.scn")
+	get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 #####----LIGADO ao TIMER 1 #####----
 func _on_respawn_timer_timeout():
 	# Lógica para o respawn do inimigo pelo primeiro timer (respawn_timer)

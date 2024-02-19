@@ -126,7 +126,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"shoot"
 autoplay = "idle"
-frame_progress = 0.00610981
+frame_progress = 0.0212669
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 

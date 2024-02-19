@@ -9,7 +9,9 @@ const JUMP_VELOCITY = -450.0
 @export var score_contagem := 100
 @export var direcao_inicial := 1 # Adiciona esta linha
 
+
 var direction := 1
+var score_given := false
 var knockback_vector = Vector2()
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -38,8 +40,13 @@ func _on_animated_sprite_2d_animation_finished():
 func play_hurt_animation():
 	remove_from_group("enemies")  # Remove o inimigo do grupo para evitar causar dano
 	sprite.play("hurt")
-	Game.score += score_contagem
-	# Aguarda o fim da animação "hurt" antes de remover o inimigo
+	if not score_given:
+		Game.score += score_contagem
+		score_given = true
+	collision_layer &= ~(1 << 2)  # Desativa a camada de colisão 3 (Inimigos)
+	collision_mask &= ~(1 << 2)  # Desativa a máscara de colisão 3 (Inimigos)
+	collision_layer &= ~(1 << 5)  # Desativa a camada de colisão 6 (Hithurt)
+	collision_mask &= ~(1 << 5)  # Desativa a máscara de colisão 6 (Hithurt)
 	await sprite.animation_finished
 	if sprite.animation == "hurt":
 		queue_free()  # Remove o inimigo após a animação
