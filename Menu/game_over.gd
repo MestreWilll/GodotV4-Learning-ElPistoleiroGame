@@ -20,4 +20,4 @@ func _on_quit_button_pressed():
 
 
 func _on_volta_menu_pressed():
-	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-3c0ae5175927600a5da40564799297aa-title_screen.scn")
+	get_tree().change_scene_to_file("res://Menu/title_screen.tscn")

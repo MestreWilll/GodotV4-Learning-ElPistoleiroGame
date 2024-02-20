@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0  # Velocidade constante do personagem
 const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
 const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
-
+@export var direction_capt = 0
 
 
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
@@ -34,23 +34,32 @@ signal game_over
 
 func _ready():
 	Player.connect("game_over", Callable(self, "_on_game_over"))
+	shoot_delay_timer.wait_time = 0.2  # Ajuste conforme necessário
+
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
 #-------------------------------------------------------------------------------------------------
 ##--------------------------##
 ## Movimentos personagem ##
 ##--------------------------##
+	# Atualiza a direção do tiro e o flip do sprite baseado na direção de movimento
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if Input.is_action_pressed("move_left"):
+		direction_capt = direction
+		shoot_direction = -1  # Define a direção do tiro para esquerda
+		if direction_capt > 0:
+			sprite.flip_h = true
 		if sign(bullet_position.position.x) == 1:
 			bullet_position.position.x *= -1
-			
+
 	if Input.is_action_pressed("move_right"):
+		direction_capt = direction
+		shoot_direction = 1  # Define a direção do tiro para direita
+		sprite.flip_h = false
 		if sign(bullet_position.position.x) == -1:
 			bullet_position.position.x *= -1
 	# Atualiza a velocidade do personagem baseado na direção
-	
 	if Input.is_action_just_pressed("down") and is_on_floor(): #botao pra sair da plataforma para baixo no caso, S 
 		pass_through_platform()
 
@@ -58,6 +67,7 @@ func _physics_process(delta):
 	# Atualiza a escala do sprite baseado na direção
 	# Atualiza a escala do sprite baseado na direção
 	if sprite and direction != 0:  # Verifica se o sprite não é null e se a direção é diferente de zero
+
 		sprite.scale.x = sign(direction) * abs(sprite.scale.x)
 
 	# Se o personagem não está no chão, aplica a gravidade
@@ -77,14 +87,10 @@ func _physics_process(delta):
 			is_jumping = true
 			sprite.play("jump")
 
-	# Verifica se o botão de atirar está sendo pressionado
-	if Input.is_action_pressed("ui_shoot") and not is_shooting and shoot_cooldown.is_stopped():
-		shoot_direction = sign(bullet_position.position.x)  # Atualiza a direção do tiro
-		is_shooting = true
-		shoot_delay_timer.start()  # Inicia o timer de atraso para disparar
-		sprite.play("shoot")
-
-
+	# Verifica se o botão de atirar está sendo pressionado	
+	if Input.is_action_pressed("ui_shoot"):
+		if not is_shooting:
+			shoot_bullet()
 	# Se o personagem está no chão e não está atirando, toca a animação correta baseada na direção
 	if is_on_floor() and not is_shooting:
 		if direction != 0:
@@ -188,18 +194,17 @@ func follow_camera(camera):
 ##--------------------------##
 
 func shoot_bullet():
-	var bullet_instance = BULLET_SCENE.instantiate()  # Instancia o projétil
-	bullet_instance.set_direction(shoot_direction)  # Usa a direção armazenada
-		
-	get_parent().add_child(bullet_instance)  # Adiciona o projétil como filho do Player
-	bullet_instance.global_position = bullet_position.global_position  # Define a posição do projétil
-	
-	shoot_cooldown.start()  # Inicia o cooldown do tiro
-	is_shooting = false  # Permite que o jogador atire novamente após o cooldown
+	if shoot_delay_timer.is_stopped():
+		var bullet_instance = BULLET_SCENE.instantiate()
+		bullet_instance.direction = shoot_direction  # Aplica a direção do tiro
+		get_parent().add_child(bullet_instance)
+		bullet_instance.global_position = bullet_position.global_position
+		shoot_delay_timer.start()
+		is_shooting = true
+		sprite.play("shoot")
 	
 func _on_shoot_delay_timer_timeout():
-	# Este método será chamado quando o timer de atraso expirar
-	shoot_bullet()  # Dispara o projétil
+	is_shooting = false
 
 ##--------------------------##FINISHIM##
 ## shoot funcionando, agora é so configurar o time ##
@@ -221,4 +226,3 @@ func _on_platform_pass_timer_timeout():
 ##--------------------------##FINISHIM##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##FINISHIM##
-
