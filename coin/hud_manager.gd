@@ -16,7 +16,8 @@ var seconds = 0  # Variável para armazenar os segundos do cronômetro
 func _ready():  # Chamado quando o nó é adicionado à cena
 	reset_clock_timer()  # Chama a função para resetar o cronômetro
 
-func _process(delta):  # Chamado a cada frame
+@warning_ignore("unused_parameter")
+func _process(textd) -> void:
 	coins_counter.text = str("%04d" % Game.coins)  # Atualiza o texto do contador de moedas
 	score_counter.text = str("%06d" % Game.score)  # Atualiza o texto do contador de pontuação
 	player_life.text = str("%02d" % Game.player_life)  # Atualiza o texto do indicador de vida do jogador

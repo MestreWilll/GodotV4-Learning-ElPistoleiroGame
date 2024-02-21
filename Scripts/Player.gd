@@ -5,7 +5,6 @@ const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
 const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
 @export var direction_capt = 0
 
-
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -20,7 +19,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var Player = $"."
 @onready var hud_manager_node = get_node("../Controls/Control")
 @onready var platform_pass_timer = $PlatformPassTimer
-
+@onready var player_area2D = %PlayerArea2D
+@onready var phantom_camera_2d = %PhantomCamera2D
 
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
@@ -31,8 +31,12 @@ var shoot_direction = 1  # Direção do tiro, 1 para direita, -1 para esquerda
 var extra_jumps = 1  # Permite um pulo extra (pulo duplo)
 signal player_has_died
 signal game_over
+signal area_entered
+signal area_exited
 
-func _ready():
+func _ready() -> void:
+	player_area2D.connect("area_entered", Callable(self, "_on_show_prompt"))
+	player_area2D.connect("area_exited", Callable(self, "_on_hide_prompt"))
 	Player.connect("game_over", Callable(self, "_on_game_over"))
 	shoot_delay_timer.wait_time = 0.2  # Ajuste conforme necessário
 
@@ -226,3 +230,12 @@ func _on_platform_pass_timer_timeout():
 ##--------------------------##FINISHIM##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##FINISHIM##
+
+func _on_show_prompt(body):
+	if body == self:
+		phantom_camera_2d.set_zoom(Vector2(1.5, 1.5))  # Supondo que exista um método set_zoom
+
+func _on_hide_prompt(body):
+	if body == self:
+		phantom_camera_2d.set_zoom(Vector2(5, 5))  # Supondo que exista um método set_zoom
+		

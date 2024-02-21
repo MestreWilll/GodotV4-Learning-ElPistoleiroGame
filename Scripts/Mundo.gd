@@ -3,10 +3,10 @@ extends Node2D
 # Referências aos nós na cena
 @onready var Player = $Player as CharacterBody2D
 @onready var hud_manager_node = $Controls/Control
-@onready var camera = $camera
 @onready var respawn_timer = $respawn_timer as Timer
 @onready var timer = $Timer as Timer  # Referência ao novo nó Timer
 @onready var mundo = $"."
+@onready var camera = $Camera_Movimentos/camera
 
 # Pré-carrega a cena do inimigo
 const ENEMY_SCENE = preload("res://Cenas/mob_simples.tscn")
