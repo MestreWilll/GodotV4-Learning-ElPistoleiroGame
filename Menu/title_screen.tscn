@@ -301,6 +301,13 @@ theme = ExtResource("3_m8fqv")
 theme_override_font_sizes/font_size = 100
 text = "Sair do jogo"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 539)
+limit_left = 0
+limit_top = 0
+limit_right = 1985
+limit_bottom = 0
+
 [connection signal="pressed" from="Movimentando_botoes/MarginContainer/VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/MarginContainer/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/MarginContainer/VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]

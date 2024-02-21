@@ -6,6 +6,8 @@ extends Node2D  # Esta classe estende Node2D.
 @onready var spritedialog1 = $botaoDialogo_box
 @onready var spritedialog2 = $botaoAdvance_message
 @onready var press2 = $press2
+@onready var press3 = $press3
+
 
 const lines : Array[String] = [
 	"Olá aventureiro, aqui começa o alpha do game",  # Primeira linha de diálogo.
@@ -20,6 +22,8 @@ func _ready():
 	area_2d.body_exited.connect(Callable(self, "_on_Area2D_body_exited"))
 	press.show()
 	press2.show()
+	press3.show()
+	
 	spritedialog1.show()  # Mostra o botão de diálogo.
 	spritedialog2.show()  # Mostra o botão para avançar a mensagem.
   # Esconde o label press inicialmente.
@@ -27,6 +31,7 @@ func _ready():
 func _on_Area2D_body_entered(_body):
 	press.show()
 	press2.show()
+	press3.show()
 	spritedialog1.show()  # Mostra o botão de diálogo.
 	spritedialog2.show()  # Mostra o botão para avançar a mensagem.
  # Mostra o label press quando um corpo entra na área.
@@ -34,6 +39,7 @@ func _on_Area2D_body_entered(_body):
 func _on_Area2D_body_exited(_body):
 	press.hide()
 	press2.hide()
+	press3.hide()
 	spritedialog1.hide()  # Mostra o botão de diálogo.
 	spritedialog2.hide()  # Esconde o label press quando um corpo sai da área.
 

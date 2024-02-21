@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=123 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_5p552"]
@@ -53,10 +53,9 @@
 [ext_resource type="PackedScene" uid="uid://ykvbf180ldec" path="res://Mundo_Cena/pause_menu.tscn" id="34_dnamm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="34_njqtu"]
 [ext_resource type="Script" path="res://Camera_config/UpperZoomArea.gd" id="53_6c5mm"]
-[ext_resource type="FontFile" uid="uid://c4mm3of2mc8o5" path="res://addons/phantom_camera/fonts/Nunito-Black.ttf" id="54_l62oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6cqt"]
-size = Vector2(42, 63)
+size = Vector2(38.4375, 62.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q7dco"]
 animations = [{
@@ -141,13 +140,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
-size = Vector2(46.0938, 67.1875)
+size = Vector2(40.625, 41.4063)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iphx5"]
-size = Vector2(42, 57)
+size = Vector2(33.5938, 28.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
-size = Vector2(1855.25, 13)
+size = Vector2(1855.25, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i336"]
 size = Vector2(2429.5, 76)
@@ -159,13 +158,13 @@ size = Vector2(2429.5, 134.125)
 size = Vector2(146.5, 936)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54nc0"]
-size = Vector2(141.5, 134)
+size = Vector2(141.5, 139)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ubel"]
 size = Vector2(145, 925.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5b4b0"]
-size = Vector2(144.5, 133)
+size = Vector2(141.5, 139)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swt1c"]
 size = Vector2(14, 16.5)
@@ -255,7 +254,7 @@ size = Vector2(28, 15)
 size = Vector2(14, 16.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wxp6"]
-size = Vector2(430, 37)
+size = Vector2(425, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwx7m"]
 size = Vector2(76.5, 16.5)
@@ -416,16 +415,24 @@ frame_3/duration = 1.0
 position = Vector2(-1, 694)
 script = ExtResource("1_51f4x")
 
-[node name="PhantomCamera2D" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(641, -48)
+[node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
+z_index = 1
+texture_filter = 1
+position = Vector2(216, -47)
 scale = Vector2(1.28, 1.28)
+collision_mask = 150
+script = ExtResource("3_e6616")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(332.031, 0)
+scale = Vector2(0.78125, 1)
 script = ExtResource("34_njqtu")
 priority_override = false
 priority = 5
 zoom = Vector2(1.5, 1.5)
 follow_mode = 2
-follow_target = NodePath("../Player")
+follow_target = NodePath("..")
 follow_parameters/target_offset = Vector2(0, 0)
 follow_parameters/damping = false
 frame_preview = true
@@ -433,24 +440,16 @@ pixel_perfect = true
 limit/draw_limits = true
 limit/left = 0
 limit/top = 105
-limit/right = 2140
-limit/bottom = 1080
+limit/right = 2190
+limit/bottom = 1135
 limit/limit_node_target = NodePath("")
 limit/smoothed = false
 tween_parameters = null
 tween_on_load = true
 inactive_update_mode = 0
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
-z_index = 1
-texture_filter = 1
-position = Vector2(210, -48)
-scale = Vector2(1.28, 1.28)
-collision_mask = 150
-script = ExtResource("3_e6616")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(6, 2.5)
+position = Vector2(4.21875, 3.90625)
 shape = SubResource("RectangleShape2D_b6cqt")
 debug_color = Color(0.67451, 0.505882, 0, 0.419608)
 
@@ -459,20 +458,19 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q7dco")
 animation = &"shoot"
 autoplay = "idle"
-frame_progress = 0.426341
 
 [node name="remote" type="RemoteTransform2D" parent="Player"]
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="Player"]
 position = Vector2(9.99997, 2)
 rotation = 1.58237
-target_position = Vector2(1, 31)
+target_position = Vector2(0.667419, 27.9629)
 collision_mask = 4
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="Player"]
 position = Vector2(2, 2)
 rotation = -4.6945
-target_position = Vector2(-0.621185, -31.0099)
+target_position = Vector2(-0.067749, -23.0025)
 collision_mask = 20
 
 [node name="RayCast2D_detector" type="RayCast2D" parent="Player"]
@@ -490,7 +488,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hurtbox"]
-position = Vector2(5.85938, 2.34375)
+position = Vector2(4.6875, 9.76563)
 shape = SubResource("RectangleShape2D_ccort")
 debug_color = Color(0.811765, 0, 0.156863, 0.419608)
 
@@ -509,8 +507,9 @@ one_shot = true
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea2D"]
-position = Vector2(0, -0.5)
+position = Vector2(4.29688, 10.1563)
 shape = SubResource("RectangleShape2D_iphx5")
+debug_color = Color(0, 0.619608, 0.576471, 0.419608)
 
 [node name="Inimigos_Mobs" type="Node2D" parent="."]
 z_index = 1
@@ -566,7 +565,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Chão1" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
-position = Vector2(1072.75, 315.5)
+position = Vector2(1072.75, 314)
 shape = SubResource("RectangleShape2D_n8b77")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
@@ -586,7 +585,7 @@ shape = SubResource("RectangleShape2D_0osoi")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
 [node name="Chão4" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
-position = Vector2(74.25, 254)
+position = Vector2(74.25, 251.5)
 shape = SubResource("RectangleShape2D_54nc0")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
@@ -596,7 +595,7 @@ shape = SubResource("RectangleShape2D_8ubel")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
 [node name="Chão6" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
-position = Vector2(2071.25, 253.5)
+position = Vector2(2072.75, 250.5)
 shape = SubResource("RectangleShape2D_5b4b0")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
@@ -828,7 +827,7 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma40" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(576.75, -255.313)
+position = Vector2(576.75, -257.313)
 shape = SubResource("RectangleShape2D_safse")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -840,13 +839,13 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma32" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(204.5, -287.75)
+position = Vector2(204.5, -290.75)
 shape = SubResource("RectangleShape2D_tsn3n")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma39" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(204.5, -223.75)
+position = Vector2(204.5, -224.75)
 shape = SubResource("RectangleShape2D_tsn3n")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -870,7 +869,7 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma35" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(676, -15.5)
+position = Vector2(674.5, -17)
 shape = SubResource("RectangleShape2D_0wxp6")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -1019,6 +1018,22 @@ metadata/_edit_lock_ = true
 z_index = -1
 texture_filter = 1
 position = Vector2(1073, -71.0001)
+scale = Vector2(1.19308, 1.05273)
+texture = ExtResource("6_utkvq")
+metadata/_edit_lock_ = true
+
+[node name="background2" type="Sprite2D" parent="Background"]
+z_index = -1
+texture_filter = 1
+position = Vector2(3211, -71)
+scale = Vector2(1.19308, 1.05273)
+texture = ExtResource("6_utkvq")
+metadata/_edit_lock_ = true
+
+[node name="background3" type="Sprite2D" parent="Background"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-1067, -71)
 scale = Vector2(1.19308, 1.05273)
 texture = ExtResource("6_utkvq")
 metadata/_edit_lock_ = true
@@ -1200,6 +1215,16 @@ theme_override_fonts/font = ExtResource("22_27wrq")
 theme_override_font_sizes/font_size = 16
 text = "Avança:"
 
+[node name="press3" type="Label" parent="Caixa de dialogo/dialog_box"]
+offset_left = -102.194
+offset_top = 15.0
+offset_right = 131.806
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("22_27wrq")
+theme_override_font_sizes/font_size = 16
+text = "Pressione: i - Para interação"
+
 [node name="Area2D" type="Area2D" parent="Caixa de dialogo/dialog_box"]
 position = Vector2(1, 0)
 
@@ -1249,12 +1274,13 @@ position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
 
 [node name="camera" type="Camera2D" parent="Camera_Movimentos"]
-position = Vector2(-225, -251.563)
+position = Vector2(-225, -250.781)
+scale = Vector2(0.78125, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 105
-limit_right = 2140
-limit_bottom = 1080
+limit_right = 2190
+limit_bottom = 1135
 drag_bottom_margin = 0.15
 editor_draw_limits = true
 editor_draw_drag_margin = true
@@ -1266,7 +1292,7 @@ script = ExtResource("2_5p552")
 position = Vector2(-462.348, -220.313)
 scale = Vector2(0.78125, 0.78125)
 script = ExtResource("53_6c5mm")
-area_pcam = NodePath("PhantomCamera2D")
+area_pcam = NodePath("../PhantomCamera2D2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_Movimentos/UpperZoomArea"]
 position = Vector2(0, -40)
@@ -1283,31 +1309,16 @@ size_flags_vertical = 0
 color = Color(0.556863, 0.447059, 0.545098, 0.698039)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Camera_Movimentos/UpperZoomArea"]
-visible = false
-offset_left = -74.0
-offset_top = -251.0
-offset_right = 79.0
-offset_bottom = -121.0
-theme_override_colors/font_color = Color(0.294118, 1, 0.631373, 1)
-theme_override_fonts/font = ExtResource("54_l62oa")
-text = "Transition Type:
-Circ
-
-Duration:
-0.3s"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="PhantomCamera2D" type="Node2D" parent="Camera_Movimentos/UpperZoomArea"]
-position = Vector2(2, -83)
+[node name="PhantomCamera2D2" type="Node2D" parent="Camera_Movimentos"]
+position = Vector2(-460.785, -285.157)
+scale = Vector2(0.78125, 0.78125)
 script = ExtResource("34_njqtu")
 priority_override = false
 priority = 0
 zoom = Vector2(3, 3)
 follow_mode = 0
 frame_preview = true
-pixel_perfect = false
+pixel_perfect = true
 limit/draw_limits = true
 limit/left = -10000000
 limit/top = -10000000
@@ -1380,9 +1391,9 @@ position = Vector2(1410, 331.825)
 
 [node name="player_life" type="Label" parent="Controls/Control/container/StaticBody2D3"]
 texture_filter = 1
-offset_left = -1325.83
+offset_left = -1319.16
 offset_top = -587.493
-offset_right = -1285.83
+offset_right = -1279.16
 offset_bottom = -540.493
 size_flags_horizontal = 4
 size_flags_vertical = 0

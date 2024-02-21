@@ -22,6 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player_area2D = %PlayerArea2D
 @onready var phantom_camera_2d = %PhantomCamera2D
 
+
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
 var is_jumping = false  # Variável para rastrear se o personagem está pulando
@@ -237,5 +238,5 @@ func _on_show_prompt(body):
 
 func _on_hide_prompt(body):
 	if body == self:
-		phantom_camera_2d.set_zoom(Vector2(5, 5))  # Supondo que exista um método set_zoom
+		phantom_camera_2d.set_zoom(Vector2(1, 1))  # Supondo que exista um método set_zoom
 		
