@@ -49,6 +49,10 @@ func _physics_process(delta):
 ##--------------------------##
 	# Atualiza a direção do tiro e o flip do sprite baseado na direção de movimento
 	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = lerp(velocity.x, direction * SPEED, 0.5)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	if Input.is_action_pressed("move_left"):
 		direction_capt = direction

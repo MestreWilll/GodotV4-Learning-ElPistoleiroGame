@@ -418,14 +418,14 @@ script = ExtResource("1_51f4x")
 [node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
 z_index = 1
 texture_filter = 1
-position = Vector2(216, -47)
+position = Vector2(215, -49)
 scale = Vector2(1.28, 1.28)
 collision_mask = 150
 script = ExtResource("3_e6616")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
 unique_name_in_owner = true
-position = Vector2(332.031, 0)
+position = Vector2(332.813, 0)
 scale = Vector2(0.78125, 1)
 script = ExtResource("34_njqtu")
 priority_override = false
@@ -1006,6 +1006,11 @@ shape = SubResource("RectangleShape2D_3bqxm")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
+[node name="Rampa_escada" type="CollisionPolygon2D" parent="Plataforma-Chão/Plataformas"]
+position = Vector2(982, -19)
+polygon = PackedVector2Array(624, 328, 690, 267, 752, 233, 786, 227)
+one_way_collision = true
+
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Atencaoplaca" type="Sprite2D" parent="Background"]
@@ -1274,7 +1279,7 @@ position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
 
 [node name="camera" type="Camera2D" parent="Camera_Movimentos"]
-position = Vector2(-225, -250.781)
+position = Vector2(-225, -252.344)
 scale = Vector2(0.78125, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
@@ -1329,6 +1334,8 @@ limit/smoothed = false
 tween_parameters = null
 tween_on_load = true
 inactive_update_mode = 0
+
+[node name="Light_nichos" type="Node2D" parent="."]
 
 [node name="Controls" type="CanvasLayer" parent="."]
 
@@ -1466,6 +1473,7 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
+visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0
@@ -1478,6 +1486,7 @@ metadata/_edit_use_anchors_ = true
 [node name="pause_menu" parent="Controls" instance=ExtResource("34_dnamm")]
 
 [node name="Android_button" type="Node2D" parent="Controls"]
+visible = false
 position = Vector2(0, 570)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Controls/Android_button"]
