@@ -1,4 +1,4 @@
-![divul](https://github.com/MestreWilll/GodotV4-Learning-ElPistoleiroGame/assets/87247824/8674da99-5494-4cf9-a20b-b0ae279ad47f)
+![dialog_hitbox3](https://github.com/MestreWilll/GodotV4-Learning-ElPistoleiroGame/assets/87247824/a88ca0b9-4290-42a5-a6fb-84762a53a391)
 
 # :cowboy_hat_face: Oportunidade Única para Artistas em Pixel Art - "El Pistoleiro de las Noches"
 
