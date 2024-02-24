@@ -146,7 +146,7 @@ size = Vector2(40.625, 41.4063)
 size = Vector2(33.5938, 28.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8b77"]
-size = Vector2(1855.25, 16)
+size = Vector2(1855.25, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i336"]
 size = Vector2(2429.5, 76)
@@ -415,14 +415,14 @@ script = ExtResource("1_51f4x")
 [node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
 z_index = 1
 texture_filter = 1
-position = Vector2(1456, 230)
+position = Vector2(213, -47)
 scale = Vector2(1.28, 1.28)
 collision_mask = 150
 script = ExtResource("3_e6616")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
 unique_name_in_owner = true
-position = Vector2(0, -116.406)
+position = Vector2(334.375, 0)
 scale = Vector2(0.78125, 1)
 script = ExtResource("34_njqtu")
 priority_override = false
@@ -562,7 +562,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Chão1" type="CollisionShape2D" parent="Plataforma-Chão/Chão_limites"]
-position = Vector2(1072.75, 314)
+position = Vector2(1072.75, 314.5)
 shape = SubResource("RectangleShape2D_n8b77")
 debug_color = Color(0.188235, 0, 0.74902, 0.419608)
 
@@ -638,13 +638,13 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma22" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(1855, -98)
+position = Vector2(1855, -97)
 shape = SubResource("RectangleShape2D_emvgk")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma23" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(1443, -104.5)
+position = Vector2(1443, -102.5)
 shape = SubResource("RectangleShape2D_jvlcn")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -752,7 +752,7 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma26" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(1564.5, 120.5)
+position = Vector2(1564.5, 121.5)
 shape = SubResource("RectangleShape2D_idj7i")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -776,13 +776,13 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma28" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(1020.5, 145)
+position = Vector2(1020.5, 146)
 shape = SubResource("RectangleShape2D_dy7ic")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma44" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(1194.75, 70.5)
+position = Vector2(1194.75, 72.5)
 shape = SubResource("RectangleShape2D_g63nl")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -860,7 +860,7 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma35" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(674.5, -17)
+position = Vector2(674.5, -16)
 shape = SubResource("RectangleShape2D_0wxp6")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -1270,7 +1270,7 @@ position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
 
 [node name="camera" type="Camera2D" parent="Camera_Movimentos"]
-position = Vector2(411.719, -150.781)
+position = Vector2(-225, -250.781)
 scale = Vector2(0.78125, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
@@ -1384,10 +1384,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Controls/Control/container"]
+[node name="Moving_life" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(1410, 331.825)
 
-[node name="player_life" type="Label" parent="Controls/Control/container/StaticBody2D3"]
+[node name="player_life" type="Label" parent="Controls/Control/container/Moving_life"]
 texture_filter = 1
 offset_left = -1319.16
 offset_top = -587.493
@@ -1402,10 +1402,10 @@ text = "03"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Controls/Control/container"]
+[node name="Moving_SCORE" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(1057, 8)
 
-[node name="score_counter" type="Label" parent="Controls/Control/container/StaticBody2D2"]
+[node name="score_counter" type="Label" parent="Controls/Control/container/Moving_SCORE"]
 texture_filter = 1
 offset_left = -482.833
 offset_top = -260.948
@@ -1419,10 +1419,10 @@ theme_override_font_sizes/font_size = 24
 text = "000000"
 vertical_alignment = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Controls/Control/container"]
+[node name="Moving_Coins" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(8, 8)
 
-[node name="coins_counter" type="Label" parent="Controls/Control/container/StaticBody2D"]
+[node name="coins_counter" type="Label" parent="Controls/Control/container/Moving_Coins"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 22)
 offset_left = 1135.33
@@ -1437,7 +1437,7 @@ theme_override_font_sizes/font_size = 39
 text = "0000"
 vertical_alignment = 1
 
-[node name="coins_icon" type="TextureRect" parent="Controls/Control/container/StaticBody2D"]
+[node name="coins_icon" type="TextureRect" parent="Controls/Control/container/Moving_Coins"]
 offset_left = 1070.17
 offset_top = -306.088
 offset_right = 1147.17
@@ -1446,10 +1446,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("AnimatedTexture_vwfak")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Controls/Control/container"]
+[node name="Moving_time" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(532, 8)
 
-[node name="timer_counter" type="Label" parent="Controls/Control/container/StaticBody2D4"]
+[node name="timer_counter" type="Label" parent="Controls/Control/container/Moving_time"]
 texture_filter = 1
 offset_left = 968.833
 offset_top = -304.466
