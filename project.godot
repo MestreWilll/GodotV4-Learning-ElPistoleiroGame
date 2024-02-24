@@ -24,11 +24,7 @@ Globals="res://Scripts/globais.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
 window/size/initial_position_type=0
-window/size/borderless=true
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -113,6 +109,7 @@ pointing/emulate_touch_from_mouse=true
 
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
+renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true
