@@ -12,10 +12,11 @@
 
 [resource]
 default_font_size = 13
-Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.0705882, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.207843, 0.94902, 0.0705882, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(0.705882, 0.647059, 0.0196078, 1)
-Button/constants/outline_size = 2
+Button/constants/outline_size = 0
 Button/font_sizes/font_size = 42
 Button/fonts/font = ExtResource("1_5wdua")
 Button/styles/focus = SubResource("StyleBoxEmpty_im3jf")

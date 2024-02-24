@@ -8,6 +8,7 @@ extends Node2D
 @onready var mundo = $"."
 @onready var camera = $Camera_Movimentos/camera
 
+
 # Pré-carrega a cena do inimigo
 const ENEMY_SCENE = preload("res://Cenas/mob_simples.tscn")
 

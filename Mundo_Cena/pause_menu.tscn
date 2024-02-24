@@ -6,13 +6,12 @@
 
 [sub_resource type="Theme" id="Theme_64uyn"]
 
-[sub_resource type="Theme" id="Theme_s2a7m"]
-
 [sub_resource type="Shortcut" id="Shortcut_g6le4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dejpa"]
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_wilvc")
 
 [node name="bg_overlay" type="ColorRect" parent="."]
@@ -23,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_64uyn")
-color = Color(0, 0, 0, 0.603922)
+color = Color(0, 0, 0, 0.627451)
 
 [node name="menu_holder" type="VBoxContainer" parent="."]
 anchors_preset = 14
@@ -36,7 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = SubResource("Theme_s2a7m")
 
 [node name="resume_btn" type="Button" parent="menu_holder"]
 layout_mode = 2
@@ -45,13 +43,30 @@ theme_override_font_sizes/font_size = 111
 shortcut = SubResource("Shortcut_g6le4")
 text = "Continuar"
 
-[node name="quit_btn" type="Button" parent="menu_holder"]
+[node name="HSeparator" type="HSeparator" parent="menu_holder"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dejpa")
+
+[node name="Volta_menu" type="Button" parent="menu_holder"]
 layout_mode = 2
 theme = ExtResource("2_dbi4a")
 theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("1_xa00q")
 theme_override_font_sizes/font_size = 79
+text = "Opçãoes"
+
+[node name="HSeparator2" type="HSeparator" parent="menu_holder"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dejpa")
+
+[node name="quit_btn" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme = ExtResource("2_dbi4a")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_xa00q")
+theme_override_font_sizes/font_size = 116
 text = "Sair do jogo"
 
 [connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="menu_holder/Volta_menu" to="." method="_on_volta_menu_pressed"]
 [connection signal="pressed" from="menu_holder/quit_btn" to="." method="_on_quit_btn_pressed"]
