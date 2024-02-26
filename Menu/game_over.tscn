@@ -225,10 +225,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 705.5
-offset_top = 489.5
-offset_right = 1214.5
-offset_bottom = 590.5
+offset_left = 25.5
+offset_top = 79.5
+offset_right = 534.5
+offset_bottom = 180.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -244,10 +244,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 741.5
-offset_top = 598.0
-offset_right = 1178.5
-offset_bottom = 674.0
+offset_left = 61.5
+offset_top = 188.0
+offset_right = 498.5
+offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -262,10 +262,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 741.5
-offset_top = 688.0
-offset_right = 1178.5
-offset_bottom = 764.0
+offset_left = 61.5
+offset_top = 278.0
+offset_right = 498.5
+offset_bottom = 354.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -273,27 +273,45 @@ theme_override_fonts/font = ExtResource("5_ubjd1")
 theme_override_font_sizes/font_size = 55
 text = "Sair do jogo"
 
-[node name="time_label" type="Label" parent="."]
-offset_left = 323.0
-offset_top = 360.0
-offset_right = 453.0
-offset_bottom = 430.0
-theme_override_font_sizes/font_size = 51
+[node name="Control_label_request" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="score_label" type="Label" parent="."]
+[node name="time_label" type="Label" parent="Control_label_request"]
+offset_left = 286.0
+offset_top = 342.0
+offset_right = 479.0
+offset_bottom = 447.0
+theme_override_font_sizes/font_size = 76
+text = "00:00"
+
+[node name="score_label" type="Label" parent="Control_label_request"]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 553.0
-offset_right = 450.0
+offset_left = 279.0
+offset_top = 520.0
+offset_right = 489.0
 offset_bottom = 604.0
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 61
+text = "000000"
 
-[node name="coins_label" type="Label" parent="."]
+[node name="coins_label" type="Label" parent="Control_label_request"]
 layout_mode = 0
-offset_left = 358.0
-offset_top = 683.0
-offset_right = 398.0
-offset_bottom = 706.0
+offset_left = 318.0
+offset_top = 663.0
+offset_right = 426.0
+offset_bottom = 730.0
+theme_override_font_sizes/font_size = 48
+text = "0000"
+
+[node name="name_label" type="Label" parent="Control_label_request"]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 186.0
+offset_right = 548.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 52
+text = "Will Martins"
 
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Volta_menu" to="." method="_on_volta_menu_pressed"]
