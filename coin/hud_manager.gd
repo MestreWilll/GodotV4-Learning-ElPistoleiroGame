@@ -30,6 +30,8 @@ func _on_clock_timer_timeout():
 
 	# Atualiza a exibição do cronômetro na interface do usuário
 	update_timer_display()
+	# Atualiza o tempo de morte do jogador na variável global
+	Game.player_death_time = timer_counter.text
 
 func update_timer_display():
 	# Formata e exibe o tempo atual no cronômetro

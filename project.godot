@@ -24,6 +24,8 @@ Globals="res://Scripts/globais.gd"
 
 [display]
 
+window/size/viewport_width=1360
+window/size/viewport_height=820
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
 

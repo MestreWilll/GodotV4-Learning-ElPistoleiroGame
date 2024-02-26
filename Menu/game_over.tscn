@@ -273,6 +273,28 @@ theme_override_fonts/font = ExtResource("5_ubjd1")
 theme_override_font_sizes/font_size = 55
 text = "Sair do jogo"
 
+[node name="time_label" type="Label" parent="."]
+offset_left = 323.0
+offset_top = 360.0
+offset_right = 453.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 51
+
+[node name="score_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 553.0
+offset_right = 450.0
+offset_bottom = 604.0
+theme_override_font_sizes/font_size = 37
+
+[node name="coins_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 683.0
+offset_right = 398.0
+offset_bottom = 706.0
+
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Volta_menu" to="." method="_on_volta_menu_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
