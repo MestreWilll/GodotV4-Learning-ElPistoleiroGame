@@ -422,7 +422,7 @@ script = ExtResource("3_e6616")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
 unique_name_in_owner = true
-position = Vector2(188.281, 0)
+position = Vector2(334.375, 0)
 scale = Vector2(0.78125, 1)
 script = ExtResource("34_njqtu")
 priority_override = false
@@ -1021,7 +1021,7 @@ metadata/_edit_lock_ = true
 [node name="background2" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
-position = Vector2(3211, -71)
+position = Vector2(3211, -72)
 scale = Vector2(1.19308, 1.05273)
 texture = ExtResource("6_utkvq")
 metadata/_edit_lock_ = true
@@ -1029,7 +1029,7 @@ metadata/_edit_lock_ = true
 [node name="background3" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
-position = Vector2(-1067, -71)
+position = Vector2(-1065, -72)
 scale = Vector2(1.19308, 1.05273)
 texture = ExtResource("6_utkvq")
 metadata/_edit_lock_ = true
@@ -1270,7 +1270,7 @@ position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
 
 [node name="camera" type="Camera2D" parent="Camera_Movimentos"]
-position = Vector2(-371.094, -250.781)
+position = Vector2(-225, -250.781)
 scale = Vector2(0.78125, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
@@ -1458,6 +1458,7 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
+visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0

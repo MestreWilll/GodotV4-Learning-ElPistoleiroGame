@@ -6,16 +6,17 @@ extends Control
 @onready var name_label = $Control_label_request/name_label
 
 
-
 func _ready():
-
+# Aqui eu chamo as var predefinidas com as mudanças para as var que são armazenadas
+# Tentar passar isso pro Servidor
 	time_label.text = Game.timer_counter
 	score_label.text = str("%06d" % Game.score)
-	coins_label.text = str("%04d" % Game.coins)
-	
-	print("Meu numero de Score: ", Game.score) 
-	print("Tempo de morte do jogador na tela de Game Over: ", Game.timer_counter) 
-	print("Coins que foram pegos: ", Game.coins) 
+	coins_label.text = str("%02d" % Game.coins)
+	name_label.text = Game.player_name
+
+	#print("Meu numero de Score: ", Game.score) 
+	#print("Tempo de morte do jogador na tela de Game Over: ", Game.timer_counter) 
+	#print("Coins que foram pegos: ", Game.coins) 
 		
 func _on_restart_button_pressed():
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")

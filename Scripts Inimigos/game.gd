@@ -6,3 +6,7 @@ var player_life := 3
 var timer_counter := ""
 var minutes = 0
 var seconds = 0
+var player_name := ""
+
+func set_player_name(name): 
+	player_name = name

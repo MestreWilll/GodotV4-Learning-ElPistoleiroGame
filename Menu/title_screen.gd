@@ -14,6 +14,8 @@ func _on_credits_button_pressed():
 func _on_quit_button_pressed():
 	get_tree().quit()
 
-
 func _on_opções_pressed():
 	pass
+	
+func _on_player_name_text_changed(new_text):
+	Game.set_player_name(new_text)
