@@ -7,8 +7,8 @@ extends Node2D
 @onready var timer = $Timer as Timer  # Referência ao novo nó Timer
 @onready var mundo = $"."
 @onready var camera = $Camera_Movimentos/camera
-var initial_respawn_time = 13  # Tempo inicial para respawn_timer
-var initial_timer_time = 15     # Tempo inicial para timer
+var initial_respawn_time = 10  # Tempo inicial para respawn_timer
+var initial_timer_time = 8     # Tempo inicial para timer
 var enemy_kill_count = 0
 
 # Pré-carrega a cena do inimigo
@@ -51,7 +51,7 @@ func enemy_killed():
 	enemy_kill_count += 1
 
 	# Verifica se o contador atingiu 10
-	if enemy_kill_count % 10 == 0:
+	if enemy_kill_count % 40 == 0:
 		# Reseta o tempo dos timers para os valores iniciais
 		initial_respawn_time = 10
 		initial_timer_time = 7
