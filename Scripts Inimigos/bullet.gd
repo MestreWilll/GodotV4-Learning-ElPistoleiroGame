@@ -10,9 +10,15 @@ func _process(delta):
 			position.x += bullet_speed * direction * delta
 
 func _on_area_entered(area):
-		if area.is_in_group("enemies"):
-			hit_enemy = true  # Atualiza o sinalizador
-		queue_free()  # Remove o tiro da cena
+	if area.is_in_group("enemies"):
+		# Verifica se o inimigo está na animação de "hurt"
+		if area.owner.has_method("is_in_hurt_animation") and area.owner.is_in_hurt_animation():
+			# O inimigo está na animação de "hurt", então o projétil ignora e continua
+			print("Está acertando o hurt")
+			return
+		# Se o inimigo não está na animação de "hurt", o projétil é removido
+		print("Não está acertando o hurt")
+		queue_free()
 		
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	queue_free() # Replace with function body.

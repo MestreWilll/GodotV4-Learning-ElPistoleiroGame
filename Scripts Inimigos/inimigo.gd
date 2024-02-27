@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -450.0
 @export var score_contagem := 100
 @export var direcao_inicial := 1 # Adiciona esta linha
 
-
+var in_hurt_animation := false
 var direction := 1
 var score_given := false
 var knockback_vector = Vector2()
@@ -50,3 +50,6 @@ func play_hurt_animation():
 	await sprite.animation_finished
 	if sprite.animation == "hurt":
 		queue_free()  # Remove o inimigo após a animação
+		
+func is_in_hurt_animation() -> bool:
+	return sprite.current_animation == "hurt"

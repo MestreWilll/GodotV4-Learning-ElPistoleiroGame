@@ -415,14 +415,14 @@ script = ExtResource("1_51f4x")
 [node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
 z_index = 1
 texture_filter = 1
-position = Vector2(213, -47)
+position = Vector2(390, 280)
 scale = Vector2(1.28, 1.28)
 collision_mask = 150
 script = ExtResource("3_e6616")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
 unique_name_in_owner = true
-position = Vector2(334.375, 0)
+position = Vector2(196.094, -155.469)
 scale = Vector2(0.78125, 1)
 script = ExtResource("34_njqtu")
 priority_override = false
@@ -517,7 +517,7 @@ position = Vector2(1796, 280)
 scale = Vector2(2.58547, 2.80564)
 
 [node name="Mob_Simples2" parent="Inimigos_Mobs" instance=ExtResource("5_blj17")]
-position = Vector2(279, 281)
+position = Vector2(307, -222)
 scale = Vector2(2.58547, 2.80564)
 direcao_inicial = -1
 
@@ -1270,7 +1270,7 @@ position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
 
 [node name="camera" type="Camera2D" parent="Camera_Movimentos"]
-position = Vector2(-225, -250.781)
+position = Vector2(-225, -150.781)
 scale = Vector2(0.78125, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
@@ -1458,7 +1458,6 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
-visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0
@@ -1472,7 +1471,6 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="Android_button" type="Node2D" parent="Controls"]
-visible = false
 position = Vector2(0, 570)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Controls/Android_button"]
