@@ -415,14 +415,14 @@ script = ExtResource("1_51f4x")
 [node name="Player" type="CharacterBody2D" parent="." groups=["enemies", "player"]]
 z_index = 1
 texture_filter = 1
-position = Vector2(390, 280)
+position = Vector2(224, -47)
 scale = Vector2(1.28, 1.28)
 collision_mask = 150
 script = ExtResource("3_e6616")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
 unique_name_in_owner = true
-position = Vector2(196.094, -155.469)
+position = Vector2(325.781, 0)
 scale = Vector2(0.78125, 1)
 script = ExtResource("34_njqtu")
 priority_override = false
@@ -1270,7 +1270,7 @@ position = Vector2(929, 274)
 scale = Vector2(1.28, 1.28)
 
 [node name="camera" type="Camera2D" parent="Camera_Movimentos"]
-position = Vector2(-225, -150.781)
+position = Vector2(-225, -250.781)
 scale = Vector2(0.78125, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
@@ -1550,16 +1550,22 @@ metadata/_edit_lock_ = true
 position = Vector2(1466, 836)
 
 [node name="Timer2" type="Timer" parent="."]
+autostart = true
 
 [node name="respawn_timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer3" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Player/PlatformPassTimer" to="Player" method="_on_platform_pass_timer_timeout"]
 [connection signal="body_entered" from="Player/hurtbox" to="Player" method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Player/ShootDelayTimer" to="Player" method="_on_shoot_delay_timer_timeout"]
 [connection signal="timeout" from="Controls/Control/clock_timer" to="Controls/Control" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

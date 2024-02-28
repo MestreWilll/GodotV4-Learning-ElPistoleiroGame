@@ -338,6 +338,15 @@ offset_right = 548.0
 offset_bottom = 258.0
 theme_override_font_sizes/font_size = 52
 
+[node name="recorde_label" type="Label" parent="Control_label_request"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 806.0
+offset_right = 483.0
+offset_bottom = 869.0
+theme_override_font_sizes/font_size = 45
+text = "000000"
+
 [node name="send_request" type="Node" parent="."]
 script = ExtResource("7_fhfjd")
 

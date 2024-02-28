@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5dh2m8liebh4"]
+[gd_scene load_steps=11 format=3 uid="uid://c5dh2m8liebh4"]
 
 [ext_resource type="Script" path="res://Menu/title_screen.gd" id="1_j5bm5"]
 [ext_resource type="Texture2D" uid="uid://cmxhiemia73p6" path="res://assets/Pistoleiro_Assets/Menu/LogoPistoleiroOficial.png" id="2_p5jt4"]
 [ext_resource type="Texture2D" uid="uid://c54pw2eqsruai" path="res://assets/Pistoleiro_Assets/Menu/ImagemOriginalSEPARADA.png" id="2_rdk25"]
 [ext_resource type="Theme" uid="uid://ctmh5cx2rpc0b" path="res://Menu/Tema_botoes_style.tres" id="3_m8fqv"]
+[ext_resource type="PackedScene" uid="uid://6cxtqt7axgap" path="res://Send_Request/send_request.tscn" id="5_gce0a"]
 
 [sub_resource type="Animation" id="Animation_3i4fg"]
 resource_name = "BG-APARECE"
@@ -317,6 +318,10 @@ offset_right = -33.0
 offset_bottom = 96.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
+alignment = 1
+virtual_keyboard_type = 1
+
+[node name="Node" parent="." instance=ExtResource("5_gce0a")]
 
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
