@@ -9,6 +9,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
+	print('apertou o start')
 	
 func _on_credits_button_pressed():
 	pass # Replace with function body.
@@ -25,6 +26,7 @@ func _on_player_name_text_submitted(name):
 	var headers = ["Content-Type: application/x-www-form-urlencoded"]
 	var score = '0'
 	var body = "name=" + name + "&score=" + score
+	print('meu testes de input')
 	$HTTPRequest.request("http://localhost:8080/register.php", headers, HTTPClient.METHOD_POST, body)
 	$HTTPRequest.connect("request_completed", Callable(self, "_on_request_completed"))
 

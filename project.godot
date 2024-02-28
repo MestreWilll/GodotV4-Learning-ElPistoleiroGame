@@ -25,7 +25,6 @@ Globals="res://Scripts/globais.gd"
 [display]
 
 window/size/initial_position_type=0
-window/size/borderless=true
 window/stretch/mode="viewport"
 
 [editor_plugins]
