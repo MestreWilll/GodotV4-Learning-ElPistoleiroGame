@@ -6,7 +6,7 @@ $players = array_map(function($data) {
     $data = array_map("trim", explode(",", $data));
     return [
         "id" => $data[0],
-        "nickname" => $data[1],
+        "player_name" => $data[1],
         "score" => (int)$data[2], // Casting score to integer for proper comparison
     ];
 }, file('players.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
