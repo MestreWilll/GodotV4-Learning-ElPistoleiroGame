@@ -320,6 +320,8 @@ theme_override_font_sizes/font_size = 64
 alignment = 1
 virtual_keyboard_type = 1
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]

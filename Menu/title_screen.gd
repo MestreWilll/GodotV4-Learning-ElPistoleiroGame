@@ -9,7 +9,12 @@ func _ready():
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
-
+	if $HTTPRequest:
+		var json = JSON.stringify('starting game')
+		var headers = ["Content-Type: application/json"]
+		$HTTPRequest.request("http://localhost:8080/register.php", headers, HTTPClient.METHOD_POST, json)
+	else:
+		print("HTTPRequest node is not available.")
 
 
 func _on_credits_button_pressed():
@@ -26,4 +31,4 @@ func _on_opções_pressed():
 func _on_player_name_text_submitted(new_text):
 	var json = JSON.stringify(new_text)
 	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("localhost:8080/register", headers, HTTPClient.METHOD_POST, json)
+	$HTTPRequest.request("localhost:8080/register.php", headers, HTTPClient.METHOD_POST, json)
