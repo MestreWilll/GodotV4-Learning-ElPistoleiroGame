@@ -9,14 +9,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
-	if $HTTPRequest:
-		var json = JSON.stringify('starting game')
-		var headers = ["Content-Type: application/json"]
-		$HTTPRequest.request("http://localhost:8080/register.php", headers, HTTPClient.METHOD_POST, json)
-	else:
-		print("HTTPRequest node is not available.")
-
-
+	
 func _on_credits_button_pressed():
 	pass # Replace with function body.
 
@@ -28,7 +21,17 @@ func _on_opções_pressed():
 	pass
 	
 	
-func _on_player_name_text_submitted(new_text):
-	var json = JSON.stringify(new_text)
-	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("localhost:8080/register.php", headers, HTTPClient.METHOD_POST, json)
+func _on_player_name_text_submitted(name):
+	var headers = ["Content-Type: application/x-www-form-urlencoded"]
+	var score = '0'
+	var body = "name=" + name + "&score=" + score
+	$HTTPRequest.request("http://localhost:8080/register.php", headers, HTTPClient.METHOD_POST, body)
+	$HTTPRequest.connect("request_completed", Callable(self, "_on_request_completed"))
+
+func _on_request_completed(result, response_code, headers, body):
+	if result != HTTPRequest.RESULT_SUCCESS:
+		print("Error sending request: ", result)
+	elif response_code != 200:
+		print("Error in request: HTTP Response Code ", response_code)
+	else:
+		print("Request successful!")
