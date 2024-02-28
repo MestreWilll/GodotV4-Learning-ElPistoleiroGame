@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cwfsbtyev3ljk"
+
+[deps]
+
+files=["res://sample-json-api/players.Flash.translation", "res://sample-json-api/players.9000.translation"]
+
+source_file="res://sample-json-api/players.csv"
+dest_files=["res://sample-json-api/players.Flash.translation", "res://sample-json-api/players.9000.translation"]
+
+[params]
+
+compress=true
+delimiter=0
