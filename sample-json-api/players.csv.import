@@ -6,10 +6,10 @@ uid="uid://cwfsbtyev3ljk"
 
 [deps]
 
-files=["res://sample-json-api/players.Flash.translation", "res://sample-json-api/players.9000.translation"]
+files=["res://sample-json-api/players.teste1.translation", "res://sample-json-api/players.0.translation"]
 
 source_file="res://sample-json-api/players.csv"
-dest_files=["res://sample-json-api/players.Flash.translation", "res://sample-json-api/players.9000.translation"]
+dest_files=["res://sample-json-api/players.teste1.translation", "res://sample-json-api/players.0.translation"]
 
 [params]
 
