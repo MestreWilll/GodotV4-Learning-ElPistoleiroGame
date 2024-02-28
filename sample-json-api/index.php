@@ -11,6 +11,13 @@ $players = array_map(function($data) {
     ];
 }, file('players.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
 
+// Check for POST request on /register and print received data
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === '/register') {
+    echo "Received data: ";
+    print_r($_POST);
+    exit; // Stop further execution to only show received POST data
+}
+
 // Optimized function to get player by ID using array_filter
 function getPlayerById($id) {
   global $players;
@@ -50,4 +57,5 @@ header('Content-Type: application/json');
 echo json_encode($response ?: ["error" => "Invalid parameters"]);
 
 ?>
+
 
