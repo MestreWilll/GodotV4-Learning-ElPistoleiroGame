@@ -1,6 +1,6 @@
 extends Node
 
-@onready var name_label = $"../Control_label_request/name_label"
+@onready var name_label = $"../Control_label_request/name_label" as Label
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,7 @@ func _on_request_completed(result, response_code, headers, body):
 			# Store the players_data array in a global variable or pass it to another function for further processing
 			Game.players_data = players_data
 			var player_name_label = Game.players_data[1]["player_name"]
-			$"../Control_label_request/name_label".text = str(player_name_label)
+			name_label.text = str(player_name_label)
 		else:
 			print("Error: JSON is not an array")
 	else:
