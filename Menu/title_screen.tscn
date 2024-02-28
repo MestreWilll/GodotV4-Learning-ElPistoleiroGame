@@ -317,7 +317,6 @@ offset_right = -33.0
 offset_bottom = 96.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
-alignment = 1
 virtual_keyboard_type = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]

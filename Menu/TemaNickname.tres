@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://wrr76vo217tp"]
+
+[ext_resource type="FontFile" uid="uid://dqd2ht4wd8k02" path="res://assets/Fontes/kirifont/KiriFont.otf" id="1_6m1ru"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wlxn"]
+
+[resource]
+default_font = ExtResource("1_6m1ru")
+/fonts/nickname = ExtResource("1_6m1ru")
+/styles/nickname = SubResource("StyleBoxTexture_7wlxn")

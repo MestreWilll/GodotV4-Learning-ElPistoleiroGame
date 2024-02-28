@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c04t0a0pjbkvl"]
+[gd_scene load_steps=12 format=3 uid="uid://c04t0a0pjbkvl"]
 
 [ext_resource type="Script" path="res://Menu/game_over.gd" id="1_j5pjh"]
 [ext_resource type="Texture2D" uid="uid://c54pw2eqsruai" path="res://assets/Pistoleiro_Assets/Menu/ImagemOriginalSEPARADA.png" id="1_k0jpi"]
@@ -6,67 +6,68 @@
 [ext_resource type="Texture2D" uid="uid://bdmmwnhle2c16" path="res://assets/Pistoleiro_Assets/Menu/gameoverSEPARADO.png" id="2_xkwxl"]
 [ext_resource type="Texture2D" uid="uid://3f5lsokdo7go" path="res://assets/Pistoleiro_Assets/Menu/top_player-IMGfix.png" id="4_uejex"]
 [ext_resource type="FontFile" uid="uid://daw4olvltsydg" path="res://assets/Fontes/cmu-typewriter/Typewriter/cmuntb.ttf" id="5_ubjd1"]
+[ext_resource type="FontFile" uid="uid://b1alc4etqjnv6" path="res://assets/Fontes/kirifont/KiriFont.ttf" id="7_eud0w"]
 [ext_resource type="Script" path="res://Send_Request/send_request.gd" id="7_fhfjd"]
 
-[sub_resource type="Animation" id="Animation_ko7we"]
-resource_name = "Animation_GameOver"
-length = 1.3
+[sub_resource type="Animation" id="Animation_gcpdx"]
+resource_name = "Animation_gameOver"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("monitor_moving/GameOver:position")
+tracks/0/path = NodePath("monitor_moving/Top_player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(780, -500), Vector2(780, 10)]
+"values": [Vector2(-600, 900), Vector2(178, 46)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("restart_button:position")
+tracks/1/path = NodePath("label_Top_Player/time_label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1980, 489.5), Vector2(705.5, 489.5)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Volta_menu:position")
+tracks/2/path = NodePath("label_Top_Player/score_label:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0001, 0.7),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-534, 598), Vector2(741.5, 598)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("quit_button:position")
+tracks/3/path = NodePath("label_Top_Player/coins_label:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(741.5, 1150), Vector2(741.5, 688)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("GameOver_tittle:modulate")
+tracks/4/path = NodePath("label_Top_Player/recorde_label:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -74,82 +75,130 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("monitor_moving/Top_player:position")
+tracks/5/path = NodePath("monitor_moving/GameOver:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0.0001, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1150), Vector2(184, 24)]
+"values": [Vector2(892, -500), Vector2(892, 7)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Control_label_request:modulate")
+tracks/6/path = NodePath("restart_button:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(1914, 455), Vector2(815, 455)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("quit_button:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-430, 671), Vector2(846, 671)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("label_Register/Register_label_only:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("label_Register/name_label_register:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Volta_menu:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(857, 1100), Vector2(857, 576)]
 }
 
-[sub_resource type="Animation" id="Animation_cj25w"]
+[sub_resource type="Animation" id="Animation_svwcc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("monitor_moving/GameOver:position")
+tracks/0/path = NodePath("monitor_moving/Top_player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(780, 10)]
+"values": [Vector2(178, 46)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("restart_button:position")
+tracks/1/path = NodePath("label_Top_Player/time_label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(705.5, 489.5)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Volta_menu:position")
+tracks/2/path = NodePath("label_Top_Player/score_label:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(741.5, 598)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("quit_button:position")
+tracks/3/path = NodePath("label_Top_Player/coins_label:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(741.5, 688)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("GameOver_tittle:modulate")
+tracks/4/path = NodePath("label_Top_Player/recorde_label:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -161,32 +210,80 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("monitor_moving/Top_player:position")
+tracks/5/path = NodePath("monitor_moving/GameOver:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(184, 24)]
+"values": [Vector2(892, 7)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Control_label_request:modulate")
+tracks/6/path = NodePath("restart_button:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+"values": [Vector2(815, 455)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("quit_button:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(846, 671)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("label_Register/Register_label_only:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("label_Register/name_label_register:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Volta_menu:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(857, 576)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hfa7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jownl"]
 _data = {
-"Animation_GameOver": SubResource("Animation_ko7we"),
-"RESET": SubResource("Animation_cj25w")
+"Animation_gameOver": SubResource("Animation_gcpdx"),
+"RESET": SubResource("Animation_svwcc")
 }
 
 [node name="GameOver" type="Control"]
@@ -222,26 +319,20 @@ position = Vector2(-86, -10)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 780.0
-offset_top = 10.0
-offset_right = 1312.0
-offset_bottom = 454.0
+offset_left = 892.0
+offset_top = 7.0
+offset_right = 1424.0
+offset_bottom = 451.0
 grow_horizontal = 2
 size_flags_horizontal = 6
 texture = ExtResource("2_xkwxl")
 
 [node name="Top_player" type="TextureRect" parent="monitor_moving"]
-offset_left = 184.0
-offset_top = 24.0
-offset_right = 756.0
-offset_bottom = 923.0
+offset_left = 178.0
+offset_top = 46.0
+offset_right = 750.0
+offset_bottom = 945.001
 texture = ExtResource("4_uejex")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_4hfa7")
-}
-autoplay = "Animation_GameOver"
 
 [node name="restart_button" type="Button" parent="."]
 layout_mode = 1
@@ -250,10 +341,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 705.5
-offset_top = 489.5
-offset_right = 1214.5
-offset_bottom = 590.5
+offset_left = -145.0
+offset_top = -85.0
+offset_right = 364.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -269,10 +360,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 741.5
-offset_top = 598.0
-offset_right = 1178.5
-offset_bottom = 674.0
+offset_left = -103.0
+offset_top = 36.0
+offset_right = 334.0
+offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -287,10 +378,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 741.5
-offset_top = 688.0
-offset_right = 1178.5
-offset_bottom = 764.0
+offset_left = -114.0
+offset_top = 131.0
+offset_right = 323.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -298,60 +389,86 @@ theme_override_fonts/font = ExtResource("5_ubjd1")
 theme_override_font_sizes/font_size = 55
 text = "Sair do jogo"
 
-[node name="Control_label_request" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="label_Top_Player" type="Node2D" parent="."]
 
-[node name="time_label" type="Label" parent="Control_label_request"]
-layout_mode = 0
+[node name="time_label" type="Label" parent="label_Top_Player"]
 offset_left = 286.0
-offset_top = 342.0
+offset_top = 361.0
 offset_right = 479.0
-offset_bottom = 447.0
+offset_bottom = 466.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 76
 text = "00:00"
+metadata/_edit_use_anchors_ = true
 
-[node name="score_label" type="Label" parent="Control_label_request"]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 520.0
-offset_right = 489.0
-offset_bottom = 604.0
+[node name="score_label" type="Label" parent="label_Top_Player"]
+offset_left = 276.0
+offset_top = 541.0
+offset_right = 486.0
+offset_bottom = 625.0
 theme_override_font_sizes/font_size = 61
 text = "000000"
+metadata/_edit_use_anchors_ = true
 
-[node name="coins_label" type="Label" parent="Control_label_request"]
-layout_mode = 0
+[node name="coins_label" type="Label" parent="label_Top_Player"]
 offset_left = 341.0
-offset_top = 663.0
+offset_top = 684.0
 offset_right = 449.0
-offset_bottom = 730.0
+offset_bottom = 751.0
 theme_override_font_sizes/font_size = 48
 text = "00"
+metadata/_edit_use_anchors_ = true
 
-[node name="name_label" type="Label" parent="Control_label_request"]
-layout_mode = 0
-offset_left = 247.0
-offset_top = 186.0
-offset_right = 548.0
-offset_bottom = 258.0
-theme_override_font_sizes/font_size = 52
-
-[node name="recorde_label" type="Label" parent="Control_label_request"]
-layout_mode = 0
-offset_left = 327.0
-offset_top = 806.0
-offset_right = 483.0
-offset_bottom = 869.0
+[node name="recorde_label" type="Label" parent="label_Top_Player"]
+offset_left = 331.0
+offset_top = 827.0
+offset_right = 487.0
+offset_bottom = 890.0
 theme_override_font_sizes/font_size = 45
-text = "000000"
+text = "00"
+metadata/_edit_use_anchors_ = true
 
-[node name="send_request" type="Node" parent="."]
+[node name="name_label" type="Label" parent="label_Top_Player"]
+offset_left = 178.0
+offset_top = 215.0
+offset_right = 585.0
+offset_bottom = 287.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="label_Register" type="Node2D" parent="."]
+
+[node name="Register_label_only" type="Label" parent="label_Register"]
+offset_left = 791.0
+offset_top = 766.0
+offset_right = 1350.0
+offset_bottom = 844.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("7_eud0w")
+theme_override_font_sizes/font_size = 42
+text = "Resgistro-Nickname"
+
+[node name="name_label_register" type="LineEdit" parent="label_Register"]
+offset_left = 809.0
+offset_top = 817.0
+offset_right = 1320.0
+offset_bottom = 892.0
+theme_override_font_sizes/font_size = 44
+
+[node name="send_request" type="Node" parent="label_Register"]
 script = ExtResource("7_fhfjd")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="send_request"]
+[node name="HTTPRequest" type="HTTPRequest" parent="label_Register/send_request"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jownl")
+}
+autoplay = "Animation_gameOver"
 
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Volta_menu" to="." method="_on_volta_menu_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="text_submitted" from="label_Register/name_label_register" to="." method="_on_name_label_register_text_submitted"]
