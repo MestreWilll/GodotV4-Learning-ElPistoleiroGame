@@ -1,6 +1,7 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $postData = file_get_contents('php://input');
-    $data = json_decode($postData, true);
-    echo json_encode($data);
-}
+parse_str(file_get_contents("php://input"), $postData);
+$name = $postData['name'];
+$score = $postData['score'];
+$file = 'registro.txt';
+$formattedData = "Nome: " . $name . ", Score: " . $score . "\n";
+file_put_contents($file, $formattedData, FILE_APPEND | LOCK_EX);
