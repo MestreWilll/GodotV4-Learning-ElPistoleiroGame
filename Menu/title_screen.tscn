@@ -324,4 +324,4 @@ virtual_keyboard_type = 1
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Movimentando_botoes/VBoxContainer/HSeparator3/quit_button" to="." method="_on_quit_button_pressed"]
-[connection signal="text_changed" from="player_name" to="." method="_on_player_name_text_changed"]
+[connection signal="text_submitted" from="player_name" to="." method="_on_player_name_text_submitted"]

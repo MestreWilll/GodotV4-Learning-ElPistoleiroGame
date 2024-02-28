@@ -22,6 +22,8 @@ func _on_quit_button_pressed():
 func _on_opções_pressed():
 	pass
 	
-func _on_player_name_text_changed(new_text):
-	Game.set_player_name(new_text)
 	
+func _on_player_name_text_submitted(new_text):
+	var json = JSON.stringify(new_text)
+	var headers = ["Content-Type: application/json"]
+	$HTTPRequest.request("localhost:8080/register", headers, HTTPClient.METHOD_POST, json)
