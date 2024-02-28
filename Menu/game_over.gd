@@ -3,7 +3,7 @@ extends Control
 @onready var time_label = $Control_label_request/time_label
 @onready var score_label = $Control_label_request/score_label
 @onready var coins_label = $Control_label_request/coins_label
-@onready var name_label = $Control_label_request/name_label
+#@onready var name_label = $Control_label_request/name_label
 @onready var recorde_label = $Control_label_request/recorde_label
 
 
@@ -14,7 +14,7 @@ func _ready():
 	time_label.text = Game.timer_counter
 	score_label.text = str("%06d" % Game.score)
 	coins_label.text = str("%02d" % Game.coins)
-	name_label.text = Game.player_name
+	#name_label.text = Game.player_name
 
 func _on_restart_button_pressed():
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")

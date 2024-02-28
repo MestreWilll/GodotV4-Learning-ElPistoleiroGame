@@ -2,7 +2,6 @@ extends Control
 
 # Este script é responsável pela tela de título do jogo, incluindo a inicialização, processamento por frame, e ações dos botões.
 # Assinado: MestreWill
-@onready var player_name = $player_name
 
 
 func _ready():

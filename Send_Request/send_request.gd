@@ -21,7 +21,8 @@ func _on_request_completed(result, response_code, headers, body):
 				players_data.append({"id": player["id"], "player_name": player["player_name"], "score": player["score"]})
 			# Store the players_data array in a global variable or pass it to another function for further processing
 			Game.players_data = players_data
-			print(players_data[2]["player_name"])
+			var player_name_label = Game.players_data[1]["player_name"]
+			$"../Control_label_request/name_label".text = str(player_name_label)
 		else:
 			print("Error: JSON is not an array")
 	else:
