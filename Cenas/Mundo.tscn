@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://ds2bvu50nnu28"]
+[gd_scene load_steps=123 format=3 uid="uid://ds2bvu50nnu28"]
 
 [ext_resource type="Script" path="res://Scripts/Mundo.gd" id="1_51f4x"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_5p552"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://dmevudns5lrhj" path="res://assets/Mini FX, Items & UI/Common Pick-ups/CoinSeparado/coin4.png" id="32_m252a"]
 [ext_resource type="PackedScene" uid="uid://ykvbf180ldec" path="res://Mundo_Cena/pause_menu.tscn" id="34_dnamm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="34_njqtu"]
+[ext_resource type="PackedScene" uid="uid://c04t0a0pjbkvl" path="res://Menu/game_over.tscn" id="38_p6vq1"]
 [ext_resource type="Script" path="res://Camera_config/UpperZoomArea.gd" id="53_6c5mm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6cqt"]
@@ -1330,6 +1331,9 @@ inactive_update_mode = 0
 
 [node name="Controls" type="CanvasLayer" parent="."]
 
+[node name="GameOverScreen" parent="Controls" instance=ExtResource("38_p6vq1")]
+visible = false
+
 [node name="Control" type="Control" parent="Controls"]
 layout_mode = 3
 anchors_preset = 15
@@ -1342,6 +1346,75 @@ grow_vertical = 2
 scale = Vector2(0.6, 0.88)
 script = ExtResource("17_e4rt6")
 metadata/_edit_use_anchors_ = true
+
+[node name="game_over_screen" parent="Controls/Control" instance=ExtResource("38_p6vq1")]
+visible = false
+layout_mode = 1
+
+[node name="player_life" type="Label" parent="Controls/Control/game_over_screen"]
+texture_filter = 1
+offset_left = 181.68
+offset_top = -531.818
+offset_right = 221.68
+offset_bottom = -484.818
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "03"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="score_counter" type="Label" parent="Controls/Control/game_over_screen"]
+texture_filter = 1
+offset_left = 1148.33
+offset_top = -526.136
+offset_right = 1240.33
+offset_bottom = -485.136
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "000000"
+vertical_alignment = 1
+
+[node name="coins_counter" type="Label" parent="Controls/Control/game_over_screen"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 22)
+offset_left = 2286.66
+offset_top = -640.91
+offset_right = 2374.66
+offset_bottom = -586.91
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 39
+text = "0000"
+vertical_alignment = 1
+
+[node name="timer_counter" type="Label" parent="Controls/Control/game_over_screen"]
+texture_filter = 1
+offset_left = 3001.67
+offset_top = -617.045
+offset_right = 3064.67
+offset_bottom = -582.045
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "00:00"
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Controls/Control/game_over_screen"]
+layout_mode = 0
+offset_left = -1.66667
+offset_top = 140.909
+offset_right = 38.3333
+offset_bottom = 163.909
 
 [node name="clock_timer" type="Timer" parent="Controls/Control"]
 autostart = true
@@ -1381,55 +1454,11 @@ size_flags_vertical = 4
 [node name="Moving_life" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(1410, 331.825)
 
-[node name="player_life" type="Label" parent="Controls/Control/container/Moving_life"]
-texture_filter = 1
-offset_left = -1319.16
-offset_top = -587.493
-offset_right = -1279.16
-offset_bottom = -540.493
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 28
-text = "03"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="Moving_SCORE" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(1057, 8)
 
-[node name="score_counter" type="Label" parent="Controls/Control/container/Moving_SCORE"]
-texture_filter = 1
-offset_left = -482.833
-offset_top = -260.948
-offset_right = -390.833
-offset_bottom = -219.948
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 24
-text = "000000"
-vertical_alignment = 1
-
 [node name="Moving_Coins" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(8, 8)
-
-[node name="coins_counter" type="Label" parent="Controls/Control/container/Moving_Coins"]
-texture_filter = 1
-custom_minimum_size = Vector2(0, 22)
-offset_left = 1135.33
-offset_top = -315.89
-offset_right = 1223.33
-offset_bottom = -261.89
-size_flags_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 39
-text = "0000"
-vertical_alignment = 1
 
 [node name="coins_icon" type="TextureRect" parent="Controls/Control/container/Moving_Coins"]
 offset_left = 1070.17
@@ -1442,20 +1471,6 @@ texture = SubResource("AnimatedTexture_vwfak")
 
 [node name="Moving_time" type="StaticBody2D" parent="Controls/Control/container"]
 position = Vector2(532, 8)
-
-[node name="timer_counter" type="Label" parent="Controls/Control/container/Moving_time"]
-texture_filter = 1
-offset_left = 968.833
-offset_top = -304.466
-offset_right = 1031.83
-offset_bottom = -269.466
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 25
-text = "00:00"
-vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
 offset_left = 8.0

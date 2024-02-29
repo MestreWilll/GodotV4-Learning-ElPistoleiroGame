@@ -34,12 +34,12 @@ signal player_has_died
 signal game_over
 signal area_entered
 signal area_exited
+signal killed
 
 func _ready() -> void:
 	player_area2D.connect("area_entered", Callable(self, "_on_show_prompt"))
 	player_area2D.connect("area_exited", Callable(self, "_on_hide_prompt"))
-	Player.connect("game_over", Callable(self, "_on_game_over"))
-	shoot_delay_timer.wait_time = 0.2  # Ajuste conforme necessário
+	Player.connect("killed", Callable(self, "_on_player_killed"))
 
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
@@ -159,7 +159,7 @@ func _on_hurtbox_body_entered(body):
 			Game.player_life -= 1
 			hud_manager_node.update_player_life(Game.player_life)
 		if Game.player_life <= 0:
-			emit_signal("game_over")
+			emit_signal("killed")
 
 func _on_animated_sprite_2d_animation_finished():
 	pass # Substitua pelo corpo da função conforme necessário.

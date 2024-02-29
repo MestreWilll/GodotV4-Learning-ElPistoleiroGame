@@ -10,6 +10,7 @@ var player_name := ""
 var players_data := []
 var record := 0
 var name_label := 0
+var hi_score = 0
 
 func set_player_name(name): 
 	player_name = name

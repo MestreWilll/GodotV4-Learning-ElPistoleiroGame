@@ -9,16 +9,31 @@ extends Node2D
 @onready var camera = $Camera_Movimentos/camera
 @onready var timer2 = $Timer2
 @onready var timer3 = $Timer3
+@onready var game_over_screen = $Controls/GameOverScreen
 
 var initial_respawn_time = 15  # Tempo inicial para respawn_timer
 var initial_timer_time = 12
 var initial_timer2_time = 14      # Tempo inicial para timer
 var initial_timer3_time = 12      # Tempo inicial para timer
 var enemy_kill_count = 0
+var score := 0:
+	set(value):
+		score = value
+		Game.score = score
+var hi_score
 # Pré-carrega a cena do inimigo
 const ENEMY_SCENE = preload("res://Cenas/mob_simples.tscn")
 
 func _ready():
+	var save_file = FileAccess.open("user://save.data", FileAccess.READ)
+	if save_file != null :
+		Game.hi_score = save_file.get_32()
+	else :
+		Game.hi_score = 0
+		save_game()
+	Game.score = 0
+	var player = $Player
+	player.connect("killed", Callable(self, "_on_player_killed"))
 	# Configurações iniciais do jogador e HUD
 	Player.follow_camera(camera)
 	Player.connect("player_has_died", Callable(self, "reload_game"))
@@ -31,8 +46,7 @@ func _ready():
 	timer2.wait_time = initial_timer2_time
 	timer3.wait_time = initial_timer3_time
 
-	# Removido a conexão com o sinal 'time_is_up' para evitar transição para tela de Game Over
-	Player.connect("game_over", Callable(self, "_on_game_over"))
+
 	#----Chamando Respawn---#
 	if not respawn_timer.is_connected("timeout", Callable(self, "_on_respawn_timer_timeout")):
 		respawn_timer.connect("timeout", Callable(self, "_on_respawn_timer_timeout"))
@@ -51,7 +65,9 @@ func _ready():
 	timer3.start()
 
 # Removida a função handle_game_over e suas chamadas relacionadas
-
+func save_game():
+	var save_file = FileAccess.open("user://save.data", FileAccess.WRITE)
+	save_file.store_32(Game.hi_score)
 # Removida a função _on_game_over_timeout
 
 func _on_game_over():
@@ -136,7 +152,7 @@ func _on_timer_3_timeout():
 func get_respawn_position():
 	# Retorna a posição de respawn para o primeiro timer (respawn_timer)
 	return Vector2(180, 1094)
-	
+
 func get_respawn_position2():
 	# Retorna a posição de respawn para o segundo timer (timer)
 	return Vector2(1900, 1094)
@@ -149,7 +165,11 @@ func get_respawn_position4():
 	# Retorna a posição de respawn para o segundo timer (timer)
 	return Vector2(1300, 500)
 
-
+func _on_player_killed():
+	game_over_screen.set_score(score)
+	game_over_screen.set_hi_score(hi_score)
+	save_game()
+	get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 
 
 

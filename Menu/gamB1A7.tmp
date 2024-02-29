@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/time_label:modulate")
+tracks/1/path = NodePath("label_Top_Player/time_label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Panel/score_label:modulate")
+tracks/2/path = NodePath("label_Top_Player/score_label:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +50,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel/coins_label:modulate")
+tracks/3/path = NodePath("label_Top_Player/coins_label:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,7 +62,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel/top_score:modulate")
+tracks/4/path = NodePath("label_Top_Player/top_score:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -122,7 +122,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Panel/player_name:modulate")
+tracks/9/path = NodePath("label_Register/player_name:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -161,7 +161,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/time_label:modulate")
+tracks/1/path = NodePath("label_Top_Player/time_label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -173,7 +173,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Panel/score_label:modulate")
+tracks/2/path = NodePath("label_Top_Player/score_label:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -185,7 +185,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel/coins_label:modulate")
+tracks/3/path = NodePath("label_Top_Player/coins_label:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -197,7 +197,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel/top_score:modulate")
+tracks/4/path = NodePath("label_Top_Player/top_score:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -257,7 +257,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Panel/player_name:modulate")
+tracks/9/path = NodePath("label_Register/player_name:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -390,6 +390,54 @@ text = "Sair do jogo"
 
 [node name="label_Top_Player" type="Node2D" parent="."]
 
+[node name="time_label" type="Label" parent="label_Top_Player"]
+offset_left = 286.0
+offset_top = 328.0
+offset_right = 479.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 76
+text = "00:00"
+metadata/_edit_use_anchors_ = true
+
+[node name="score_label" type="Label" parent="label_Top_Player"]
+offset_left = 276.0
+offset_top = 494.0
+offset_right = 486.0
+offset_bottom = 578.0
+theme_override_font_sizes/font_size = 61
+text = "000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="coins_label" type="Label" parent="label_Top_Player"]
+offset_left = 341.0
+offset_top = 623.0
+offset_right = 449.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 48
+text = "00"
+metadata/_edit_use_anchors_ = true
+
+[node name="top_score" type="Label" parent="label_Top_Player"]
+offset_left = 274.0
+offset_top = 813.0
+offset_right = 460.0
+offset_bottom = 887.0
+theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
+theme_override_font_sizes/font_size = 54
+text = "000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="name_label" type="Label" parent="label_Top_Player"]
+offset_left = 182.0
+offset_top = 188.0
+offset_right = 589.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="label_Register" type="Node2D" parent="."]
 
 [node name="Register_label_only" type="Label" parent="label_Register"]
@@ -402,6 +450,13 @@ theme_override_fonts/font = ExtResource("7_eud0w")
 theme_override_font_sizes/font_size = 42
 text = "Resgistro-Nickname"
 
+[node name="player_name" type="LineEdit" parent="label_Register"]
+offset_left = 809.0
+offset_top = 817.0
+offset_right = 1320.0
+offset_bottom = 892.0
+theme_override_font_sizes/font_size = 44
+
 [node name="send_request" type="Node" parent="label_Register"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -410,70 +465,10 @@ libraries = {
 }
 autoplay = "Animation_gameOver"
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="time_label" type="Label" parent="Panel"]
-offset_left = 286.0
-offset_top = 328.0
-offset_right = 479.0
-offset_bottom = 433.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 76
-text = "00:00"
-metadata/_edit_use_anchors_ = true
-
-[node name="score_label" type="Label" parent="Panel"]
-offset_left = 276.0
-offset_top = 494.0
-offset_right = 486.0
-offset_bottom = 578.0
-theme_override_font_sizes/font_size = 61
-text = "000000"
-metadata/_edit_use_anchors_ = true
-
-[node name="coins_label" type="Label" parent="Panel"]
-offset_left = 341.0
-offset_top = 623.0
-offset_right = 449.0
-offset_bottom = 690.0
-theme_override_font_sizes/font_size = 48
-text = "00"
-metadata/_edit_use_anchors_ = true
-
-[node name="top_score" type="Label" parent="Panel"]
-offset_left = 274.0
-offset_top = 813.0
-offset_right = 460.0
-offset_bottom = 887.0
-theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
-theme_override_font_sizes/font_size = 54
-text = "000000"
-metadata/_edit_use_anchors_ = true
-
-[node name="name_label" type="Label" parent="Panel"]
-offset_left = 182.0
-offset_top = 188.0
-offset_right = 589.0
-offset_bottom = 260.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 47
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="player_name" type="LineEdit" parent="Panel"]
-offset_left = 809.0
-offset_top = 817.0
-offset_right = 1320.0
-offset_bottom = 892.0
-theme_override_font_sizes/font_size = 44
-
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Volta_menu" to="." method="_on_volta_menu_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
-[connection signal="text_submitted" from="Panel/player_name" to="." method="_on_player_name_text_submitted"]
+[connection signal="text_submitted" from="label_Register/player_name" to="." method="_on_player_name_text_submitted"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
