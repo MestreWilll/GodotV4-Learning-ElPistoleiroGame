@@ -340,10 +340,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -85.0
-offset_right = 364.0
-offset_bottom = 16.0
+offset_left = 815.0
+offset_top = 455.0
+offset_right = 1324.0
+offset_bottom = 556.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -359,10 +359,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = 36.0
-offset_right = 334.0
-offset_bottom = 112.0
+offset_left = 857.0
+offset_top = 576.0
+offset_right = 1294.0
+offset_bottom = 652.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -377,10 +377,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -114.0
-offset_top = 131.0
-offset_right = 323.0
-offset_bottom = 207.0
+offset_left = 846.0
+offset_top = 671.0
+offset_right = 1283.0
+offset_bottom = 747.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fkcvs")
@@ -416,6 +416,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="time_label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 286.0
 offset_top = 328.0
 offset_right = 479.0
@@ -426,6 +427,7 @@ text = "00:00"
 metadata/_edit_use_anchors_ = true
 
 [node name="score_label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 276.0
 offset_top = 494.0
 offset_right = 486.0
@@ -435,6 +437,7 @@ text = "000000"
 metadata/_edit_use_anchors_ = true
 
 [node name="coins_label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 341.0
 offset_top = 623.0
 offset_right = 449.0
@@ -444,6 +447,7 @@ text = "00"
 metadata/_edit_use_anchors_ = true
 
 [node name="top_score" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 274.0
 offset_top = 813.0
 offset_right = 460.0
@@ -454,6 +458,7 @@ text = "000000"
 metadata/_edit_use_anchors_ = true
 
 [node name="name_label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 182.0
 offset_top = 188.0
 offset_right = 589.0
@@ -464,6 +469,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="player_name" type="LineEdit" parent="Panel"]
+layout_mode = 0
 offset_left = 809.0
 offset_top = 817.0
 offset_right = 1320.0

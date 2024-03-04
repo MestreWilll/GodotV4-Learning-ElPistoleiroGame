@@ -1,0 +1,161 @@
+[gd_scene load_steps=27 format=3 uid="uid://68p24hoc7fig"]
+
+[ext_resource type="Script" path="res://Scripts Inimigos/enemy_attack.gd" id="1_42mjg"]
+[ext_resource type="Texture2D" uid="uid://lt1wasfqjeoo" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt1.png" id="1_awy4r"]
+[ext_resource type="Texture2D" uid="uid://bpd8k8ojuxay3" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt2.png" id="2_nxpis"]
+[ext_resource type="Texture2D" uid="uid://ciq57eg6vmu64" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle1.png" id="3_nsoxd"]
+[ext_resource type="Texture2D" uid="uid://cvsjthgrxsor1" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle2.png" id="4_umt02"]
+[ext_resource type="Texture2D" uid="uid://blu6av5e7bw31" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle3.png" id="5_vtkfv"]
+[ext_resource type="Texture2D" uid="uid://crbe7jmd4445e" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle4.png" id="6_gbipp"]
+[ext_resource type="Texture2D" uid="uid://dhmr4y7x2kind" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle5.png" id="7_pt05p"]
+[ext_resource type="Texture2D" uid="uid://bs1gal52yek4m" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle6.png" id="8_u31an"]
+[ext_resource type="Texture2D" uid="uid://bklckyd5dth80" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run1.png" id="9_nn2d5"]
+[ext_resource type="Texture2D" uid="uid://bhw8rqeb6jdl5" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run2.png" id="10_7x668"]
+[ext_resource type="Texture2D" uid="uid://d07tgcdsc233k" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run3.png" id="11_xvl5w"]
+[ext_resource type="Texture2D" uid="uid://4m5u6ghwsglc" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run4.png" id="12_ycb3h"]
+[ext_resource type="Texture2D" uid="uid://cufu5sedyeyky" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run5.png" id="13_kvtb2"]
+[ext_resource type="Texture2D" uid="uid://7fox0jaslv8c" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run6.png" id="14_2jxwn"]
+[ext_resource type="Texture2D" uid="uid://wjwieyohja8g" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-run-shoot/player-run-shoott1.png" id="15_fl0wr"]
+[ext_resource type="Texture2D" uid="uid://b23f5n1yjrefk" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-run-shoot/player-run-shoott2.png" id="16_1ixrh"]
+[ext_resource type="Texture2D" uid="uid://dbnrk51xvhr5v" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-run-shoot/player-run-shoott3.png" id="17_g4llk"]
+[ext_resource type="Texture2D" uid="uid://c2wvhb5j8grov" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-run-shoot/player-run-shoott4.png" id="18_0of8e"]
+[ext_resource type="Texture2D" uid="uid://c6majkkcbk7vn" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-run-shoot/player-run-shoott5.png" id="19_m1xu6"]
+[ext_resource type="Texture2D" uid="uid://dfp0ly43xvmqp" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-run-shoot/player-run-shoott6.png" id="20_cyxed"]
+[ext_resource type="Texture2D" uid="uid://ccci6b5pykmsa" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-shoot/player-shoot1.png" id="21_y4kep"]
+[ext_resource type="Texture2D" uid="uid://fxowhnwk5rlk" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-shoot/player-shoot2.png" id="22_bi8oo"]
+[ext_resource type="Texture2D" uid="uid://c8ghiljthqgh8" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-shoot/player-shoot3.png" id="23_ycl6t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l55i0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_awy4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nxpis")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nsoxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_umt02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vtkfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gbipp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pt05p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u31an")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nn2d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7x668")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xvl5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ycb3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kvtb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2jxwn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_fl0wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1ixrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_g4llk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0of8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_m1xu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cyxed")
+}],
+"loop": true,
+"name": &"run_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_y4kep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bi8oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ycl6t")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5b7v"]
+size = Vector2(16, 20)
+
+[node name="enemy_attack" type="CharacterBody2D" groups=["bullet_enemy", "enemies", "player"]]
+position = Vector2(0, -19)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_42mjg")
+
+[node name="anim_enemy" type="AnimatedSprite2D" parent="." groups=["enemies", "player"]]
+sprite_frames = SubResource("SpriteFrames_l55i0")
+animation = &"run_shoot"
+autoplay = "idle"
+
+[node name="collision_enemy" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_j5b7v")
+
+[node name="spawn_bullet" type="Marker2D" parent="."]
+position = Vector2(14, 3)
+
+[node name="ground_detector" type="RayCast2D" parent="."]
+position = Vector2(0, 19)
+target_position = Vector2(0, 8)
+collision_mask = 2
+
+[node name="player_detector_right" type="RayCast2D" parent="."]
+position = Vector2(14, 3)
+target_position = Vector2(135, 0)
+
+[node name="player_detector_left" type="RayCast2D" parent="."]
+position = Vector2(-7, 3)
+target_position = Vector2(-111, 0)
+
+[connection signal="enemy_attack" from="." to="." method="attack"]
+[connection signal="shot_delay_finished" from="." to="." method="_on_shot_delay_finished"]
+[connection signal="animation_finished" from="anim_enemy" to="." method="_on_anim_enemy_animation_finished"]

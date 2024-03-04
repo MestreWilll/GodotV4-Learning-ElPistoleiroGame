@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://6cxtqt7axgap"]
-
-[ext_resource type="Script" path="res://Send_Request/send_request.gd" id="1_nro3h"]
-
-[node name="Node" type="Node"]
-script = ExtResource("1_nro3h")
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]

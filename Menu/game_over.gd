@@ -7,7 +7,7 @@ extends Control
 @onready var top_score = $Panel/top_score
 @onready var name_label = $Panel/name_label
 @onready var player_name = $Panel/player_name
-var score = '0'
+var score
 
 func _ready():
 # Aqui eu chamo as var predefinidas com as mudanças para as var que são armazenadas
@@ -37,9 +37,12 @@ func set_hi_score(value):
 	$Panel/top_score.text = "HI-SCORE: " + str(value)
 	
 func _on_player_name_text_submitted(new_text):
-	var headers = ["Content-Type: application/x-www-form-urlencoded"]
-	var body = "name=" + new_text + "&score=" + score
-	$HTTPRequest.request("http://localhost:8080/register.php", headers, HTTPClient.METHOD_POST, body)
+	send_request(new_text)
+	
+func send_request(data):
+	var body = JSON.stringify({"name": data, "score": str(score)})
+	var headers = ["Content-Type: application/json"]
+	$HTTPRequest.request("https://game.willdev.com.br/api/register.php", headers, HTTPClient.METHOD_POST, body)
 
 	
 func _on_http_request_request_completed(result, response_code, headers, body):

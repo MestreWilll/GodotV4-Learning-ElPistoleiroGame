@@ -108,10 +108,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccort"]
 size = Vector2(62, 62)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["bullet_enemy", "enemies", "player"]]
 z_index = 1
 texture_filter = 1
-position = Vector2(0, -67)
+position = Vector2(0, -34)
 collision_mask = 22
 script = ExtResource("1_7a0dn")
 
@@ -155,8 +155,6 @@ collision_mask = 4
 position = Vector2(5, -4)
 shape = SubResource("RectangleShape2D_ccort")
 debug_color = Color(0.945098, 0, 0.592157, 0.419608)
-
-[node name="bullet_position" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0  # Velocidade constante do personagem
 const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
 const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
+const BULLET_ENEMY_SCENCE = preload("res://Inimigos_cenario/bullet_enemy.tscn")
 @export var direction_capt = 0
 
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
@@ -40,6 +41,7 @@ func _ready() -> void:
 	player_area2D.connect("area_entered", Callable(self, "_on_show_prompt"))
 	player_area2D.connect("area_exited", Callable(self, "_on_hide_prompt"))
 	Player.connect("killed", Callable(self, "_on_player_killed"))
+	add_to_group("player")
 
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
@@ -142,12 +144,12 @@ func _physics_process(delta):
 
 		
 func _on_hurtbox_body_entered(body):
-	if body and body.is_in_group("enemies"):
+	if body and (body.is_in_group("enemies") or body.is_in_group("bullet_enemy")):
 		var knockback_direction = global_position.direction_to(body.global_position)
 		knockback_direction = -knockback_direction
 		knockback_vector = knockback_direction * 300
 		sprite.modulate = Color(1, 0, 0, 1)
-		
+				
 		await get_tree().create_timer(0.1).timeout
 		position += knockback_vector
 		
@@ -157,9 +159,8 @@ func _on_hurtbox_body_entered(body):
 		# Aqui você diminui a vida do jogador
 		if Game.player_life > 0:
 			Game.player_life -= 1
-			hud_manager_node.update_player_life(Game.player_life)
 		if Game.player_life <= 0:
-			emit_signal("killed")
+			get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 
 func _on_animated_sprite_2d_animation_finished():
 	pass # Substitua pelo corpo da função conforme necessário.
@@ -205,16 +206,27 @@ func follow_camera(camera):
 func shoot_bullet():
 	if shoot_delay_timer.is_stopped():
 		var bullet_instance = BULLET_SCENE.instantiate()
-		bullet_instance.direction = shoot_direction  # Aplica a direção do tiro
+		bullet_instance.direction = shoot_direction  # Define a direção do tiro
+		bullet_instance.connect("bullet_hit_player", Callable(self, "_on_BulletEnemy_bullet_hit_player"))
 		get_parent().add_child(bullet_instance)
 		bullet_instance.global_position = bullet_position.global_position
 		shoot_delay_timer.start()
 		is_shooting = true
 		sprite.play("shoot")
-	
+
+func _on_BulletEnemy_bullet_hit_player(damage):
+	print("Tirou um de vida")
+	Game.player_life -= 1
+	if Game.player_life <= 0:
+		get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 func _on_shoot_delay_timer_timeout():
 	is_shooting = false
 
+func take_damage(damage):
+	Game.player_life -= damage
+	if Game.player_life <= 0:
+		emit_signal("game_over")
+		# Outras ações de game over
 ##--------------------------##FINISHIM##
 ## shoot funcionando, agora é so configurar o time ##
 ##--------------------------##FINISHIM##
