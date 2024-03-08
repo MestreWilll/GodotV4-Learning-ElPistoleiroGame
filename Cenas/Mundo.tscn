@@ -566,7 +566,6 @@ metadata/Direita2 = true
 [node name="enemy_attack" parent="Inimigos_Mobs/enemy_attacks_scenes" instance=ExtResource("24_04su4")]
 position = Vector2(846, -85)
 scale = Vector2(2.585, 2.585)
-gravity_mode = 2
 
 [node name="Plataforma-Chão" type="Node2D" parent="."]
 
