@@ -133,7 +133,6 @@ position = Vector2(0, -19)
 collision_layer = 4
 collision_mask = 130
 script = ExtResource("1_42mjg")
-gravity_mode = 2
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l55i0")
@@ -148,8 +147,8 @@ shape = SubResource("RectangleShape2D_j5b7v")
 position = Vector2(14, 3)
 
 [node name="ground_detector" type="RayCast2D" parent="."]
-position = Vector2(0, 12)
-target_position = Vector2(0, 8)
+position = Vector2(0, 15)
+target_position = Vector2(8, 5)
 collision_mask = 130
 
 [node name="player_detector_right" type="RayCast2D" parent="."]

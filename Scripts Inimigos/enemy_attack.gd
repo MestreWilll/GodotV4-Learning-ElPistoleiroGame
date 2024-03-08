@@ -16,7 +16,7 @@ const LAYER_MUNDO := 1
 const LAYER_PLATAFORMAS := 2
 
 # Variáveis para gravidade e velocidade vertical
-var gravity := 9.8
+var gravity := 300
 var velocity_y := 0.0
 
 func _process(delta):

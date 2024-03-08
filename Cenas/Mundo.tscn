@@ -564,9 +564,9 @@ metadata/Direita2 = true
 [node name="enemy_attacks_scenes" type="Node2D" parent="Inimigos_Mobs"]
 
 [node name="enemy_attack" parent="Inimigos_Mobs/enemy_attacks_scenes" instance=ExtResource("24_04su4")]
-position = Vector2(589, -86)
+position = Vector2(846, -85)
 scale = Vector2(2.585, 2.585)
-collision_mask = 130
+gravity_mode = 2
 
 [node name="Plataforma-Chão" type="Node2D" parent="."]
 
@@ -1019,7 +1019,7 @@ debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Rampa_Escada" type="CollisionPolygon2D" parent="Plataforma-Chão/Plataformas"]
 position = Vector2(1617, 305)
-polygon = PackedVector2Array(-17, 11, 45, -27, 72, -50, 114, -73, 136, -82, 186.918, -109.681, 104.918, -56.6805, 104.918, -56.6805, 50.918, -20.6805)
+polygon = PackedVector2Array(-18, 9, -1, 0, 45, -27, 72, -50, 114, -73, 136, -82, 186.918, -109.681, 104.918, -56.6805, 104.918, -56.6805, 50.918, -20.6805)
 one_way_collision = true
 
 [node name="Background" type="Node2D" parent="."]
@@ -1349,6 +1349,7 @@ inactive_update_mode = 0
 [node name="Light_nichos" type="Node2D" parent="."]
 
 [node name="Controls" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Controls"]
 layout_mode = 3
