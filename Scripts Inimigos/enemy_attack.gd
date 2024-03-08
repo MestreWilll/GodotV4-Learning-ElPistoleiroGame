@@ -2,65 +2,84 @@ extends CharacterBody2D
 
 var move_speed := 50.0
 var direction := 1
-var health_points := 3
 @onready var sprite = $sprite
 @onready var ground_detector = $ground_detector
 @onready var player_detector_left = $player_detector_left
 @onready var player_detector_right = $player_detector_right
 @onready var spawn_bullet = $spawn_bullet
+@onready var shoot_delay_timer = $shoot_delay_timer
+@onready var animation_timer = $animation_timer
 
-# Variável exportada para controlar o comportamento de gravidade
-@export var gravity_mode := 1
-
-# Constantes para as camadas de colisão
 const LAYER_MUNDO := 1
 const LAYER_PLATAFORMAS := 2
 const BULLET_ENEMY_SCENE = preload("res://Inimigos_cenario/bullet_enemy.tscn")
-# Variáveis para gravidade e velocidade vertical
 var gravity := 300
 var velocity_y := 0.0
+var bullet_speed := 200.0
 
-func _process(delta):
+func _ready() -> void:
+	shoot_delay_timer.wait_time = 1.5
+	shoot_delay_timer.one_shot = true
+	#sprite.connect("animation_finished", Callable(self, "_on_sprite_animation_finished"))
+
+func _process(_delta):
 	if is_on_wall():
 		flip_enemy()
-		 
+	
 	if !ground_detector.is_colliding():
-		if gravity_mode == 1:
-			# Aplica gravidade se não estiver colidindo com o chão
-			velocity_y += gravity * delta
-		elif gravity_mode == 2:
-			# Se estiver no modo 2, vira o inimigo quando chegar ao fim da plataforma
-			flip_enemy()
+		flip_enemy()
 	else:
-		# Reseta a velocidade vertical se estiver no chão
 		velocity_y = 0
 	
-	# Aplica a direção horizontal
 	velocity.x = move_speed * direction
-	
-	# Atualiza a posição vertical com a velocidade vertical
 	velocity.y = velocity_y
-	# Move e aplica a gravidade se necessário
 	
-	if player_detector_left.is_colliding():
-		spawn_bullet_enemy(-1) # Esquerda
-	if player_detector_right.is_colliding():
-		spawn_bullet_enemy(1) # Direita
-		
+	check_player_detection()
+	
 	move_and_slide()
 
 func flip_enemy():
 	direction *= -1
 	sprite.scale.x *= -1
-	# Se estiver no modo de gravidade 1, não vira o detector de chão
-	if gravity_mode == 1:
-		player_detector_left.scale.x *= -1
-		player_detector_right.scale.x *= -1
-		spawn_bullet.position.x *= -1
+	# Ajusta a posição do spawn_bullet para corresponder à nova direção
+	spawn_bullet.position.x = -spawn_bullet.position.x
+
+func check_player_detection():
+	var shoot_direction = 0
+	if player_detector_left.is_colliding():
+		shoot_direction = -1
+	elif player_detector_right.is_colliding():
+		shoot_direction = 1
+	
+	if shoot_direction != 0:
+		if direction != shoot_direction:
+			flip_enemy()
+		if shoot_delay_timer.is_stopped():
+			sprite.play("shoot")
+			animation_timer.start(1.5)  # Inicia o timer com a duração desejada da animação de tiro
+			spawn_bullet_enemy(shoot_direction)
+	else:
+		if sprite.animation != "run":
+			sprite.play("run")
+
+func _on_AnimationTimer_timeout():
+	# Aqui você pode ajustar o que acontece após a animação de tiro
+	if not player_detector_left.is_colliding() and not player_detector_right.is_colliding():
+		sprite.play("run")
+
+func _on_sprite_animation_finished():
+	# Aqui você pode definir o que acontece quando a animação termina
+	# Por exemplo, você pode querer mudar para uma animação de 'idle' ou 'run'
+	if sprite.animation == "shoot":
+		sprite.play("run")
 		
-		
-func spawn_bullet_enemy(direction):
+func spawn_bullet_enemy(_shoot_direction):
 	var new_bullet = BULLET_ENEMY_SCENE.instantiate()
 	add_child(new_bullet)
+	
 	new_bullet.global_position = spawn_bullet.global_position
-	new_bullet.direction = direction # Assumindo que a cena da bala tem uma variável 'direction' para controlar sua direção
+	new_bullet.set_direction(direction)
+	new_bullet.velocity = Vector2(bullet_speed * direction, 0)
+	shoot_delay_timer.start()
+
+

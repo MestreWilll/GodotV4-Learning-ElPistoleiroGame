@@ -419,7 +419,7 @@ frame_3/duration = 1.0
 position = Vector2(-1, 694)
 script = ExtResource("1_51f4x")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["bullet_enemy", "player"]]
+[node name="Player" type="CharacterBody2D" parent="." groups=["bullet_enemy", "enemies", "player"]]
 z_index = 1
 texture_filter = 1
 position = Vector2(224, -47)
