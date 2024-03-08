@@ -20,7 +20,6 @@ var bullet_speed := 200.0
 func _ready() -> void:
 	shoot_delay_timer.wait_time = 1.5
 	shoot_delay_timer.one_shot = true
-	#sprite.connect("animation_finished", Callable(self, "_on_sprite_animation_finished"))
 
 func _process(_delta):
 	if is_on_wall():

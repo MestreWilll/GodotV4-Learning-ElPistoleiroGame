@@ -128,7 +128,7 @@ size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aays1"]
 
-[node name="enemy_attack" type="CharacterBody2D" groups=["bullet_enemy", "enemies", "player"]]
+[node name="enemy_attack" type="CharacterBody2D" groups=["enemies", "player"]]
 position = Vector2(0, -19)
 collision_layer = 4
 collision_mask = 130
@@ -154,11 +154,11 @@ collision_mask = 130
 
 [node name="player_detector_right" type="RayCast2D" parent="."]
 position = Vector2(14, 3)
-target_position = Vector2(50, 0)
+target_position = Vector2(100, 0)
 
 [node name="player_detector_left" type="RayCast2D" parent="."]
 position = Vector2(-7, 3)
-target_position = Vector2(-50, 0)
+target_position = Vector2(-100, 0)
 
 [node name="hitbox" parent="." instance=ExtResource("25_dy3sv")]
 collision_layer = 112

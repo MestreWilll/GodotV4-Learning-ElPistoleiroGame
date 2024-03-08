@@ -235,5 +235,19 @@ func _on_hide_prompt(body):
 	if body == self:
 		phantom_camera_2d.set_zoom(Vector2(1, 1))  # Supondo que exista um método set_zoom
 		
-	
+func apply_knockback(knockback_force: Vector2):
+	knockback_vector += knockback_force
+	velocity += knockback_force
+	# Se você quiser que o jogador fique vermelho, você pode alterar a cor aqui ou em outro lugar onde o dano é processado
+	modulate = Color(1, 0, 0, 1)  # Muda a cor para vermelho
+	# Inicia um temporizador para reverter a cor de volta ao normal após um curto período
+	var timer = Timer.new()
+	timer.wait_time = 0.2  # 200 milissegundos, ajuste conforme necessário
+	timer.one_shot = true
+	timer.connect("timeout", Callable(self, "_on_damage_timer_timeout"))
+	add_child(timer)
+	timer.start()
+
+func _on_damage_timer_timeout():
+	modulate = Color(1, 1, 1, 1)  # Muda a cor de volta ao normal
 		

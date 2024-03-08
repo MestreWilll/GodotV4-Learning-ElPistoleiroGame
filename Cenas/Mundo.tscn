@@ -258,7 +258,7 @@ size = Vector2(28, 15)
 size = Vector2(14, 16.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wxp6"]
-size = Vector2(425, 40)
+size = Vector2(425, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwx7m"]
 size = Vector2(76.5, 16.5)
@@ -879,7 +879,7 @@ one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
 
 [node name="Plataforma35" type="CollisionShape2D" parent="Plataforma-Chão/Plataformas"]
-position = Vector2(674.5, -16)
+position = Vector2(674.5, -15)
 shape = SubResource("RectangleShape2D_0wxp6")
 one_way_collision = true
 debug_color = Color(0, 0.643137, 0.27451, 0.419608)
@@ -1348,7 +1348,6 @@ inactive_update_mode = 0
 [node name="Light_nichos" type="Node2D" parent="."]
 
 [node name="Controls" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Controls"]
 layout_mode = 3
@@ -1457,6 +1456,7 @@ text = "00:00"
 vertical_alignment = 1
 
 [node name="Virtual Joystick" parent="Controls" instance=ExtResource("26_7mw3r")]
+visible = false
 offset_left = 8.0
 offset_top = -470.0
 offset_right = 308.0
@@ -1470,6 +1470,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="Android_button" type="Node2D" parent="Controls"]
+visible = false
 position = Vector2(0, 570)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Controls/Android_button"]
