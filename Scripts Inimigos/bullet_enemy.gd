@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-var move_speed := 250
-var direction := 1 
-@onready var anim_bullet_enemy = $anim_bullet_enemy
+var move_speed := 50
+var direction := 1
+@onready var sprite = $sprite
 
-func _ready():
-	# Ajusta a orientação do projétil com base na direção inicial.
-	anim_bullet_enemy.flip_h = direction < 0
-
-func _process(delta):
-	position.x += move_speed * direction * delta
+func _physics_process(delta):
+	velocity.x = move_speed * direction
+	move_and_slide()
 
 func set_direction(dir):
 	direction = dir
-	anim_bullet_enemy.flip_h = dir < 0
+	if dir < 0:
+		$sprite.flip_h = true
+	else:
+		$sprite.flip_h = false

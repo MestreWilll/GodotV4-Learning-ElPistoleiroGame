@@ -29,21 +29,21 @@ func _on_volta_menu_pressed():
 	get_tree().change_scene_to_file("res://Menu/title_screen.tscn")
 
 	
-func set_score(value):
-	score = str(value)
-	$Panel/score_label.text = "SCORE: " + score
-	
-func set_hi_score(value):
-	$Panel/top_score.text = "HI-SCORE: " + str(value)
-	
-func _on_player_name_text_submitted(new_text):
-	send_request(new_text)
-	
-func send_request(data):
-	var body = JSON.stringify({"name": data, "score": str(score)})
-	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("https://game.willdev.com.br/api/register.php", headers, HTTPClient.METHOD_POST, body)
-
-	
-func _on_http_request_request_completed(result, response_code, headers, body):
-	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
+#func set_score(value):
+	#score = str(value)
+	#$Panel/score_label.text = "SCORE: " + score
+	#
+#func set_hi_score(value):
+	#$Panel/top_score.text = "HI-SCORE: " + str(value)
+	#
+#func _on_player_name_text_submitted(new_text):
+	#send_request(new_text)
+	#
+#func send_request(data):
+	#var body = JSON.stringify({"name": data, "score": str(score)})
+	#var headers = ["Content-Type: application/json"]
+	#$HTTPRequest.request("https://game.willdev.com.br/api/register.php", headers, HTTPClient.METHOD_POST, body)
+#
+	#
+#func _on_http_request_request_completed(result, response_code, headers, body):
+	#get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")

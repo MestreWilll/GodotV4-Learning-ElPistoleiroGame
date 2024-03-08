@@ -3,12 +3,9 @@ extends CharacterBody2D
 const SPEED = 300.0  # Velocidade constante do personagem
 const JUMP_VELOCITY = -450.0  # Força do pulo do personagem
 const BULLET_SCENE = preload("res://Inimigos_cenario/bullet.tscn")
-const BULLET_ENEMY_SCENCE = preload("res://Inimigos_cenario/bullet_enemy.tscn")
-@export var direction_capt = 0
-
 # Obtém a gravidade das configurações do projeto para sincronizar com os nós CharacterBody2D.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@export var direction_capt = 0
 @onready var sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D  # Transformação remota para seguir a câmera
 @onready var ray_left = $RayCast2D_Left as RayCast2D  # Raycast para detecção de colisão à esquerda
@@ -23,7 +20,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player_area2D = %PlayerArea2D
 @onready var phantom_camera_2d = %PhantomCamera2D
 
-
 var knockback_vector = Vector2()  # Vetor de knockback para empurrar o personagem quando atingido
 var is_running = false  # Variável para rastrear se o personagem está correndo
 var is_jumping = false  # Variável para rastrear se o personagem está pulando
@@ -32,17 +28,12 @@ var can_pass_through_platforms = false  # Variável para controlar a passagem at
 var shoot_direction = 1  # Direção do tiro, 1 para direita, -1 para esquerda
 var extra_jumps = 1  # Permite um pulo extra (pulo duplo)
 signal player_has_died
-signal game_over
 signal area_entered
-signal area_exited
-signal killed
 
 func _ready() -> void:
 	player_area2D.connect("area_entered", Callable(self, "_on_show_prompt"))
 	player_area2D.connect("area_exited", Callable(self, "_on_hide_prompt"))
-	Player.connect("killed", Callable(self, "_on_player_killed"))
 	add_to_group("player")
-
 		# Aqui você pode adicionar lógica adicional, como desativar o script ou carregar o nó dinamicamente.
 func _physics_process(delta):
 #-------------------------------------------------------------------------------------------------
@@ -114,8 +105,6 @@ func _physics_process(delta):
 	# Se o personagem está caindo e não está atirando, toca a animação de queda
 	elif velocity.y > 0 and not is_shooting:
 		sprite.play("fall")
-
-
 ##--------------------------##FINISHIM##
 ## Finalização dos movimentos ##
 ##--------------------------##FINISHIM##
@@ -207,25 +196,17 @@ func shoot_bullet():
 	if shoot_delay_timer.is_stopped():
 		var bullet_instance = BULLET_SCENE.instantiate()
 		bullet_instance.direction = shoot_direction  # Define a direção do tiro
-		bullet_instance.connect("bullet_hit_player", Callable(self, "_on_BulletEnemy_bullet_hit_player"))
 		get_parent().add_child(bullet_instance)
 		bullet_instance.global_position = bullet_position.global_position
 		shoot_delay_timer.start()
 		is_shooting = true
 		sprite.play("shoot")
 
-func _on_BulletEnemy_bullet_hit_player(damage):
-	print("Tirou um de vida")
-	Game.player_life -= 1
-	if Game.player_life <= 0:
-		get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 func _on_shoot_delay_timer_timeout():
 	is_shooting = false
 
 func take_damage(damage):
 	Game.player_life -= damage
-	if Game.player_life <= 0:
-		emit_signal("game_over")
 		# Outras ações de game over
 ##--------------------------##FINISHIM##
 ## shoot funcionando, agora é so configurar o time ##
@@ -239,7 +220,6 @@ func pass_through_platform():
 	collision_mask &= ~128  # Desativa a camada 8 na máscara de colisão
 	can_pass_through_platforms = true
 	platform_pass_timer.start()
-
 func _on_platform_pass_timer_timeout():
 	# Reabilita a colisão com as plataformas "One Way"
 	collision_mask |= 128  # Reativa a camada 8 na máscara de colisão
@@ -247,7 +227,6 @@ func _on_platform_pass_timer_timeout():
 ##--------------------------##FINISHIM##
 ## Configuraçõe para ultrapassar plataformas "one way" configurado no timer nó filho do player##
 ##--------------------------##FINISHIM##
-
 func _on_show_prompt(body):
 	if body == self:
 		phantom_camera_2d.set_zoom(Vector2(1.5, 1.5))  # Supondo que exista um método set_zoom
@@ -255,4 +234,6 @@ func _on_show_prompt(body):
 func _on_hide_prompt(body):
 	if body == self:
 		phantom_camera_2d.set_zoom(Vector2(1, 1))  # Supondo que exista um método set_zoom
+		
+	
 		

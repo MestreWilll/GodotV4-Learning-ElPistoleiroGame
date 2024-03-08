@@ -33,7 +33,6 @@ func _physics_process(delta):
 
 func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "hurt": 
-		
 		queue_free()
 		print("hurt aqui")
 

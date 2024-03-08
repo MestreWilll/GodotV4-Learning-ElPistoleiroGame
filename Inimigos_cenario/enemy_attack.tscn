@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://68p24hoc7fig"]
+[gd_scene load_steps=29 format=3 uid="uid://68p24hoc7fig"]
 
 [ext_resource type="Script" path="res://Scripts Inimigos/enemy_attack.gd" id="1_42mjg"]
 [ext_resource type="Texture2D" uid="uid://lt1wasfqjeoo" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt1.png" id="1_awy4r"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://ccci6b5pykmsa" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-shoot/player-shoot1.png" id="21_y4kep"]
 [ext_resource type="Texture2D" uid="uid://fxowhnwk5rlk" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-shoot/player-shoot2.png" id="22_bi8oo"]
 [ext_resource type="Texture2D" uid="uid://c8ghiljthqgh8" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-shoot/player-shoot3.png" id="23_ycl6t"]
+[ext_resource type="PackedScene" uid="uid://gqbi0nr2sl01" path="res://Cenas/hitbox.tscn" id="25_dy3sv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l55i0"]
 animations = [{
@@ -123,39 +124,50 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5b7v"]
-size = Vector2(16, 20)
+size = Vector2(16, 32)
 
-[node name="enemy_attack" type="CharacterBody2D" groups=["bullet_enemy", "enemies", "player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aays1"]
+
+[node name="enemy_attack" type="CharacterBody2D" groups=["bullet_enemy", "enemies"]]
 position = Vector2(0, -19)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 130
 script = ExtResource("1_42mjg")
+gravity_mode = 2
 
-[node name="anim_enemy" type="AnimatedSprite2D" parent="." groups=["enemies", "player"]]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l55i0")
-animation = &"run_shoot"
-autoplay = "idle"
+animation = &"run"
+autoplay = "run"
 
 [node name="collision_enemy" type="CollisionShape2D" parent="."]
-position = Vector2(1, 4)
+position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_j5b7v")
 
 [node name="spawn_bullet" type="Marker2D" parent="."]
 position = Vector2(14, 3)
 
 [node name="ground_detector" type="RayCast2D" parent="."]
-position = Vector2(0, 19)
+position = Vector2(0, 12)
 target_position = Vector2(0, 8)
-collision_mask = 2
+collision_mask = 130
 
 [node name="player_detector_right" type="RayCast2D" parent="."]
 position = Vector2(14, 3)
-target_position = Vector2(135, 0)
+target_position = Vector2(50, 0)
 
 [node name="player_detector_left" type="RayCast2D" parent="."]
 position = Vector2(-7, 3)
-target_position = Vector2(-111, 0)
+target_position = Vector2(-50, 0)
 
-[connection signal="enemy_attack" from="." to="." method="attack"]
-[connection signal="shot_delay_finished" from="." to="." method="_on_shot_delay_finished"]
-[connection signal="animation_finished" from="anim_enemy" to="." method="_on_anim_enemy_animation_finished"]
+[node name="hitbox" parent="." instance=ExtResource("25_dy3sv")]
+collision_layer = 112
+collision_mask = 97
+
+[node name="collision_hurt" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_aays1")
+debug_color = Color(0.964706, 0, 0.490196, 0.419608)
+
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="sprite" to="hitbox" method="_on_sprite_animation_finished"]

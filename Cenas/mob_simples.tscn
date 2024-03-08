@@ -87,7 +87,7 @@ metadata/Esquerda = false
 position = Vector2(0, -6.5)
 scale = Vector2(1, 0.868421)
 sprite_frames = SubResource("SpriteFrames_vgmgw")
-animation = &"hurt"
+animation = &"standing"
 autoplay = "standing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

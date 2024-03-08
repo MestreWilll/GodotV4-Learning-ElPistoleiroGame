@@ -31,8 +31,6 @@ func _ready():
 	timer2.wait_time = initial_timer2_time
 	timer3.wait_time = initial_timer3_time
 
-	# Removido a conexão com o sinal 'time_is_up' para evitar transição para tela de Game Over
-	Player.connect("game_over", Callable(self, "_on_game_over"))
 	#----Chamando Respawn---#
 	if not respawn_timer.is_connected("timeout", Callable(self, "_on_respawn_timer_timeout")):
 		respawn_timer.connect("timeout", Callable(self, "_on_respawn_timer_timeout"))
