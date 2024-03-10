@@ -424,7 +424,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(224, -47)
 scale = Vector2(1.28, 1.28)
-collision_mask = 150
+collision_mask = 134
 script = ExtResource("3_e6616")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Player"]
@@ -550,7 +550,7 @@ collision_mask = 0
 metadata/Direita2 = true
 
 [node name="morcego4" parent="Inimigos_Mobs" instance=ExtResource("4_rsljf")]
-position = Vector2(750, -80)
+position = Vector2(1538, -180)
 collision_layer = 0
 collision_mask = 0
 metadata/Direita2 = true
@@ -562,10 +562,13 @@ collision_mask = 0
 metadata/Direita2 = true
 
 [node name="enemy_attacks_scenes" type="Node2D" parent="Inimigos_Mobs"]
+z_index = 1
 
 [node name="enemy_attack" parent="Inimigos_Mobs/enemy_attacks_scenes" instance=ExtResource("24_04su4")]
-position = Vector2(846, -85)
+position = Vector2(499, -84)
 scale = Vector2(2.585, 2.585)
+collision_layer = 4
+collision_mask = 130
 
 [node name="Plataforma-Chão" type="Node2D" parent="."]
 
@@ -1367,9 +1370,10 @@ autostart = true
 
 [node name="container" type="MarginContainer" parent="Controls/Control"]
 layout_mode = 0
-offset_top = 2.27271
-offset_right = 1065.0
-offset_bottom = 244.273
+offset_left = 1313.33
+offset_top = -111.364
+offset_right = 2378.33
+offset_bottom = 130.637
 scale = Vector2(2, 2.089)
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -1381,10 +1385,10 @@ position = Vector2(1410, 331.825)
 
 [node name="player_life" type="Label" parent="Controls/Control/container/Moving_life"]
 texture_filter = 1
-offset_left = -1319.16
-offset_top = -587.493
-offset_right = -1279.16
-offset_bottom = -540.493
+offset_left = -1976.67
+offset_top = -534.183
+offset_right = -1936.67
+offset_bottom = -487.183
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1399,10 +1403,10 @@ position = Vector2(1057, 8)
 
 [node name="score_counter" type="Label" parent="Controls/Control/container/Moving_SCORE"]
 texture_filter = 1
-offset_left = -482.835
-offset_top = -260.948
-offset_right = -390.835
-offset_bottom = -219.948
+offset_left = -1139.5
+offset_top = -206.551
+offset_right = -1047.5
+offset_bottom = -165.551
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1415,10 +1419,10 @@ vertical_alignment = 1
 position = Vector2(8, 8)
 
 [node name="coins_icon" type="TextureRect" parent="Controls/Control/container/Moving_Coins"]
-offset_left = 1070.17
-offset_top = -306.088
-offset_right = 1147.17
-offset_bottom = -269.088
+offset_left = 414.502
+offset_top = -253.866
+offset_right = 491.502
+offset_bottom = -216.866
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = SubResource("AnimatedTexture_vwfak")
@@ -1426,10 +1430,10 @@ texture = SubResource("AnimatedTexture_vwfak")
 [node name="coins_counter" type="Label" parent="Controls/Control/container/Moving_Coins"]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 22)
-offset_left = 1135.33
-offset_top = -315.89
-offset_right = 1223.33
-offset_bottom = -261.89
+offset_left = 479.662
+offset_top = -263.668
+offset_right = 567.662
+offset_bottom = -209.668
 size_flags_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1443,10 +1447,10 @@ position = Vector2(532, 8)
 
 [node name="timer_counter" type="Label" parent="Controls/Control/container/Moving_time"]
 texture_filter = 1
-offset_left = 968.835
-offset_top = -304.466
-offset_right = 1031.84
-offset_bottom = -269.466
+offset_left = 311.335
+offset_top = -251.157
+offset_right = 374.34
+offset_bottom = -216.157
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

@@ -1,12 +1,16 @@
-[gd_scene load_steps=29 format=3 uid="uid://68p24hoc7fig"]
+[gd_scene load_steps=33 format=3 uid="uid://68p24hoc7fig"]
 
 [ext_resource type="Script" path="res://Scripts Inimigos/enemy_attack.gd" id="1_42mjg"]
 [ext_resource type="Texture2D" uid="uid://lt1wasfqjeoo" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt1.png" id="1_awy4r"]
 [ext_resource type="Texture2D" uid="uid://bpd8k8ojuxay3" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-Hurt/player-hurt2.png" id="2_nxpis"]
 [ext_resource type="Texture2D" uid="uid://ciq57eg6vmu64" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle1.png" id="3_nsoxd"]
 [ext_resource type="Texture2D" uid="uid://cvsjthgrxsor1" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle2.png" id="4_umt02"]
+[ext_resource type="Texture2D" uid="uid://bh3cixkoieend" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion1.png" id="4_v4gy7"]
+[ext_resource type="Texture2D" uid="uid://d0n8o62r3xd6s" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion2.png" id="5_4acbj"]
 [ext_resource type="Texture2D" uid="uid://blu6av5e7bw31" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle3.png" id="5_vtkfv"]
 [ext_resource type="Texture2D" uid="uid://crbe7jmd4445e" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle4.png" id="6_gbipp"]
+[ext_resource type="Texture2D" uid="uid://dpw4xxp3skjax" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion3.png" id="6_i85ov"]
+[ext_resource type="Texture2D" uid="uid://bodfyjke0rvqr" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Fx/Sprites/Explosion/explosion4.png" id="7_n3vib"]
 [ext_resource type="Texture2D" uid="uid://dhmr4y7x2kind" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle5.png" id="7_pt05p"]
 [ext_resource type="Texture2D" uid="uid://bs1gal52yek4m" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle6.png" id="8_u31an"]
 [ext_resource type="Texture2D" uid="uid://bklckyd5dth80" path="res://Super Grotto Escape Files/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run1.png" id="9_nn2d5"]
@@ -34,8 +38,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_nxpis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v4gy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4acbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i85ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n3vib")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -126,19 +142,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5b7v"]
 size = Vector2(16, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aays1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7e8a"]
+size = Vector2(20, 28)
 
-[node name="enemy_attack" type="CharacterBody2D" groups=["enemies", "player"]]
+[node name="enemy_attack" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -19)
-collision_layer = 4
-collision_mask = 130
+collision_layer = 70
+collision_mask = 227
 script = ExtResource("1_42mjg")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l55i0")
-animation = &"shoot"
+animation = &"hurt"
 autoplay = "run"
-frame_progress = 0.718546
 
 [node name="collision_enemy" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)
@@ -160,21 +176,23 @@ target_position = Vector2(100, 0)
 position = Vector2(-7, 3)
 target_position = Vector2(-100, 0)
 
-[node name="hitbox" parent="." instance=ExtResource("25_dy3sv")]
-collision_layer = 112
-collision_mask = 97
-
-[node name="collision_hurt" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(1, 3)
-shape = SubResource("RectangleShape2D_aays1")
-debug_color = Color(0.964706, 0, 0.490196, 0.419608)
-
 [node name="shoot_delay_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="animation_timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="hitbox" parent="." instance=ExtResource("25_dy3sv")]
+collision_layer = 112
+collision_mask = 97
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_o7e8a")
+debug_color = Color(0.94902, 0, 0.584314, 0.419608)
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
-[connection signal="animation_finished" from="sprite" to="hitbox" method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="animation_timer" to="." method="_on_AnimationTimer_timeout"]

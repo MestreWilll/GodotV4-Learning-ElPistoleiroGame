@@ -34,7 +34,7 @@ func _physics_process(delta):
 func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "hurt": 
 		queue_free()
-		print("hurt aqui")
+		print("hurt aqui no nó inimigo")
 
 func play_hurt_animation():
 	remove_from_group("enemies")  # Remove o inimigo do grupo para evitar causar dano
@@ -49,6 +49,4 @@ func play_hurt_animation():
 	await sprite.animation_finished
 	if sprite.animation == "hurt":
 		queue_free()  # Remove o inimigo após a animação
-		
-func is_in_hurt_animation() -> bool:
-	return sprite.current_animation == "hurt"
+		print("Coisas concluidas de colisão no nó inimigo")
